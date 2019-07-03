@@ -1,0 +1,13 @@
+#animated-carousel {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#animated-carousel > .current-image {
+  height: 480px !important;
+}
+
+#animated-carousel > .previous-image,
+#animated-carousel > .next-image {
+  opacity: 0.2 !important;
+}

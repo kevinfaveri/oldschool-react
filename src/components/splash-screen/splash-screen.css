@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Arizonia&display=swap");
+
+.splash-screen {
+  padding-top: 5%;
+  font-family: "Arizonia", cursive;
+}
+
+.header-logo {
+  font-size: 70px;
+  color: #ff6347 !important;
+}
+
+.header-description {
+  font-size: 40px;
+  color: #ff6347 !important;
+}
