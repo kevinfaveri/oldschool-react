@@ -1,5 +1,3 @@
-This project will be a fully featured React ecossystem boilerplate with the theme: Old Scholl Game Library.
+# Basic JS Branch
 
-## Branchs
-
-- master branch: a react-create-app with Eslint (AirBNB codestyle) and Prettier support. Also has .editorconfig and .gitignore files. Contains this README which explains all branchs.
+This branch is a react-create-app boilerplate from master branch + project structure, layouts and components. Ant Design + Ant Motion is added to the app.
