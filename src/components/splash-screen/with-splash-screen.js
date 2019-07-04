@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
 
 import './splash-screen.css';
 
 // Components
-import LoadingCarousel from '../loading-carousel/loading-carousel';
+import { Row, Spin } from 'antd';
 import Carousel from '../carousel/carousel';
 import AudioToggle from '../audio-toggle/audio-toggle';
+
+// Assets
+import Logo from '../../assets/logo.png';
 
 const withSplashScreen = WrappedComponent => class extends Component {
   constructor(props) {
@@ -29,17 +31,22 @@ const withSplashScreen = WrappedComponent => class extends Component {
     if (loading) {
       return (
         <div className="splash-screen">
-          <Row>
-            <Col className="text-center">
-              <div className="header-logo">Old School</div>
-              <div className="header-description">The best game library manager!</div>
-            </Col>
+          <Row className="text-center">
+            <div className="header-logo">
+              <img src={Logo} alt="Logo" /> <Spin size="large" />
+            </div>
+            <div className="header-description">The best game library app!</div>
           </Row>
-          <Row>
-            <Col className="text-center"><Carousel /></Col>
+          <Row className="text-center">
+            <Carousel />
           </Row>
-          <Row>
-            <Col className="text-center"><AudioToggle /></Col>
+          <Row className="text-center">
+            <AudioToggle />
+          </Row>
+          <Row className="text-center">
+            <div className="header-description">
+                Meanwhile, please enjoy some nostalgia (turn on sound)!
+            </div>
           </Row>
         </div>
       );

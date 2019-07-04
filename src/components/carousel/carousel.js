@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './carousel.css';
 
-import { importAllImages } from '../../utils/files';
-import { getNextImage } from '../../utils/carousel';
+import { getNextFile } from '../../utils/files';
 
+/* EXAMPLE IMPORT ALL FILES FROM ASSETS FOLDER AND ITS DYNAMIC PATH (NOT TESTED IN PROD)
 const images = Object.values(
-  importAllImages(require.context('../../assets/', false, /\.(png|jpe?g|svg)$/)),
+  importAllFiles(require.context('../../assets/', false, /\.(png|jpe?g|svg)$/)),
 );
+*/
 
 class Carousel extends Component {
   constructor(props) {
@@ -19,31 +20,34 @@ class Carousel extends Component {
       nextImg: null,
       nextImgIndex: 2,
     };
-    this.rollCarousel();
+    this.images = [
+      'super-mario-kart.png',
+      'super-mario-world.jpg',
+      'top-gear.jpg',
+    ];
   }
 
   async componentDidMount() {
+    this.rollCarousel();
     setInterval(() => {
       this.rollCarousel();
     }, 5000);
   }
 
-  // TODO: Fix this
   rollCarousel() {
     const { currentImgIndex, previousImgIndex, nextImgIndex } = this.state;
 
     // Set Previous Img
-    let auxObj = getNextImage(images, nextImgIndex);
-    this.setState({ nextImg: auxObj.auxImg, nextImgIndex: auxObj.auxImgIndex });
+    let auxObj = getNextFile(this.images, previousImgIndex);
+    this.setState({ previousImg: auxObj.auxFile, previousImgIndex: auxObj.auxFileIndex });
 
     // Set Current Img
-    auxObj = getNextImage(images, currentImgIndex);
-    this.setState({ currentImg: auxObj.auxImg, currentImgIndex: auxObj.auxImgIndex });
+    auxObj = getNextFile(this.images, currentImgIndex);
+    this.setState({ currentImg: auxObj.auxFile, currentImgIndex: auxObj.auxFileIndex });
 
     // Set Next Img
-    auxObj = getNextImage(images, previousImgIndex);
-    this.setState({ previousImg: auxObj.auxImg, previousImgIndex: auxObj.auxImgIndex });
-
+    auxObj = getNextFile(this.images, nextImgIndex);
+    this.setState({ nextImg: auxObj.auxFile, nextImgIndex: auxObj.auxFileIndex });
   }
 
   render() {
@@ -52,15 +56,19 @@ class Carousel extends Component {
       <div id="animated-carousel">
         <img
           className="previous-image"
-          src={previousImg}
-          alt="Super Mario World"
+          src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
+          alt="Random Game"
         />
         <img
           className="current-image"
-          src={currentImg}
-          alt="Super Mario World"
+          src={`${process.env.PUBLIC_URL}/image/${currentImg}`}
+          alt="Random Game"
         />
-        <img className="next-image" src={nextImg} alt="Super Mario World" />
+        <img
+          className="next-image"
+          src={`${process.env.PUBLIC_URL}/image/${nextImg}`}
+          alt="Random Game"
+        />
       </div>
     );
   }

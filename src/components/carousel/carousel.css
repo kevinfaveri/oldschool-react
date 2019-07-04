@@ -3,11 +3,18 @@
   margin-bottom: 15px;
 }
 
+#animated-carousel > img {
+  border-radius: 15px;
+}
+
 #animated-carousel > .current-image {
-  height: 480px !important;
+  height: 400px;
+  opacity: 0.7;
 }
 
 #animated-carousel > .previous-image,
 #animated-carousel > .next-image {
-  opacity: 0.2 !important;
+  opacity: 0.2;
+  margin-left: 10px;
+  margin-right: 10px;
 }

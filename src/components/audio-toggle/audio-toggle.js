@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 import { Button, Icon } from 'antd';
 
 import './audio-toggle.css';
-import TopGearMp3 from '../../assets/top-gear.mp3';
 
+// TODO: Adicionar audio toggle para passar a música e voltar
+// TODO: Ao usar o audio toggle para mudar a música,
+// mudar a artwork também para a seguinte ou anterior de acordo com a mudança da música...
 class AudioToggle extends Component {
   constructor(props) {
     super(props);
     this.state = {
       playing: true,
     };
-    this.audio = new Audio(TopGearMp3);
+    this.audio = new Audio(`${process.env.PUBLIC_URL}/audio/top-gear.mp3`);
     this.audio.volume = 0.1;
     this.audio.loop = true;
     this.audio.play();
