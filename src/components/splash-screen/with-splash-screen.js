@@ -10,6 +10,7 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../assets/logo.png';
 
+// TODO: Talvez mudar para uma PrivateRoute
 const withSplashScreen = WrappedComponent => class extends Component {
   constructor(props) {
     super(props);
