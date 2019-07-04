@@ -10,29 +10,32 @@ const images = Object.values(
 */
 
 class Carousel extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      previousImg: null,
-      previousImgIndex: 0,
-      currentImg: null,
-      currentImgIndex: 1,
-      nextImg: null,
-      nextImgIndex: 2,
-    };
-    this.images = [
-      'super-mario-kart.png',
-      'super-mario-world.jpg',
-      'top-gear.jpg',
-    ];
-  }
+  state = {
+    previousImg: null,
+    previousImgIndex: 0,
+    currentImg: null,
+    currentImgIndex: 1,
+    nextImg: null,
+    nextImgIndex: 2,
+  };
+
+  images = [
+    'super-mario-kart.png',
+    'super-mario-world.jpg',
+    'top-gear.jpg',
+  ];
 
   async componentDidMount() {
     this.rollCarousel();
-    setInterval(() => {
+    this.carouselInterval = setInterval(() => {
       this.rollCarousel();
     }, 5000);
   }
+
+  async componentWillUnmount() {
+    clearInterval(this.carouselInterval);
+  }
+
 
   rollCarousel() {
     const { currentImgIndex, previousImgIndex, nextImgIndex } = this.state;

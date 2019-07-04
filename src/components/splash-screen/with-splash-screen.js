@@ -11,20 +11,18 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 import Logo from '../../assets/logo.png';
 
 // TODO: Talvez mudar para uma PrivateRoute
+// TODO: Mudar variavel loading para true
 const withSplashScreen = WrappedComponent => class extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: true,
-    };
-  }
+  state = {
+    loading: false,
+  };
 
   async componentDidMount() {
     setTimeout(() => {
       this.setState({
         loading: false,
       });
-    }, 1000000);
+    }, 15000);
   }
 
   render() {

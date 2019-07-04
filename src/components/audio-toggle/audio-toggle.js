@@ -8,15 +8,20 @@ import './audio-toggle.css';
 // TODO: Ao usar o audio toggle para mudar a música,
 // mudar a artwork também para a seguinte ou anterior de acordo com a mudança da música...
 class AudioToggle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playing: true,
-    };
-    this.audio = new Audio(`${process.env.PUBLIC_URL}/audio/top-gear.mp3`);
+  state = {
+    playing: true,
+  };
+
+  audio = new Audio(`${process.env.PUBLIC_URL}/audio/top-gear.mp3`);
+
+  async componentDidMount() {
     this.audio.volume = 0.1;
     this.audio.loop = true;
     this.audio.play();
+  }
+
+  async componentWillUnmount() {
+    this.audio.pause();
   }
 
   play = () => {

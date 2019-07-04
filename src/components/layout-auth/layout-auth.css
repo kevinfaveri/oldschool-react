@@ -1,0 +1,7 @@
+#layout-auth {
+  min-height: 100vh;
+}
+
+#layout-auth > * {
+  color: #ff6347 !important;
+}

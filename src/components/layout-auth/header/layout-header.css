@@ -1,0 +1,13 @@
+#header-search {
+  border: none;
+  border-radius: 0px;
+  width: 100%;
+  color: #fafafa;
+  background-color: #586274;
+  box-shadow: none;
+}
+
+#header-search:focus {
+  color: #424a57;
+  background-color: #e6e6e6;
+}

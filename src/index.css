@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-color: #2c313a !important;
+  background-color: #424a57 !important;
   color: #ff6347 !important;
 }
 
@@ -23,4 +23,16 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.btn-secondary {
+  color: #ff6347 !important;
+  background-color: #586274 !important;
+  border: none !important;
+}
+
+.btn-secondary:hover {
+  color: #ff6347 !important;
+  background-color: #424a57 !important;
+  border: none !important;
 }

@@ -12,6 +12,10 @@ module.exports = override(
     modifyVars: {
       '@primary-color': '#ff6347',
       '@btn-primary-color': '#2c313a',
+      '@layout-body-background': '#424a57',
+      '@layout-header-background': '#373e49',
+      '@layout-footer-background': '#2c313a',
+      '@layout-sider-background': '#373e49',
     },
   }),
   (config) => {
