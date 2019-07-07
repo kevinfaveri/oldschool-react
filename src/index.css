@@ -15,6 +15,7 @@ code {
     monospace;
 }
 
+/* Layout */
 .text-center {
   text-align: center;
 }
@@ -25,6 +26,12 @@ code {
   align-items: center;
 }
 
+/* Text */
+.text-primary {
+  color: #ff6347 !important;
+}
+
+/* Buttons */
 .btn-secondary {
   color: #ff6347 !important;
   background-color: #586274 !important;
@@ -35,4 +42,35 @@ code {
   color: #ff6347 !important;
   background-color: #424a57 !important;
   border: none !important;
+}
+
+/* Dividers and Borders */
+.divider-primary {
+  background-color: #ff6347 !important;
+}
+
+/* Margins */
+.bl {
+  border-left: #ff6347 solid 1px !important;
+}
+
+/* Backgrounds */
+.clean-card {
+  background-color: #586274;
+  border-radius: 15px;
+}
+
+/* Form TODO: Criar input legal para register e login, e formulários no tema escuro */
+.clean-input {
+  border: none !important;
+  border-radius: 0px !important;
+  width: 100% !important;
+  color: #fafafa !important;
+  background-color: #586274 !important;
+  box-shadow: none !important;
+}
+
+.clean-input:focus {
+  color: #424a57 !important;
+  background-color: #e6e6e6 !important;
 }

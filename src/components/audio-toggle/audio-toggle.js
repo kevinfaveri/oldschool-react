@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React, { Component } from 'react';
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 
 import './audio-toggle.css';
 
@@ -44,9 +44,7 @@ class AudioToggle extends Component {
           icon={playing ? 'pause' : 'caret-right'}
           size="large"
           onClick={playing ? this.pause : this.play}
-        >
-          <Icon type="caret-right" theme="filled" />
-        </Button>
+        />
       </div>
     );
   }

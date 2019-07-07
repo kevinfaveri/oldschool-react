@@ -1,10 +1,16 @@
 import React from 'react';
-import LayoutAuth from '../components/layout-auth/layout-auth';
+import { Row, Col } from 'antd';
+import HomeCard from '../components/home-card/home-card';
+import RegisterFormComponent from '../components/register-form/register-form';
 
 const Register = () => (
-  <LayoutAuth>
-    <div style={{ marginLeft: '50px', marginRight: '50px' }}>Register Page ok!</div>
-  </LayoutAuth>
+  <Row>
+    <Col span={6} offset={9} style={{ marginTop: '10%' }}>
+      <HomeCard>
+        <RegisterFormComponent />
+      </HomeCard>
+    </Col>
+  </Row>
 );
 
 export default Register;

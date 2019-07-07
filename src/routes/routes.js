@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import withSplashScreen from '../components/splash-screen/with-splash-screen';
 import * as CommonPages from './common-pages';
 import * as AuthPages from './auth-pages';
+import PrivateRoute from './private-route';
 
 // TODO: Fazer página de erro 404 quando acessar rota inválida, que aí joga pro '/'
 const Routes = () => (
@@ -15,10 +16,10 @@ const Routes = () => (
         <Route path="/register" exact component={CommonPages.Register} />
 
         {/* Auth Routes */}
-        <Route path="/dashboard" exact component={AuthPages.Dashboard} />
-        <Route path="/library" exact component={AuthPages.Library} />
-        <Route path="/favs" exact component={AuthPages.Favs} />
-        <Route path="/about" exact component={AuthPages.About} />
+        <PrivateRoute path="/dashboard" exact component={AuthPages.Dashboard} />
+        <PrivateRoute path="/library" exact component={AuthPages.Library} />
+        <PrivateRoute path="/favs" exact component={AuthPages.Favs} />
+        <PrivateRoute path="/about" exact component={AuthPages.About} />
       </Switch>
     </BrowserRouter>
   </div>
