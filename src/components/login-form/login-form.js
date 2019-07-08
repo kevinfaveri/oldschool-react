@@ -9,19 +9,27 @@ import { loginUser, getRememberMe, isUserLogged } from '../../service/auth-servi
 const { error } = Modal;
 
 class LoginForm extends Component {
+  state = {
+    isLoading: false,
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+
     const { form, history } = this.props;
     form.validateFields((err, values) => {
       if (!err) {
-        const loginResult = loginUser(values);
-        if (loginResult === false) {
-          error({
-            content: 'Username / Password is invalid!',
-          });
-        } else {
-          history.push('/dashboard');
-        }
+        this.setState({ isLoading: true });
+        loginUser(values).then((loginResult) => {
+          if (loginResult === false) {
+            error({
+              content: 'Username / Password is invalid!',
+            });
+          } else {
+            history.push('/dashboard');
+          }
+          this.setState({ isLoading: false });
+        });
       }
     });
   };
@@ -54,6 +62,8 @@ class LoginForm extends Component {
     const rememberMe = getRememberMe();
     const userLogged = isUserLogged();
 
+    const { isLoading } = this.state;
+
     if (userLogged) {
       return (
         <Row>
@@ -70,15 +80,15 @@ class LoginForm extends Component {
     }
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form" {...this.props}>
         <Form.Item>
           {getFieldDecorator('username', { initialValue: rememberMe, ...requiredConfig })(
-            <Input prefix={<Icon type="user" />} placeholder="Username" />,
+            <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
           )}
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', requiredConfig)(
-            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" />,
+            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" autoComplete="current-password" />,
           )}
         </Form.Item>
         <Form.Item>
@@ -86,7 +96,7 @@ class LoginForm extends Component {
             valuePropName: 'checked',
             initialValue: true,
           })(<Checkbox className="text-primary">Remember me</Checkbox>)}
-          <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
+          <Button type="primary" htmlType="submit" style={{ width: '100%' }} loading={isLoading}>
             Log in
           </Button>
           <Link to="/register">Not registered? Click here!</Link>

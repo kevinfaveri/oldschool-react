@@ -11,6 +11,7 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 import Logo from '../../assets/logo.png';
 
 // TODO: Mudar variavel loading dependendo no download do arquivo static Games.json
+// TODO: Adicionar também caso validação de login demorar jogar aqui
 const withSplashScreen = WrappedComponent => class extends Component {
     state = {
       loading: false,

@@ -45,7 +45,7 @@ class Login extends Component {
         <Col span={6} offset={9} style={{ marginTop: '10%' }}>
           {this.renderAlert()}
           <HomeCard>
-            <LoginForm />
+            <LoginForm style={{ marginTop: '15px' }} />
           </HomeCard>
         </Col>
       </Row>

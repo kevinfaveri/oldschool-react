@@ -9,6 +9,7 @@ import { registerUser } from '../../service/auth-service';
 class RegisterForm extends Component {
   state = {
     confirmDirty: false,
+    isLoading: false,
   };
 
   handleSubmit = (e) => {
@@ -16,8 +17,11 @@ class RegisterForm extends Component {
     const { form, history } = this.props;
     form.validateFields((err, values) => {
       if (!err) {
-        registerUser(values);
-        history.push('/dashboard');
+        this.setState({ isLoading: true });
+        registerUser(values).then(() => {
+          this.setState({ isLoading: false });
+          history.push('/dashboard');
+        });
       }
     });
   };
@@ -93,6 +97,7 @@ class RegisterForm extends Component {
 
     const { form } = this.props;
     const { getFieldDecorator } = form;
+    const { isLoading } = this.state;
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
@@ -103,7 +108,7 @@ class RegisterForm extends Component {
         </Form.Item>
         <Form.Item label="Username">
           {getFieldDecorator('username', requiredConfigRules)(
-            <Input prefix={<Icon type="user" />} placeholder="Username" />,
+            <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
           )}
         </Form.Item>
         <Form.Item label="E-mail">
@@ -113,16 +118,21 @@ class RegisterForm extends Component {
         </Form.Item>
         <Form.Item label="Password" hasFeedback>
           {getFieldDecorator('password', passwordRules)(
-            <Input.Password prefix={<Icon type="lock" />} placeholder="Password" />,
+            <Input.Password prefix={<Icon type="lock" />} placeholder="Password" autoComplete="new-password" />,
           )}
         </Form.Item>
         <Form.Item label="Confirm Password" hasFeedback>
           {getFieldDecorator('confirm', confirmRules)(
-            <Input.Password prefix={<Icon type="lock" />} placeholder="Confirm Password" />,
+            <Input.Password prefix={<Icon type="lock" />} placeholder="Confirm Password" autoComplete="new-password" />,
           )}
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" style={{ width: '100%', marginTop: '15px' }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ width: '100%', marginTop: '15px' }}
+            loading={isLoading}
+          >
             Register
           </Button>
         </Form.Item>

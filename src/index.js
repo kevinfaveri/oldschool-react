@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Routes from './routes/routes';
 import * as serviceWorker from './serviceWorker';
+import App from './app';
 
-ReactDOM.render(<Routes />, document.getElementById('root'));
+// TODO: Escrever testes
+ReactDOM.render(<App />, document.getElementById('root'));
 
 serviceWorker.unregister();

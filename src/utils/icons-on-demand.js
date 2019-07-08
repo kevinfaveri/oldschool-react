@@ -14,6 +14,7 @@ export { default as EyeInvisibleOutline } from '@ant-design/icons/lib/outline/Ey
 export { default as MailOutline } from '@ant-design/icons/lib/outline/MailOutline';
 export { default as CloseCircleOutline } from '@ant-design/icons/lib/outline/CloseCircleOutline';
 export { default as CloseOutline } from '@ant-design/icons/lib/outline/CloseOutline';
+export { default as LoadingOutline } from '@ant-design/icons/lib/outline/LoadingOutline';
 
 export { default as StarFill } from '@ant-design/icons/lib/fill/StarFill';
 export { default as HomeFill } from '@ant-design/icons/lib/fill/HomeFill';
