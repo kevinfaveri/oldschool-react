@@ -19,7 +19,6 @@
     "no-console": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"]}],
-    "no-undef": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"]}]
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"]}]
   }
 }

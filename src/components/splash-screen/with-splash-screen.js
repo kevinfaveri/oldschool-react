@@ -14,7 +14,7 @@ import Logo from '../../assets/logo.png';
 // TODO: Adicionar também caso validação de login demorar jogar aqui
 const withSplashScreen = WrappedComponent => class extends Component {
     state = {
-      loading: false,
+      loading: true,
     };
 
     async componentDidMount() {
@@ -22,7 +22,7 @@ const withSplashScreen = WrappedComponent => class extends Component {
         this.setState({
           loading: false,
         });
-      }, 15000);
+      }, 5000);
     }
 
     render() {

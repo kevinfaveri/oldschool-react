@@ -5,8 +5,6 @@ import { createSerializer } from 'enzyme-to-json';
 import sinon from 'sinon';
 
 expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
-
-// React 16 Enzyme adapter
 Enzyme.configure({ adapter: new Adapter() });
 
 // Define globals to cut down on imports in test files
@@ -15,3 +13,9 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 global.sinon = sinon;
+
+// Fix for error with HTML Media Element
+window.HTMLAudioElement.prototype.load = () => { /* do nothing */ };
+window.HTMLAudioElement.prototype.play = () => { /* do nothing */ };
+window.HTMLAudioElement.prototype.pause = () => { /* do nothing */ };
+window.HTMLAudioElement.prototype.addTextTrack = () => { /* do nothing */ };

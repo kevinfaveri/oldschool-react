@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AudioToggle component renders correctly 1`] = `
+<div
+  id="audio-toggle"
+>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    icon="pause"
+    id="audio-btn"
+    loading={false}
+    onClick={[Function]}
+    shape="circle"
+    size="large"
+    type="primary"
+  />
+</div>
+`;
