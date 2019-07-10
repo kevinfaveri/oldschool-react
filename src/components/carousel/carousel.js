@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import './carousel.css';
-
 import { getNextFile } from '../../utils/files';
-
-/* EXAMPLE IMPORT ALL FILES FROM ASSETS FOLDER AND ITS DYNAMIC PATH (NOT TESTED IN PROD)
-const images = Object.values(
-  importAllFiles(require.context('../../assets/', false, /\.(png|jpe?g|svg)$/)),
-);
-*/
+import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
 
 class Carousel extends Component {
   state = {
@@ -19,37 +13,37 @@ class Carousel extends Component {
     nextImgIndex: 2,
   };
 
-  images = [
-    'super-mario-kart.png',
-    'super-mario-world.jpg',
-    'top-gear.jpg',
-  ];
+  constructor(props) {
+    super(props);
+    this.rollCarousel = this.rollCarousel.bind(this);
+  }
 
   async componentDidMount() {
+    const { intervalSeconds } = this.props;
     this.rollCarousel();
     this.carouselInterval = setInterval(() => {
       this.rollCarousel();
-    }, 5000);
+    }, intervalSeconds * 1000);
   }
 
   async componentWillUnmount() {
     clearInterval(this.carouselInterval);
   }
 
-
   rollCarousel() {
+    const { imageArray } = this.props;
     const { currentImgIndex, previousImgIndex, nextImgIndex } = this.state;
 
     // Set Previous Img
-    let auxObj = getNextFile(this.images, previousImgIndex);
+    let auxObj = getNextFile(imageArray, previousImgIndex);
     this.setState({ previousImg: auxObj.auxFile, previousImgIndex: auxObj.auxFileIndex });
 
     // Set Current Img
-    auxObj = getNextFile(this.images, currentImgIndex);
+    auxObj = getNextFile(imageArray, currentImgIndex);
     this.setState({ currentImg: auxObj.auxFile, currentImgIndex: auxObj.auxFileIndex });
 
     // Set Next Img
-    auxObj = getNextFile(this.images, nextImgIndex);
+    auxObj = getNextFile(imageArray, nextImgIndex);
     this.setState({ nextImg: auxObj.auxFile, nextImgIndex: auxObj.auxFileIndex });
   }
 
@@ -58,23 +52,29 @@ class Carousel extends Component {
     return (
       <div id="animated-carousel">
         <img
-          className="previous-image"
+          id="previous-image"
           src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
           alt="Random Game"
         />
         <img
-          className="current-image"
+          id="current-image"
           src={`${process.env.PUBLIC_URL}/image/${currentImg}`}
           alt="Random Game"
         />
-        <img
-          className="next-image"
-          src={`${process.env.PUBLIC_URL}/image/${nextImg}`}
-          alt="Random Game"
-        />
+        <img id="next-image" src={`${process.env.PUBLIC_URL}/image/${nextImg}`} alt="Random Game" />
       </div>
     );
   }
 }
+
+Carousel.defaultProps = {
+  imageArray: ['super-mario-kart.png', 'super-mario-world.jpg', 'top-gear.jpg'],
+  intervalSeconds: 5,
+};
+
+Carousel.propTypes = {
+  imageArray: (props, propName) => validateStringArray(props, propName, 'image', 3),
+  intervalSeconds: (props, propName) => validateNumberInterval(props, propName, 1, 10),
+};
 
 export default Carousel;

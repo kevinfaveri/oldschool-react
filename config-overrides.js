@@ -28,6 +28,9 @@ module.exports = override(
       __dirname,
       './src/utils/icons-on-demand.js',
     );
+    alias['@src'] = path.resolve(__dirname, 'src');
+    alias['@public'] = path.resolve(__dirname, 'public');
+    alias['@utils'] = path.resolve(__dirname, 'src/utils');
 
     config.resolve.alias = alias;
 

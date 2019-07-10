@@ -1,6 +1,6 @@
-/* eslint-disable jsx-a11y/media-has-caption */
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
 
 // TODO: Adicionar audio toggle para passar a música e voltar
 // TODO: Ao usar o audio toggle para mudar a música,
@@ -15,10 +15,14 @@ class AudioToggle extends Component {
     loop: true,
   };
 
-  audio = new Audio(`${process.env.PUBLIC_URL}/audio/top-gear.mp3`);
-
   constructor(props) {
     super(props);
+    const { audioArray } = this.props;
+    this.audio = new Audio(
+      `${process.env.PUBLIC_URL}/audio/${
+        audioArray[Math.floor(Math.random() * audioArray.length)]
+      }`,
+    );
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.graduallyPause = this.graduallyPause.bind(this);
@@ -45,6 +49,7 @@ class AudioToggle extends Component {
   }
 
   graduallyPause() {
+    const { gradualSpeed } = this.props;
     const gradualPause = setInterval(() => {
       if (this.audio.volume > 0.001) {
         this.audio.volume = Number(this.audio.volume - 0.004).toFixed(3);
@@ -52,7 +57,7 @@ class AudioToggle extends Component {
         this.audio.pause();
         clearInterval(gradualPause);
       }
-    }, 300);
+    }, gradualSpeed * 100);
   }
 
   render() {
@@ -71,5 +76,15 @@ class AudioToggle extends Component {
     );
   }
 }
+
+AudioToggle.defaultProps = {
+  audioArray: ['top-gear.mp3'],
+  gradualSpeed: 3,
+};
+
+AudioToggle.propTypes = {
+  audioArray: (props, propName) => validateStringArray(props, propName, 'audio', 1),
+  gradualSpeed: (props, propName) => validateNumberInterval(props, propName, 3, 3),
+};
 
 export default AudioToggle;

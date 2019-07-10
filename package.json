@@ -50,5 +50,11 @@
     "eslint-plugin-react": "^7.14.2",
     "sinon": "^7.3.2",
     "source-map-explorer": "^2.0.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@src/(.*)": "<rootDir>/src/$1",
+      "@public/(.*)": "<rootDir>/public/$1"
+    }
   }
 }

@@ -7,13 +7,13 @@
   border-radius: 15px;
 }
 
-#animated-carousel > .current-image {
+#animated-carousel > #current-image {
   height: 400px;
   opacity: 0.7;
 }
 
-#animated-carousel > .previous-image,
-#animated-carousel > .next-image {
+#animated-carousel > #previous-image,
+#animated-carousel > #next-image {
   opacity: 0.2;
   margin-left: 10px;
   margin-right: 10px;

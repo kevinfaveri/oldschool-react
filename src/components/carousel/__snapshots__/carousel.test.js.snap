@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component renders correctly 1`] = `
+<div
+  id="animated-carousel"
+>
+  <img
+    alt="Random Game"
+    id="previous-image"
+    src="/image/super-mario-world.jpg"
+  />
+  <img
+    alt="Random Game"
+    id="current-image"
+    src="/image/top-gear.jpg"
+  />
+  <img
+    alt="Random Game"
+    id="next-image"
+    src="/image/super-mario-kart.png"
+  />
+</div>
+`;
