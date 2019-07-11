@@ -49,8 +49,13 @@ export const getRememberMe = () => {
   return '';
 };
 
-export const logoutUser = () => {
-  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-  delete userInfo.lastAccess;
-  localStorage.setItem('userInfo', JSON.stringify(userInfo));
-};
+export const logoutUser = () => new Promise((resolve) => {
+  setTimeout(() => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (userInfo) {
+      delete userInfo.lastAccess;
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    }
+    resolve(true);
+  }, 3000);
+});

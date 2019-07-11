@@ -11,27 +11,36 @@ const { error } = Modal;
 class LoginForm extends Component {
   state = {
     isLoading: false,
-  }
+    userLogged: isUserLogged(),
+    rememberMe: getRememberMe(),
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('Sending form');
     const { form, history } = this.props;
-    form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({ isLoading: true });
-        loginUser(values).then((loginResult) => {
-          if (loginResult === false) {
-            error({
-              content: 'Username / Password is invalid!',
-            });
-          } else {
-            history.push('/dashboard');
-          }
-          this.setState({ isLoading: false });
-        });
-      }
+    const formValid = await new Promise((resolve) => {
+      form.validateFields((err, values) => {
+        resolve({ err, values });
+      });
     });
+    console.log('formValid', formValid);
+    if (!formValid.err) {
+      console.log('No error form');
+      this.setState({ isLoading: true });
+      const loginResult = await loginUser(formValid.values);
+      this.setState({ isLoading: false });
+      if (loginResult === false) {
+        error({
+          content: 'Username / Password is invalid!',
+        });
+        console.log('Error password');
+      } else {
+        history.push('/dashboard');
+        console.log('Push');
+      }
+      console.log('End method');
+    }
   };
 
   goToDashboard = () => {
@@ -59,10 +68,7 @@ class LoginForm extends Component {
     const { form } = this.props;
     const { getFieldDecorator } = form;
 
-    const rememberMe = getRememberMe();
-    const userLogged = isUserLogged();
-
-    const { isLoading } = this.state;
+    const { isLoading, userLogged, rememberMe } = this.state;
 
     if (userLogged) {
       return (
@@ -80,7 +86,7 @@ class LoginForm extends Component {
     }
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form" {...this.props}>
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
           {getFieldDecorator('username', { initialValue: rememberMe, ...requiredConfig })(
             <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
@@ -88,7 +94,12 @@ class LoginForm extends Component {
         </Form.Item>
         <Form.Item>
           {getFieldDecorator('password', requiredConfig)(
-            <Input prefix={<Icon type="lock" />} type="password" placeholder="Password" autoComplete="current-password" />,
+            <Input
+              prefix={<Icon type="lock" />}
+              type="password"
+              placeholder="Password"
+              autoComplete="current-password"
+            />,
           )}
         </Form.Item>
         <Form.Item>

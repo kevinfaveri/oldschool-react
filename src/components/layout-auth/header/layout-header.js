@@ -15,17 +15,27 @@ import Logo from '../../../assets/logo.png';
 class LayoutHeader extends Component {
   state = {
     collapsed: false,
+    loadingLogout: false,
   };
 
-  logout = () => {
+  constructor(props) {
+    super(props);
+    this.logout = this.logout.bind(this);
+  }
+
+  async logout() {
+    this.setState({ loadingLogout: true });
     const { history } = this.props;
-    logoutUser();
-    history.push('/');
-  };
+    const res = await logoutUser();
+    if (res) {
+      this.setState({ loadingLogout: false });
+      history.push('/');
+    }
+  }
 
   render() {
     const { Header } = Layout;
-    const { collapsed } = this.state;
+    const { collapsed, loadingLogout } = this.state;
 
     return (
       <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
@@ -51,7 +61,14 @@ class LayoutHeader extends Component {
           size="large"
         />
         <div className="logo" style={{ float: 'right' }}>
-          <Button className="btn-secondary" size="large" icon="logout" onClick={this.logout} />
+          <Button
+            id="logout-btn"
+            className="btn-secondary"
+            size="large"
+            icon="logout"
+            loading={loadingLogout}
+            onClick={this.logout}
+          />
         </div>
       </Header>
     );

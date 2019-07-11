@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeCard component renders correctly 1`] = `
+<div
+  className="clean-card"
+>
+  <Link
+    to="/"
+  >
+    <Button
+      block={false}
+      className="btn-secondary"
+      ghost={false}
+      htmlType="button"
+      icon="rollback"
+      loading={false}
+      size="large"
+      style={
+        Object {
+          "float": "left",
+          "marginLeft": "5px",
+          "marginTop": "5px",
+        }
+      }
+    >
+      Back
+    </Button>
+  </Link>
+  <img
+    alt="Logo"
+    src="logo.png"
+    style={
+      Object {
+        "float": "right",
+        "height": "25px",
+        "marginRight": "15px",
+        "marginTop": "15px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "paddingBottom": "50px",
+        "paddingTop": "50px",
+      }
+    }
+  >
+    Test
+  </div>
+</div>
+`;

@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginForm component renders correctly 1`] = `
+<Form
+  className="login-form"
+  colon={true}
+  hideRequiredMark={false}
+  labelAlign="left"
+  labelCol={
+    Object {
+      "offset": 2,
+      "span": 20,
+    }
+  }
+  layout="horizontal"
+  onSubmit={[Function]}
+  wrapperCol={
+    Object {
+      "offset": 2,
+      "span": 20,
+    }
+  }
+>
+  <FormItem
+    hasFeedback={false}
+  >
+    <Input
+      autoComplete="username"
+      disabled={false}
+      placeholder="Username"
+      prefix={
+        <Icon
+          type="user"
+        />
+      }
+      type="text"
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={false}
+  >
+    <Input
+      autoComplete="current-password"
+      disabled={false}
+      placeholder="Password"
+      prefix={
+        <Icon
+          type="lock"
+        />
+      }
+      type="password"
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={false}
+  >
+    <Checkbox
+      className="text-primary"
+      indeterminate={false}
+    >
+      Remember me
+    </Checkbox>
+    <Button
+      block={false}
+      ghost={false}
+      htmlType="submit"
+      loading={false}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="primary"
+    >
+      Log in
+    </Button>
+    <Link
+      to="/register"
+    >
+      Not registered? Click here!
+    </Link>
+  </FormItem>
+</Form>
+`;
+
+exports[`LoginForm component renders correctly 2`] = `
+<Row
+  gutter={0}
+>
+  <Col
+    className="text-center"
+    offset={2}
+    span={22}
+  >
+    You are already logged in!
+  </Col>
+  <Col
+    offset={2}
+    span={20}
+  >
+    <Button
+      block={false}
+      ghost={false}
+      htmlType="button"
+      loading={false}
+      onClick={[Function]}
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+      type="primary"
+    >
+      Click here to enter.
+    </Button>
+  </Col>
+</Row>
+`;

@@ -100,7 +100,7 @@ class RegisterForm extends Component {
     const { isLoading } = this.state;
 
     return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
+      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register-form">
         <Form.Item label="Name">
           {getFieldDecorator('name', requiredConfigRules)(
             <Input prefix={<Icon type="user" />} placeholder="Name" />,

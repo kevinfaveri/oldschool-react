@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutSider component renders correctly 1`] = `
+<Sider
+  collapsed={false}
+  collapsedWidth={0}
+  collapsible={true}
+  trigger={null}
+>
+  <Menu
+    mode="inline"
+    theme="dark"
+  >
+    <MenuItem
+      key="1"
+    >
+      <Icon
+        theme="filled"
+        type="home"
+      />
+      <span>
+        Home
+      </span>
+    </MenuItem>
+    <MenuItem
+      key="2"
+    >
+      <Icon
+        theme="outlined"
+        type="file-search"
+      />
+      <span>
+        Library
+      </span>
+    </MenuItem>
+    <MenuItem
+      key="3"
+    >
+      <Icon
+        theme="filled"
+        type="star"
+      />
+      <span>
+        Your List
+      </span>
+    </MenuItem>
+    <MenuItem
+      key="4"
+    >
+      <Icon
+        theme="filled"
+        type="info-circle"
+      />
+      <span>
+        About
+      </span>
+    </MenuItem>
+  </Menu>
+</Sider>
+`;

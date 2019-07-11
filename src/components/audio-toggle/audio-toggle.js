@@ -35,7 +35,7 @@ class AudioToggle extends Component {
   }
 
   async componentWillUnmount() {
-    this.graduallyPause();
+    await this.graduallyPause();
   }
 
   play() {
@@ -48,16 +48,20 @@ class AudioToggle extends Component {
     this.setState({ playing: false });
   }
 
-  graduallyPause() {
+  async graduallyPause() {
     const { gradualSpeed } = this.props;
-    const gradualPause = setInterval(() => {
-      if (this.audio.volume > 0.001) {
-        this.audio.volume = Number(this.audio.volume - 0.004).toFixed(3);
-      } else {
-        this.audio.pause();
-        clearInterval(gradualPause);
-      }
-    }, gradualSpeed * 100);
+
+    await new Promise((resolve) => {
+      const gradualInterval = setInterval(() => {
+        if (this.audio.volume > 0.001) {
+          this.audio.volume = Number(this.audio.volume - 0.004).toFixed(3);
+        } else {
+          this.audio.pause();
+          clearInterval(gradualInterval);
+          resolve();
+        }
+      }, gradualSpeed * 100);
+    });
   }
 
   render() {

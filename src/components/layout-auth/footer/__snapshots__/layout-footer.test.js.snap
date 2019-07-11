@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutFooter component renders correctly 1`] = `
+<Adapter
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <span>
+    2019 - Kevin Aguiar - 
+    <a
+      href="https://github.com/kevinfaguiar"
+    >
+      Github
+    </a>
+  </span>
+</Adapter>
+`;

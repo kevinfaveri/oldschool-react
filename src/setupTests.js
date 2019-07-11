@@ -6,6 +6,7 @@ import sinon from 'sinon';
 
 expect.addSnapshotSerializer(createSerializer({ mode: 'deep' }));
 Enzyme.configure({ adapter: new Adapter() });
+jest.setTimeout(10000);
 
 // Define globals to cut down on imports in test files
 global.React = React;
