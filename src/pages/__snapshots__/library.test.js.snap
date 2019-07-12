@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Library page component renders correctly 1`] = `
+<LayoutAuth>
+  <div
+    style={
+      Object {
+        "marginLeft": "50px",
+        "marginRight": "50px",
+      }
+    }
+  >
+    Library Page ok!
+  </div>
+</LayoutAuth>
+`;

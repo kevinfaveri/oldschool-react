@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login page component renders correctly login expired 1`] = `
+<Row
+  gutter={0}
+>
+  <Col
+    offset={9}
+    span={6}
+    style={
+      Object {
+        "marginTop": "10%",
+      }
+    }
+  >
+    <Alert
+      closable={true}
+      message="Your login has expired!"
+      style={
+        Object {
+          "marginBottom": "10px",
+        }
+      }
+      type="error"
+    />
+    <HomeCard>
+      <withRouter(Form(LoginForm))
+        style={
+          Object {
+            "marginTop": "15px",
+          }
+        }
+      />
+    </HomeCard>
+  </Col>
+</Row>
+`;
+
+exports[`Login page component renders correctly login not expired 1`] = `
+<Row
+  gutter={0}
+>
+  <Col
+    offset={9}
+    span={6}
+    style={
+      Object {
+        "marginTop": "10%",
+      }
+    }
+  >
+    <HomeCard>
+      <withRouter(Form(LoginForm))
+        style={
+          Object {
+            "marginTop": "15px",
+          }
+        }
+      />
+    </HomeCard>
+  </Col>
+</Row>
+`;

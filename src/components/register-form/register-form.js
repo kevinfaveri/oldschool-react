@@ -12,24 +12,21 @@ class RegisterForm extends Component {
     isLoading: false,
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const { form, history } = this.props;
-    form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({ isLoading: true });
-        registerUser(values).then(() => {
-          this.setState({ isLoading: false });
-          history.push('/dashboard');
-        });
-      }
+    const formValid = await new Promise((resolve) => {
+      form.validateFields((err, values) => {
+        resolve({ err, values });
+      });
     });
-  };
 
-  handleConfirmBlur = (e) => {
-    const { value } = e.target;
-    const { confirmDirty } = this.state;
-    this.setState({ confirmDirty: confirmDirty || !!value });
+    if (!formValid.err) {
+      this.setState({ isLoading: true });
+      await registerUser(formValid.values);
+      this.setState({ isLoading: false });
+      history.push('/dashboard');
+    }
   };
 
   compareToFirstPassword = (rule, value, callback) => {
@@ -118,12 +115,20 @@ class RegisterForm extends Component {
         </Form.Item>
         <Form.Item label="Password" hasFeedback>
           {getFieldDecorator('password', passwordRules)(
-            <Input.Password prefix={<Icon type="lock" />} placeholder="Password" autoComplete="new-password" />,
+            <Input.Password
+              prefix={<Icon type="lock" />}
+              placeholder="Password"
+              autoComplete="new-password"
+            />,
           )}
         </Form.Item>
         <Form.Item label="Confirm Password" hasFeedback>
           {getFieldDecorator('confirm', confirmRules)(
-            <Input.Password prefix={<Icon type="lock" />} placeholder="Confirm Password" autoComplete="new-password" />,
+            <Input.Password
+              prefix={<Icon type="lock" />}
+              placeholder="Confirm Password"
+              autoComplete="new-password"
+            />,
           )}
         </Form.Item>
         <Form.Item>

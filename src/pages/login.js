@@ -6,10 +6,9 @@ import HomeCard from '../components/home-card/home-card';
 import LoginForm from '../components/login-form/login-form';
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.showExpiredAlert = false;
-  }
+  state = {
+    showExpiredAlert: false,
+  };
 
   componentWillMount() {
     this.expiredLoginAlert();
@@ -18,15 +17,16 @@ class Login extends Component {
   expiredLoginAlert = () => {
     const { location } = this.props;
     const { search } = location;
-    this.showExpiredAlert = false;
+    this.setState({ showExpiredAlert: false });
     const queryParams = queryString.parse(search);
     if (queryParams && queryParams.loginExpired === 'true') {
-      this.showExpiredAlert = true;
+      this.setState({ showExpiredAlert: true });
     }
   };
 
   renderAlert() {
-    if (this.showExpiredAlert) {
+    const { showExpiredAlert } = this.state;
+    if (showExpiredAlert) {
       return (
         <Alert
           message="Your login has expired!"

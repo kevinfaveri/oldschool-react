@@ -17,16 +17,13 @@ class LoginForm extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Sending form');
-    const { form, history } = this.props;
+    const { form } = this.props;
     const formValid = await new Promise((resolve) => {
       form.validateFields((err, values) => {
         resolve({ err, values });
       });
     });
-    console.log('formValid', formValid);
     if (!formValid.err) {
-      console.log('No error form');
       this.setState({ isLoading: true });
       const loginResult = await loginUser(formValid.values);
       this.setState({ isLoading: false });
@@ -34,12 +31,9 @@ class LoginForm extends Component {
         error({
           content: 'Username / Password is invalid!',
         });
-        console.log('Error password');
       } else {
-        history.push('/dashboard');
-        console.log('Push');
+        this.goToDashboard();
       }
-      console.log('End method');
     }
   };
 

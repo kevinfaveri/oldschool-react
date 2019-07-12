@@ -18,11 +18,14 @@ const withSplashScreen = WrappedComponent => class extends Component {
     };
 
     async componentDidMount() {
-      setTimeout(() => {
-        this.setState({
-          loading: false,
-        });
-      }, 5000);
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          this.setState({
+            loading: false,
+          });
+          resolve();
+        }, 5000);
+      });
     }
 
     render() {
@@ -40,7 +43,7 @@ const withSplashScreen = WrappedComponent => class extends Component {
               <Carousel />
             </Row>
             <Row className="text-center">
-              <AudioToggle />
+              <AudioToggle audioArray={['top-gears.mp3']} />
             </Row>
             <Row className="text-center">
               <div className="header-description">

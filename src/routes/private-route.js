@@ -6,7 +6,8 @@ import { isUserLogged } from '../service/auth-service';
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
-    render={props => (isUserLogged() ? <Component {...props} /> : <Redirect to="/login?loginExpired=true" />)}
+    render={props => (isUserLogged() ? <Component {...props} /> : <Redirect to="/login?loginExpired=true" />)
+    }
   />
 );
 

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrivateRoute component renders correctly if user is logged 1`] = `
+<div>
+  Teste
+</div>
+`;
+
+exports[`PrivateRoute component renders correctly if user is not logged 1`] = `""`;

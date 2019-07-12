@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RegisterForm component renders correctly 1`] = `
+<Form
+  className="register-form"
+  colon={true}
+  hideRequiredMark={false}
+  labelAlign="left"
+  labelCol={
+    Object {
+      "offset": 2,
+      "span": 20,
+    }
+  }
+  layout="horizontal"
+  onSubmit={[Function]}
+  wrapperCol={
+    Object {
+      "offset": 2,
+      "span": 20,
+    }
+  }
+>
+  <FormItem
+    hasFeedback={false}
+    label="Name"
+  >
+    <Input
+      disabled={false}
+      placeholder="Name"
+      prefix={
+        <Icon
+          type="user"
+        />
+      }
+      type="text"
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={false}
+    label="Username"
+  >
+    <Input
+      autoComplete="username"
+      disabled={false}
+      placeholder="Username"
+      prefix={
+        <Icon
+          type="user"
+        />
+      }
+      type="text"
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={false}
+    label="E-mail"
+  >
+    <Input
+      disabled={false}
+      placeholder="E-mail"
+      prefix={
+        <Icon
+          type="mail"
+        />
+      }
+      type="text"
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={true}
+    label="Password"
+  >
+    <Password
+      action="click"
+      autoComplete="new-password"
+      inputPrefixCls="ant-input"
+      placeholder="Password"
+      prefix={
+        <Icon
+          type="lock"
+        />
+      }
+      prefixCls="ant-input-password"
+      visibilityToggle={true}
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={true}
+    label="Confirm Password"
+  >
+    <Password
+      action="click"
+      autoComplete="new-password"
+      inputPrefixCls="ant-input"
+      placeholder="Confirm Password"
+      prefix={
+        <Icon
+          type="lock"
+        />
+      }
+      prefixCls="ant-input-password"
+      visibilityToggle={true}
+    />
+  </FormItem>
+  <FormItem
+    hasFeedback={false}
+  >
+    <Button
+      block={false}
+      ghost={false}
+      htmlType="submit"
+      loading={false}
+      style={
+        Object {
+          "marginTop": "15px",
+          "width": "100%",
+        }
+      }
+      type="primary"
+    >
+      Register
+    </Button>
+  </FormItem>
+</Form>
+`;
