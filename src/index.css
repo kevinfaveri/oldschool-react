@@ -60,7 +60,16 @@ code {
   border-radius: 15px;
 }
 
-/* Form TODO: Criar input legal para register e login, e formulários no tema escuro */
+.game-card {
+  background-color: #373e49;
+  border-radius: 15px;
+}
+
+.game-card:hover {
+  background-color: #2c313a;
+  cursor: pointer;
+}
+
 .clean-input {
   border: none !important;
   border-radius: 0px !important;

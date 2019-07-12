@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameCard component renders correctly 1`] = `
+<div
+  className="game-card"
+  style={
+    Object {
+      "paddingBottom": "10px",
+      "paddingTop": "10px",
+    }
+  }
+>
+  <p
+    className="text-center"
+  >
+    <img
+      alt="Game"
+      src="/image/super-mario-kart.png"
+    />
+  </p>
+  <p
+    className="text-center"
+  >
+    <strong>
+      Super Mario Kart
+    </strong>
+  </p>
+  <p
+    className="text-center"
+  >
+    <strong>
+      The best kart game in the world, y' now
+    </strong>
+  </p>
+</div>
+`;

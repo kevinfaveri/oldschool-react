@@ -43,7 +43,7 @@ const withSplashScreen = WrappedComponent => class extends Component {
               <Carousel />
             </Row>
             <Row className="text-center">
-              <AudioToggle audioArray={['top-gears.mp3']} />
+              <AudioToggle audioArray={['top-gear.mp3']} />
             </Row>
             <Row className="text-center">
               <div className="header-description">

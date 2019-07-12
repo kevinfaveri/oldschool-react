@@ -1,16 +1,101 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard page component renders correctly 1`] = `
+exports[`Dashboard page component renders correctly if game list is empty 1`] = `
 <LayoutAuth>
-  <div
+  <h1
+    className="text-center text-primary"
     style={
       Object {
-        "marginLeft": "50px",
-        "marginRight": "50px",
+        "margin": "15px",
       }
     }
   >
-    Dashboard Page ok!
-  </div>
+    There are no games available, please try again later...
+  </h1>
+</LayoutAuth>
+`;
+
+exports[`Dashboard page component renders correctly if game list is not empty 1`] = `
+<LayoutAuth>
+  <Row
+    gutter={16}
+    style={
+      Object {
+        "overflow": "hidden",
+        "paddingLeft": "10px",
+        "paddingRight": "10px",
+      }
+    }
+  >
+    <QueueAnim
+      animConfig={null}
+      animatingClassName={
+        Array [
+          "queue-anim-entering",
+          "queue-anim-leaving",
+        ]
+      }
+      appear={true}
+      component="div"
+      componentProps={Object {}}
+      delay={0}
+      duration={700}
+      ease="easeOutQuart"
+      forcedReplay={false}
+      interval={100}
+      leaveReverse={false}
+      onEnd={[Function]}
+      type="bottom"
+    >
+      <Col
+        key="1"
+        span={6}
+        style={
+          Object {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        <GameCard
+          description="The best kart game in the world, y' now"
+          imageUrl="/image/super-mario-kart.png"
+          name="Super Mario Kart"
+        />
+      </Col>
+      <Col
+        key="2"
+        span={6}
+        style={
+          Object {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        <GameCard
+          description="The best kart game in the world, y' now"
+          imageUrl="/image/super-mario-kart.png"
+          name="Super Mario Kart"
+        />
+      </Col>
+      <Col
+        key="3"
+        span={6}
+        style={
+          Object {
+            "marginBottom": "10px",
+            "marginTop": "10px",
+          }
+        }
+      >
+        <GameCard
+          description="The best kart game in the world, y' now"
+          imageUrl="/image/super-mario-kart.png"
+          name="Super Mario Kart"
+        />
+      </Col>
+    </QueueAnim>
+  </Row>
 </LayoutAuth>
 `;

@@ -50,7 +50,7 @@ exports[`SplashScreen component renders correctly 1`] = `
     <AudioToggle
       audioArray={
         Array [
-          "top-gears.mp3",
+          "top-gear.mp3",
         ]
       }
       gradualSpeed={3}
