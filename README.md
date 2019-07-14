@@ -1,4 +1,3 @@
-# Basic JS Branch
+# Basic Redux Branch
 
-This branch is a react-create-app boilerplate from master branch + project structure, layouts, components and routing.
-Ant Design + Ant Motion for layouting and Enzyme + Sinon for tests are added to the app.
+This branch is a react-create-app boilerplate from basic-js branch + React Redux added to control the app state.

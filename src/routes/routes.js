@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
+
 import withSplashScreen from '../components/splash-screen/with-splash-screen';
 import * as CommonPages from './common-pages';
 import * as AuthPages from './auth-pages';

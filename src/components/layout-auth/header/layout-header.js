@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import './layout-header.css';
 import PropTypes from 'prop-types';
-
-// Components
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {
   Layout, Button, Input, Icon,
 } from 'antd';
+import * as SiderActions from '../../../store/actions/sider';
+
+// Components
 import { logoutUser } from '../../../service/auth-service';
 
 // Assets
@@ -14,7 +17,6 @@ import Logo from '../../../assets/logo.png';
 
 class LayoutHeader extends Component {
   state = {
-    collapsed: false,
     loadingLogout: false,
   };
 
@@ -35,7 +37,8 @@ class LayoutHeader extends Component {
 
   render() {
     const { Header } = Layout;
-    const { collapsed, loadingLogout } = this.state;
+    const { loadingLogout } = this.state;
+    const { siderCollapsed, toggleSider } = this.props;
 
     return (
       <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
@@ -43,7 +46,8 @@ class LayoutHeader extends Component {
           <Button
             className="btn-secondary"
             size="large"
-            icon={collapsed ? 'menu-unfold' : 'menu-fold'}
+            icon={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
+            onClick={() => toggleSider()}
           />
           <Link to="/dashboard">
             <img
@@ -85,4 +89,21 @@ LayoutHeader.propTypes = {
   }),
 };
 
-export default withRouter(LayoutHeader);
+const mapStateToProps = state => ({
+  siderCollapsed: state.sider.collapsed,
+});
+
+/* Example of manual mapping of dispatch to props
+const mapDispatchToProps = dispatch => ({
+  toggleSider: () => dispatch(SiderActions.toggleSider()),
+}); */
+
+// Example of automatic mapping of dispatch to props
+const mapDispatchToProps = dispatch => bindActionCreators(SiderActions, dispatch);
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(LayoutHeader),
+);
