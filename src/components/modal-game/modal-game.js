@@ -1,42 +1,36 @@
 import React from 'react';
+import { Modal } from 'antd';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import './game-card.css';
 
-const GameCard = ({ game, onClick }) => (
-  <div
-    className="game-card"
-    style={{ padding: '10px', height: '100%' }}
-    onClick={onClick}
-    role="button"
-    tabIndex={0}
-    onKeyPress={onClick}
-  >
+const ModalGame = ({
+  visible, onOk, onCancel, game,
+}) => (
+  <Modal title={game.Name} visible={visible} onOk={onOk} onCancel={onCancel} footer={null}>
+    <h1 className="text-center text-primary">{game.Name}</h1>
     <div className="text-center" style={{ padding: '15px' }}>
       {game.VideoURL !== undefined ? (
-        <ReactPlayer url={game.VideoURL} width="inherit" height="250px" />
+        <ReactPlayer url={game.VideoURL} width="inherit" height="inherit" />
       ) : (
-        <div style={{ height: '250px' }} className="text-center">
+        <div style={{ height: 'inherit' }} className="text-center">
           <strong>No video available for this game.</strong>
         </div>
       )}
     </div>
     <div className="text-center">
-      <strong>Title: </strong>
-      <span className="text-max-size-1">{game.Name}</span>
-    </div>
-    <div className="text-center">
       <strong>Platform: </strong>
-      <span className="text-max-size-1">{game.Platform}</span>
+      <span>{game.Platform}</span>
     </div>
     <div className="text-center">
       <strong>Overview: </strong>
-      <span className="text-max-size-3">{game.Overview}</span>
+      <span>{game.Overview}</span>
     </div>
-  </div>
+  </Modal>
 );
 
-GameCard.defaultProps = {
+ModalGame.defaultProps = {
+  onOk: () => { },
+  onCancel: () => { },
   game: {
     Name: 'Super Mario Kart',
     Overview: "The best kart game in the world, y' now",
@@ -45,8 +39,10 @@ GameCard.defaultProps = {
   },
 };
 
-GameCard.propTypes = {
-  onClick: PropTypes.func.isRequired,
+ModalGame.propTypes = {
+  visible: PropTypes.bool.isRequired,
+  onOk: PropTypes.func,
+  onCancel: PropTypes.func,
   game: PropTypes.shape({
     Name: PropTypes.string,
     Overview: PropTypes.string,
@@ -55,4 +51,4 @@ GameCard.propTypes = {
   }),
 };
 
-export default GameCard;
+export default ModalGame;

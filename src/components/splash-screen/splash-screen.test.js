@@ -9,7 +9,7 @@ describe('SplashScreen component', () => {
   it('renders correctly', () => {
     const clock = sinon.useFakeTimers();
     const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = shallow(<SplashScreenComponent/>);
+    const wrapper = shallow(<SplashScreenComponent />);
     expect(wrapper).toMatchSnapshot();
     clock.tick(5000);
     expect(wrapper).toMatchSnapshot();
@@ -18,7 +18,8 @@ describe('SplashScreen component', () => {
   it('should setState loading = false after 5 seconds mounted', () => {
     const clock = sinon.useFakeTimers();
     const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = shallow(<SplashScreenComponent/>);
+    const wrapper = shallow(<SplashScreenComponent />);
+    wrapper.setState({ loading: true });
     expect(wrapper.state().loading).toBe(true);
     clock.tick(5000);
     expect(wrapper.state().loading).toBe(false);

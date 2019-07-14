@@ -1,19 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GameCard component renders correctly 1`] = `
-<div
-  className="game-card"
-  onClick={[Function]}
-  onKeyPress={[Function]}
-  role="button"
-  style={
-    Object {
-      "height": "100%",
-      "padding": "10px",
-    }
-  }
-  tabIndex={0}
+exports[`ModalGame component renders correctly 1`] = `
+<Modal
+  confirmLoading={false}
+  footer={null}
+  maskTransitionName="fade"
+  okType="primary"
+  onCancel={[Function]}
+  onOk={[Function]}
+  title="Super Mario Kart"
+  transitionName="zoom"
+  visible={true}
+  width={520}
 >
+  <h1
+    className="text-center text-primary"
+  >
+    Super Mario Kart
+  </h1>
   <div
     className="text-center"
     style={
@@ -91,7 +95,7 @@ exports[`GameCard component renders correctly 1`] = `
         }
       }
       controls={false}
-      height="250px"
+      height="inherit"
       light={false}
       loop={false}
       muted={false}
@@ -124,23 +128,9 @@ exports[`GameCard component renders correctly 1`] = `
     className="text-center"
   >
     <strong>
-      Title: 
-    </strong>
-    <span
-      className="text-max-size-1"
-    >
-      Super Mario Kart
-    </span>
-  </div>
-  <div
-    className="text-center"
-  >
-    <strong>
       Platform: 
     </strong>
-    <span
-      className="text-max-size-1"
-    >
+    <span>
       Super Nintendo Entertainment System
     </span>
   </div>
@@ -150,11 +140,9 @@ exports[`GameCard component renders correctly 1`] = `
     <strong>
       Overview: 
     </strong>
-    <span
-      className="text-max-size-3"
-    >
+    <span>
       The best kart game in the world, y' now
     </span>
   </div>
-</div>
+</Modal>
 `;

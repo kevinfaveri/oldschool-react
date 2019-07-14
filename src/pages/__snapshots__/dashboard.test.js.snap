@@ -15,6 +15,27 @@ exports[`Dashboard page component renders correctly if game list is empty 1`] = 
 </LayoutAuth>
 `;
 
+exports[`Dashboard page component renders correctly if game list is loading 1`] = `
+<LayoutAuth>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <Spin
+      size="large"
+      spinning={true}
+      style={
+        Object {
+          "marginTop": "25px",
+        }
+      }
+      tip="Loading games..."
+      wrapperClassName=""
+    />
+  </Row>
+</LayoutAuth>
+`;
+
 exports[`Dashboard page component renders correctly if game list is not empty 1`] = `
 <LayoutAuth>
   <Row
@@ -22,8 +43,7 @@ exports[`Dashboard page component renders correctly if game list is not empty 1`
     style={
       Object {
         "overflow": "hidden",
-        "paddingLeft": "10px",
-        "paddingRight": "10px",
+        "padding": "15px",
       }
     }
   >
@@ -48,19 +68,53 @@ exports[`Dashboard page component renders correctly if game list is not empty 1`
       type="bottom"
     >
       <Col
-        key="1"
+        key="0"
         span={6}
         style={
           Object {
-            "marginBottom": "10px",
-            "marginTop": "10px",
+            "height": "470px",
+            "marginBottom": "20px",
+            "marginTop": "20px",
+            "maxHeight": "470px",
+            "minHeight": "470px",
           }
         }
       >
         <GameCard
-          description="The best kart game in the world, y' now"
-          imageUrl="/image/super-mario-kart.png"
-          name="Super Mario Kart"
+          game={
+            Object {
+              "Name": "Super Mario Kart",
+              "Overview": "The best kart game in the world, y' now",
+              "Platform": "Super Nintendo Entertainment System",
+              "VideoURL": null,
+            }
+          }
+          onClick={[Function]}
+        />
+      </Col>
+      <Col
+        key="1"
+        span={6}
+        style={
+          Object {
+            "height": "470px",
+            "marginBottom": "20px",
+            "marginTop": "20px",
+            "maxHeight": "470px",
+            "minHeight": "470px",
+          }
+        }
+      >
+        <GameCard
+          game={
+            Object {
+              "Name": "Super Mario Kart",
+              "Overview": "The best kart game in the world, y' now",
+              "Platform": "Super Nintendo Entertainment System",
+              "VideoURL": null,
+            }
+          }
+          onClick={[Function]}
         />
       </Col>
       <Col
@@ -68,31 +122,24 @@ exports[`Dashboard page component renders correctly if game list is not empty 1`
         span={6}
         style={
           Object {
-            "marginBottom": "10px",
-            "marginTop": "10px",
+            "height": "470px",
+            "marginBottom": "20px",
+            "marginTop": "20px",
+            "maxHeight": "470px",
+            "minHeight": "470px",
           }
         }
       >
         <GameCard
-          description="The best kart game in the world, y' now"
-          imageUrl="/image/super-mario-kart.png"
-          name="Super Mario Kart"
-        />
-      </Col>
-      <Col
-        key="3"
-        span={6}
-        style={
-          Object {
-            "marginBottom": "10px",
-            "marginTop": "10px",
+          game={
+            Object {
+              "Name": "Super Mario Kart",
+              "Overview": "The best kart game in the world, y' now",
+              "Platform": "Super Nintendo Entertainment System",
+              "VideoURL": null,
+            }
           }
-        }
-      >
-        <GameCard
-          description="The best kart game in the world, y' now"
-          imageUrl="/image/super-mario-kart.png"
-          name="Super Mario Kart"
+          onClick={[Function]}
         />
       </Col>
     </QueueAnim>

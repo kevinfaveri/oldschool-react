@@ -83,3 +83,8 @@ code {
   color: #424a57 !important;
   background-color: #e6e6e6 !important;
 }
+
+/* Ant Design Fixes*/
+.ant-input-prefix {
+  background-color: transparent !important;
+}
