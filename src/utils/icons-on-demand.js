@@ -22,3 +22,5 @@ export { default as InfoCircleFill } from '@ant-design/icons/lib/fill/InfoCircle
 export { default as EditFill } from '@ant-design/icons/lib/fill/EditFill';
 export { default as CloseCircleFill } from '@ant-design/icons/lib/fill/CloseCircleFill';
 export { default as CheckCircleFill } from '@ant-design/icons/lib/fill/CheckCircleFill';
+export { default as ForwardFill } from '@ant-design/icons/lib/fill/ForwardFill';
+export { default as BackwardFill } from '@ant-design/icons/lib/fill/BackwardFill';

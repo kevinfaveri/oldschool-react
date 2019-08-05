@@ -31,6 +31,10 @@ body {
   font-size: 30vh !important;
 }
 
+.display-inline {
+  display: inline;
+}
+
 /* Buttons */
 .btn-secondary {
   color: #ff6347 !important;

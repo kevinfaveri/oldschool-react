@@ -4,10 +4,9 @@ import './layout-header.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-  Layout, Button, Input, Icon,
-} from 'antd';
+import { Layout, Button } from 'antd';
 import * as SiderActions from '../../../store/actions/sider';
+import AudioToggle from '../../audio-toggle/audio-toggle';
 
 // Components
 import { logoutUser } from '../../../service/auth-service';
@@ -57,13 +56,14 @@ class LayoutHeader extends Component {
             />
           </Link>
         </div>
+        {/*
         <Input
           id="header-search"
           placeholder="Search Games"
           prefix={<Icon type="search" style={{ color: '#b3b3b3' }} />}
           style={{ width: '50%' }}
           size="large"
-        />
+        /> */}
         <div className="logo" style={{ float: 'right' }}>
           <Button
             id="logout-btn"
@@ -72,6 +72,12 @@ class LayoutHeader extends Component {
             icon="logout"
             loading={loadingLogout}
             onClick={this.logout}
+          />
+        </div>
+        <div style={{ float: 'right', marginRight: '35px' }}>
+          <AudioToggle
+            inlineMode
+            audioArray={['top-gear.mp3', 'super-mario-world.mp3', 'super-mario-kart.mp3']}
           />
         </div>
       </Header>
@@ -87,6 +93,8 @@ LayoutHeader.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }),
+  siderCollapsed: PropTypes.bool.isRequired,
+  toggleSider: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

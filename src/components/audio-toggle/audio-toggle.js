@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
+import PropTypes from 'prop-types';
 import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
 
-// TODO: Adicionar audio toggle para passar a música e voltar e utilizar mesmo componente no header
-// TODO: Ao usar o audio toggle para mudar a música,
-// mudar a artwork também para a seguinte ou anterior de acordo com a mudança da música...
 class AudioToggle extends Component {
   state = {
     playing: true,
+    currentlyPlaying: '',
   };
 
   audioDefs = {
@@ -15,14 +14,17 @@ class AudioToggle extends Component {
     loop: true,
   };
 
+  currentIndex = 0;
+
   constructor(props) {
     super(props);
     const { audioArray } = this.props;
-    this.audio = new Audio(
-      `${process.env.PUBLIC_URL}/audio/${
-        audioArray[Math.floor(Math.random() * audioArray.length)]
-      }`,
-    );
+    const randomAudio = audioArray[this.currentIndex];
+    this.audio = new Audio(`${process.env.PUBLIC_URL}/audio/${randomAudio}`);
+    this.state = {
+      currentlyPlaying: randomAudio,
+    };
+
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.graduallyPause = this.graduallyPause.bind(this);
@@ -35,8 +37,41 @@ class AudioToggle extends Component {
   }
 
   async componentWillUnmount() {
-    await this.graduallyPause();
+    await this.pause();
   }
+
+  previousAudio = () => {
+    const { audioArray } = this.props;
+    let newAudio = audioArray[this.currentIndex - 1];
+    if (newAudio) {
+      this.setAudio(newAudio);
+      this.currentIndex -= 1;
+    } else {
+      newAudio = audioArray[audioArray.length - 1];
+      this.setAudio(newAudio);
+      this.currentIndex = audioArray.length - 1;
+    }
+  };
+
+  nextAudio = () => {
+    const { audioArray } = this.props;
+    let newAudio = audioArray[this.currentIndex + 1];
+    if (newAudio) {
+      this.setAudio(newAudio);
+      this.currentIndex += 1;
+    } else {
+      [newAudio] = audioArray;
+      this.setAudio(newAudio);
+      this.currentIndex = 0;
+    }
+  };
+
+  setAudio = (audio) => {
+    this.audio.src = `${process.env.PUBLIC_URL}/audio/${audio}`;
+    this.audio.load();
+    this.audio.play();
+    this.setState({ currentlyPlaying: audio });
+  };
 
   play() {
     this.audio.play();
@@ -65,9 +100,25 @@ class AudioToggle extends Component {
   }
 
   render() {
-    const { playing } = this.state;
+    const { playing, currentlyPlaying } = this.state;
+    const { inlineMode } = this.props;
     return (
       <div id="audio-toggle">
+        <h4
+          className="text-center text-primary"
+          style={inlineMode ? { display: 'inline', marginRight: '10px' } : {}}
+        >
+          Playing: {currentlyPlaying}
+        </h4>
+        <Button
+          type="primary"
+          shape="circle"
+          size="large"
+          onClick={this.previousAudio}
+          style={{ marginRight: '10px' }}
+        >
+          <Icon type="backward" theme="filled" />
+        </Button>
         <Button
           id="audio-btn"
           type="primary"
@@ -76,19 +127,30 @@ class AudioToggle extends Component {
           size="large"
           onClick={playing ? this.pause : this.play}
         />
+        <Button
+          type="primary"
+          shape="circle"
+          size="large"
+          onClick={this.nextAudio}
+          style={{ marginLeft: '10px' }}
+        >
+          <Icon type="forward" theme="filled" />
+        </Button>
       </div>
     );
   }
 }
 
 AudioToggle.defaultProps = {
-  audioArray: ['top-gear.mp3'],
+  audioArray: ['top-gear.mp3'], // ['top-gear.mp3', 'super-mario-world.mp3', 'super-mario-kart.mp3']
   gradualSpeed: 3,
+  inlineMode: false,
 };
 
 AudioToggle.propTypes = {
   audioArray: (props, propName) => validateStringArray(props, propName, 'audio', 1),
   gradualSpeed: (props, propName) => validateNumberInterval(props, propName, 3, 3),
+  inlineMode: PropTypes.bool,
 };
 
 export default AudioToggle;
