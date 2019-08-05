@@ -24,3 +24,4 @@ export { default as CloseCircleFill } from '@ant-design/icons/lib/fill/CloseCirc
 export { default as CheckCircleFill } from '@ant-design/icons/lib/fill/CheckCircleFill';
 export { default as ForwardFill } from '@ant-design/icons/lib/fill/ForwardFill';
 export { default as BackwardFill } from '@ant-design/icons/lib/fill/BackwardFill';
+export { default as HeartFill } from '@ant-design/icons/lib/fill/HeartFill';

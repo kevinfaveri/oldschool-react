@@ -16,7 +16,6 @@
     "global-require": "off",
     "import/prefer-default-export": "off",
     "react/jsx-one-expression-per-line": "off",
-    "react/no-array-index-key": "off",
     "no-console": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],

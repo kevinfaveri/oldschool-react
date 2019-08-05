@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import './layout-header.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -56,14 +55,6 @@ class LayoutHeader extends Component {
             />
           </Link>
         </div>
-        {/*
-        <Input
-          id="header-search"
-          placeholder="Search Games"
-          prefix={<Icon type="search" style={{ color: '#b3b3b3' }} />}
-          style={{ width: '50%' }}
-          size="large"
-        /> */}
         <div className="logo" style={{ float: 'right' }}>
           <Button
             id="logout-btn"
@@ -94,7 +85,7 @@ LayoutHeader.propTypes = {
     push: PropTypes.func.isRequired,
   }),
   siderCollapsed: PropTypes.bool.isRequired,
-  toggleSider: PropTypes.bool.isRequired,
+  toggleSider: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

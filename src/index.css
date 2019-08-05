@@ -27,6 +27,10 @@ body {
   color: #ff6347 !important;
 }
 
+.text-big {
+  font-size: 3vh !important;
+}
+
 .text-baf {
   font-size: 30vh !important;
 }

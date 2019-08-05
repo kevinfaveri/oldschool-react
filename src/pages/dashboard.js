@@ -1,109 +1,80 @@
 import React, { Component } from 'react';
 import { Row, Col, Spin } from 'antd';
-import QueueAnim from 'rc-queue-anim';
+import { Link } from 'react-router-dom';
+import Shortid from 'shortid';
 import LayoutAuth from '../components/layout-auth/layout-auth';
-import GameCard from '../components/game-card/game-card';
-import { getAllGames } from '../service/games-service';
-import ModalGame from '../components/modal-game/modal-game';
+import Carousel from '../components/carousel/carousel';
+import { getGamesData, getFavsData } from '../service/games-service';
 
-class Dashboard extends Component {
+export default class Dashboard extends Component {
   state = {
     isLoading: true,
-    gamesArray: [],
-    modalGameVisible: false,
-    selectedGame: null,
+    gamesData: null,
+    favsData: null,
   };
 
   async componentDidMount() {
-    const gameListFromApi = await getAllGames(25);
+    const gamesData = await getGamesData();
+    const favsData = await getFavsData();
     this.setState({
-      gamesArray: [...gameListFromApi],
+      gamesData,
+      favsData,
       isLoading: false,
     });
   }
 
-  gameOnClick = (game) => {
-    this.setState({
-      modalGameVisible: true,
-      selectedGame: game,
-    });
-  };
-
-  onCancelModal = () => {
-    this.setState({
-      modalGameVisible: false,
-      selectedGame: null,
-    });
-  };
-
-  renderModalGame() {
-    const { selectedGame, modalGameVisible } = this.state;
-    if (selectedGame !== null) {
-      return (
-        <ModalGame visible={modalGameVisible} game={selectedGame} onCancel={this.onCancelModal} />
-      );
-    }
-    return '';
-  }
-
-  render() {
-    const { gamesArray, isLoading } = this.state;
+  renderGamesData(gamesData) {
+    const { isLoading } = this.state;
     if (isLoading) {
       return (
-        <LayoutAuth>
-          <Row className="text-center">
-            <Spin tip="Loading games..." size="large" style={{ marginTop: '25px' }} />
-          </Row>
-        </LayoutAuth>
-      );
-    }
-    if (gamesArray.length !== 0) {
-      return (
-        <LayoutAuth>
-          <div
-            style={{
-              height: '100vh',
-              overflow: 'auto',
-            }}
-          >
-            <Row style={{ padding: '30px 15px' }} gutter={24}>
-              <QueueAnim type="bottom" duration={700}>
-                {gamesArray.map((item, index) => (
-                  <Col
-                    span={6}
-                    style={{
-                      marginTop: '20px',
-                      marginBottom: '20px',
-                      height: '470px',
-                      minHeight: '470px',
-                      maxHeight: '470px',
-                    }}
-                    key={index}
-                  >
-                    <GameCard
-                      game={item}
-                      onClick={() => {
-                        this.gameOnClick(item);
-                      }}
-                    />
-                  </Col>
-                ))}
-              </QueueAnim>
-            </Row>
-          </div>
-
-          {this.renderModalGame()}
-        </LayoutAuth>
+        <h1 className="text-center">
+          <Spin tip="Loading, please wait..." size="large" style={{ marginTop: '2vh' }} />
+        </h1>
       );
     }
     return (
+      <>
+        <h3 className="text-primary">Total: {gamesData.total}</h3>
+        {gamesData.list.map(gameList => (
+          <h3 className="text-primary" key={Shortid.generate()}>
+            {gameList.platform}: {gameList.total}
+          </h3>
+        ))}
+      </>
+    );
+  }
+
+  render() {
+    const { gamesData, favsData } = this.state;
+    return (
       <LayoutAuth>
-        <h1 className="text-center text-primary" style={{ margin: '15px' }}>
-          There are no games available, please try again later...
-        </h1>
+        <Row gutter={24}>
+          <Col span={22} offset={1}>
+            <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+              Welcome to the Old School Game Library
+            </h1>
+            <Carousel />
+          </Col>
+        </Row>
+        <Row gutter={24}>
+          <Col span={8} offset={2}>
+            <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+              <Link to="/library">Library</Link>
+            </h1>
+            <div className="clean-card" style={{ padding: '15px' }}>
+              {this.renderGamesData(gamesData)}
+            </div>
+          </Col>
+          <Col span={8} offset={2}>
+            <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+              <Link to="/favs">Your Favs</Link>
+            </h1>
+            <div className="clean-card" style={{ padding: '15px' }}>
+              {this.renderGamesData(favsData)}
+            </div>
+          </Col>
+        </Row>
       </LayoutAuth>
     );
   }
 }
-
-export default Dashboard;

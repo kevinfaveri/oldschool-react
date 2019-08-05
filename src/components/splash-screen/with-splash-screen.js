@@ -15,12 +15,10 @@ import Logo from '../../assets/logo.png';
 // TODO: Mostrar qual o ícone ativo de acordo com a URL no sidemenu
 // TODO: Tela inicial do DASHBOARD deve ser alguns cards com stats random de qualquer coisa,
 // tipo quantidade de games por estilo, por console e quantidade que possuem vídeo ou não possuem
-// TODO: Pesquisar no header deve pesquisar de acordo: se está na página inicial pesquisa em
-// toda library mudando para page library; se está em página de fav pesquisa em página de fav;
-// se for qualquer outra, pesquisa em library
+// TODO: Pesquisa em Página de FAV e Página de LIBRARY
 const withSplashScreen = WrappedComponent => class extends Component {
     state = {
-      loading: true,
+      loading: false,
       showClose: false,
     };
 
