@@ -8,11 +8,7 @@ body {
   min-height: 100vh;
   background-color: #424a57 !important;
   color: #ff6347 !important;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  overflow: hidden;
 }
 
 /* Layout */
@@ -29,6 +25,10 @@ code {
 /* Text */
 .text-primary {
   color: #ff6347 !important;
+}
+
+.text-baf {
+  font-size: 30vh !important;
 }
 
 /* Buttons */

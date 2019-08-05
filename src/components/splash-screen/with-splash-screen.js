@@ -10,8 +10,14 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../assets/logo.png';
 
-// TODO: Mudar variavel loading dependendo no download do arquivo static Games.json
-// TODO: Adicionar também caso validação de login demorar jogar aqui
+// TODO: Adicionar fav de game e aí salvar em lista em LocalStorage e depois pegar e mostrar no minha lista
+// TODO: O que está em DASHBOARD hj irá para library
+// TODO: Mostrar qual o ícone ativo de acordo com a URL no sidemenu
+// TODO: Tela inicial do DASHBOARD deve ser alguns cards com stats random de qualquer coisa,
+// tipo quantidade de games por estilo, por console e quantidade que possuem vídeo ou não possuem
+// TODO: Pesquisar no header deve pesquisar de acordo: se está na página inicial pesquisa em
+// toda library mudando para page library; se está em página de fav pesquisa em página de fav;
+// se for qualquer outra, pesquisa em library
 const withSplashScreen = WrappedComponent => class extends Component {
     state = {
       loading: true,

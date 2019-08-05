@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'antd';
 import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
 
-// TODO: Adicionar audio toggle para passar a música e voltar
+// TODO: Adicionar audio toggle para passar a música e voltar e utilizar mesmo componente no header
 // TODO: Ao usar o audio toggle para mudar a música,
 // mudar a artwork também para a seguinte ou anterior de acordo com a mudança da música...
 class AudioToggle extends Component {

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page401 component renders correctly Page401 1`] = `
+<div>
+  <Row
+    gutter={0}
+  >
+    <Col
+      offset={6}
+      span={12}
+      style={
+        Object {
+          "paddingTop": "10vh",
+        }
+      }
+    >
+      <div
+        className="clean-card text-center"
+      >
+        <h1
+          className="text-primary text-baf"
+          style={
+            Object {
+              "marginBottom": "0",
+            }
+          }
+        >
+          401
+        </h1>
+        <h1
+          className="text-primary"
+          style={
+            Object {
+              "marginBottom": "0",
+            }
+          }
+        >
+          I'm sorry but you don't have permission.
+        </h1>
+        <Link
+          to="/"
+        >
+          <Button
+            block={false}
+            className="btn-secondary"
+            ghost={false}
+            htmlType="button"
+            icon="rollback"
+            loading={false}
+            size="large"
+            style={
+              Object {
+                "marginBottom": "15px",
+              }
+            }
+          >
+            Take Me Back Home
+          </Button>
+        </Link>
+      </div>
+    </Col>
+  </Row>
+</div>
+`;

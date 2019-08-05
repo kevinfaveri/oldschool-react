@@ -38,111 +38,119 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
 
 exports[`Dashboard page component renders correctly if game list is not empty 1`] = `
 <LayoutAuth>
-  <Row
-    gutter={16}
+  <div
     style={
       Object {
-        "overflow": "hidden",
-        "padding": "15px",
+        "height": "100vh",
+        "overflow": "auto",
       }
     }
   >
-    <QueueAnim
-      animConfig={null}
-      animatingClassName={
-        Array [
-          "queue-anim-entering",
-          "queue-anim-leaving",
-        ]
+    <Row
+      gutter={24}
+      style={
+        Object {
+          "padding": "30px 15px",
+        }
       }
-      appear={true}
-      component="div"
-      componentProps={Object {}}
-      delay={0}
-      duration={700}
-      ease="easeOutQuart"
-      forcedReplay={false}
-      interval={100}
-      leaveReverse={false}
-      onEnd={[Function]}
-      type="bottom"
     >
-      <Col
-        key="0"
-        span={6}
-        style={
-          Object {
-            "height": "470px",
-            "marginBottom": "20px",
-            "marginTop": "20px",
-            "maxHeight": "470px",
-            "minHeight": "470px",
-          }
+      <QueueAnim
+        animConfig={null}
+        animatingClassName={
+          Array [
+            "queue-anim-entering",
+            "queue-anim-leaving",
+          ]
         }
+        appear={true}
+        component="div"
+        componentProps={Object {}}
+        delay={0}
+        duration={700}
+        ease="easeOutQuart"
+        forcedReplay={false}
+        interval={100}
+        leaveReverse={false}
+        onEnd={[Function]}
+        type="bottom"
       >
-        <GameCard
-          game={
+        <Col
+          key="0"
+          span={6}
+          style={
             Object {
-              "Name": "Super Mario Kart",
-              "Overview": "The best kart game in the world, y' now",
-              "Platform": "Super Nintendo Entertainment System",
-              "VideoURL": null,
+              "height": "470px",
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "maxHeight": "470px",
+              "minHeight": "470px",
             }
           }
-          onClick={[Function]}
-        />
-      </Col>
-      <Col
-        key="1"
-        span={6}
-        style={
-          Object {
-            "height": "470px",
-            "marginBottom": "20px",
-            "marginTop": "20px",
-            "maxHeight": "470px",
-            "minHeight": "470px",
-          }
-        }
-      >
-        <GameCard
-          game={
+        >
+          <GameCard
+            game={
+              Object {
+                "Name": "Super Mario Kart",
+                "Overview": "The best kart game in the world, y' now",
+                "Platform": "Super Nintendo Entertainment System",
+                "VideoURL": null,
+              }
+            }
+            onClick={[Function]}
+          />
+        </Col>
+        <Col
+          key="1"
+          span={6}
+          style={
             Object {
-              "Name": "Super Mario Kart",
-              "Overview": "The best kart game in the world, y' now",
-              "Platform": "Super Nintendo Entertainment System",
-              "VideoURL": null,
+              "height": "470px",
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "maxHeight": "470px",
+              "minHeight": "470px",
             }
           }
-          onClick={[Function]}
-        />
-      </Col>
-      <Col
-        key="2"
-        span={6}
-        style={
-          Object {
-            "height": "470px",
-            "marginBottom": "20px",
-            "marginTop": "20px",
-            "maxHeight": "470px",
-            "minHeight": "470px",
-          }
-        }
-      >
-        <GameCard
-          game={
+        >
+          <GameCard
+            game={
+              Object {
+                "Name": "Super Mario Kart",
+                "Overview": "The best kart game in the world, y' now",
+                "Platform": "Super Nintendo Entertainment System",
+                "VideoURL": null,
+              }
+            }
+            onClick={[Function]}
+          />
+        </Col>
+        <Col
+          key="2"
+          span={6}
+          style={
             Object {
-              "Name": "Super Mario Kart",
-              "Overview": "The best kart game in the world, y' now",
-              "Platform": "Super Nintendo Entertainment System",
-              "VideoURL": null,
+              "height": "470px",
+              "marginBottom": "20px",
+              "marginTop": "20px",
+              "maxHeight": "470px",
+              "minHeight": "470px",
             }
           }
-          onClick={[Function]}
-        />
-      </Col>
-    </QueueAnim>
-  </Row>
+        >
+          <GameCard
+            game={
+              Object {
+                "Name": "Super Mario Kart",
+                "Overview": "The best kart game in the world, y' now",
+                "Platform": "Super Nintendo Entertainment System",
+                "VideoURL": null,
+              }
+            }
+            onClick={[Function]}
+          />
+        </Col>
+      </QueueAnim>
+    </Row>
+  </div>
 </LayoutAuth>
 `;

@@ -60,30 +60,38 @@ class Dashboard extends Component {
     if (gamesArray.length !== 0) {
       return (
         <LayoutAuth>
-          <Row style={{ padding: '15px', overflow: 'hidden' }} gutter={16}>
-            <QueueAnim type="bottom" component="div" duration={700}>
-              {gamesArray.map((item, index) => (
-                <Col
-                  span={6}
-                  style={{
-                    marginTop: '20px',
-                    marginBottom: '20px',
-                    height: '470px',
-                    minHeight: '470px',
-                    maxHeight: '470px',
-                  }}
-                  key={index}
-                >
-                  <GameCard
-                    game={item}
-                    onClick={() => {
-                      this.gameOnClick(item);
+          <div
+            style={{
+              height: '100vh',
+              overflow: 'auto',
+            }}
+          >
+            <Row style={{ padding: '30px 15px' }} gutter={24}>
+              <QueueAnim type="bottom" duration={700}>
+                {gamesArray.map((item, index) => (
+                  <Col
+                    span={6}
+                    style={{
+                      marginTop: '20px',
+                      marginBottom: '20px',
+                      height: '470px',
+                      minHeight: '470px',
+                      maxHeight: '470px',
                     }}
-                  />
-                </Col>
-              ))}
-            </QueueAnim>
-          </Row>
+                    key={index}
+                  >
+                    <GameCard
+                      game={item}
+                      onClick={() => {
+                        this.gameOnClick(item);
+                      }}
+                    />
+                  </Col>
+                ))}
+              </QueueAnim>
+            </Row>
+          </div>
+
           {this.renderModalGame()}
         </LayoutAuth>
       );
