@@ -62,7 +62,13 @@ const withSplashScreen = WrappedComponent => class extends Component {
               </div>
             </Row>
             <Row className="text-center">
-              {showClose ? <Button type="primary" onClick={this.disableSplash}>Click to Continue</Button> : ''}
+              {showClose ? (
+                <Button type="primary" onClick={this.disableSplash}>
+                  Click to Continue
+                </Button>
+              ) : (
+                ''
+              )}
             </Row>
           </div>
         );
