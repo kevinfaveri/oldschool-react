@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { Row, Col, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import Shortid from 'shortid';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import LayoutAuth from '../components/layout-auth/layout-auth';
 import Carousel from '../components/carousel/carousel';
 import { getGamesData, getFavsData } from '../service/games-service';
+import * as GamesAction from '../store/actions/games';
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
   state = {
     isLoading: true,
     gamesData: null,
@@ -14,10 +17,10 @@ export default class Dashboard extends Component {
   };
 
   async componentDidMount() {
-    const gamesData = await getGamesData();
+    const { requestGamesData } = this.props;
+    requestGamesData();
     const favsData = await getFavsData();
     this.setState({
-      gamesData,
       favsData,
       isLoading: false,
     });
@@ -25,7 +28,9 @@ export default class Dashboard extends Component {
 
   renderGamesData(gamesData) {
     const { isLoading } = this.state;
-    if (isLoading) {
+    const { isLoadingData } = this.props;
+
+    if (isLoadingData) {
       return (
         <h1 className="text-center">
           <Spin tip="Loading, please wait..." size="large" style={{ marginTop: '2vh' }} />
@@ -45,7 +50,10 @@ export default class Dashboard extends Component {
   }
 
   render() {
-    const { gamesData, favsData } = this.state;
+    const { favsData } = this.state;
+    const { gamesData } = this.props;
+    console.log('gamesData', gamesData);
+
     return (
       <LayoutAuth>
         <Row gutter={24}>
@@ -78,3 +86,15 @@ export default class Dashboard extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  isLoadingData: state.games.isLoading,
+  gamesData: state.games.gamesData,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(GamesAction, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Dashboard);

@@ -20,6 +20,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "redux": "^4.0.4",
+    "redux-saga": "^1.0.5",
     "shortid": "^2.2.14"
   },
   "scripts": {
