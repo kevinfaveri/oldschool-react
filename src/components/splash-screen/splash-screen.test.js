@@ -22,6 +22,7 @@ describe('SplashScreen component', () => {
     wrapper.setState({ loading: true });
     expect(wrapper.state().loading).toBe(true);
     clock.tick(5000);
+    wrapper.find('#close-splash').simulate('click');
     expect(wrapper.state().loading).toBe(false);
   });
 });

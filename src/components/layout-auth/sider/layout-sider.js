@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { getActiveMenuItem } from '../../../utils/routes';
 
-class LayoutSider extends Component {
+class LayoutSider extends PureComponent {
   onClick = ({ key }) => {
     const { history } = this.props;
     switch (key) {
@@ -70,7 +70,7 @@ LayoutSider.propTypes = {
   }).isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default withRouter(connect(mapStateToProps)(LayoutSider));

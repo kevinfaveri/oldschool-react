@@ -1,5 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SplashScreen component renders correctly 1`] = `<Fragment />`;
+exports[`SplashScreen component renders correctly 1`] = `
+<div
+  className="splash-screen"
+>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <div
+      className="header-logo"
+    >
+      <img
+        alt="Logo"
+        src="logo.png"
+      />
+       
+      <Spin
+        size="large"
+        spinning={true}
+        wrapperClassName=""
+      />
+    </div>
+    <div
+      className="header-description"
+    >
+      The best game library app!
+    </div>
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <Carousel
+      imageArray={
+        Array [
+          "super-mario-kart.png",
+          "super-mario-world.jpg",
+          "top-gear.jpg",
+        ]
+      }
+      intervalSeconds={5}
+    />
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <AudioToggle
+      audioArray={
+        Array [
+          "top-gear.mp3",
+          "super-mario-world.mp3",
+          "super-mario-kart.mp3",
+        ]
+      }
+      gradualSpeed={3}
+      inlineMode={false}
+    />
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <div
+      className="header-description"
+    >
+      Meanwhile, please enjoy some nostalgia (turn on sound)!
+    </div>
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  />
+</div>
+`;
 
-exports[`SplashScreen component renders correctly 2`] = `<Fragment />`;
+exports[`SplashScreen component renders correctly 2`] = `
+<div
+  className="splash-screen"
+>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <div
+      className="header-logo"
+    >
+      <img
+        alt="Logo"
+        src="logo.png"
+      />
+       
+      <Spin
+        size="large"
+        spinning={true}
+        wrapperClassName=""
+      />
+    </div>
+    <div
+      className="header-description"
+    >
+      The best game library app!
+    </div>
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <Carousel
+      imageArray={
+        Array [
+          "super-mario-kart.png",
+          "super-mario-world.jpg",
+          "top-gear.jpg",
+        ]
+      }
+      intervalSeconds={5}
+    />
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <AudioToggle
+      audioArray={
+        Array [
+          "top-gear.mp3",
+          "super-mario-world.mp3",
+          "super-mario-kart.mp3",
+        ]
+      }
+      gradualSpeed={3}
+      inlineMode={false}
+    />
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <div
+      className="header-description"
+    >
+      Meanwhile, please enjoy some nostalgia (turn on sound)!
+    </div>
+  </Row>
+  <Row
+    className="text-center"
+    gutter={0}
+  >
+    <Button
+      block={false}
+      ghost={false}
+      htmlType="button"
+      id="close-splash"
+      loading={false}
+      onClick={[Function]}
+      type="primary"
+    >
+      Click to Continue
+    </Button>
+  </Row>
+</div>
+`;

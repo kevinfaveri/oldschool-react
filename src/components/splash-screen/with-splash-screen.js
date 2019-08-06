@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import './splash-screen.css';
 
@@ -10,15 +10,9 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../assets/logo.png';
 
-// TODO: Adicionar fav de game e aí salvar em lista em LocalStorage e depois pegar e mostrar no minha lista
-// TODO: O que está em DASHBOARD hj irá para library
-// TODO: Mostrar qual o ícone ativo de acordo com a URL no sidemenu
-// TODO: Tela inicial do DASHBOARD deve ser alguns cards com stats random de qualquer coisa,
-// tipo quantidade de games por estilo, por console e quantidade que possuem vídeo ou não possuem
-// TODO: Pesquisa em Página de FAV e Página de LIBRARY
-const withSplashScreen = WrappedComponent => class extends Component {
+const withSplashScreen = WrappedComponent => class extends PureComponent {
     state = {
-      loading: false,
+      loading: true,
       showClose: false,
     };
 
@@ -63,7 +57,7 @@ const withSplashScreen = WrappedComponent => class extends Component {
             </Row>
             <Row className="text-center">
               {showClose ? (
-                <Button type="primary" onClick={this.disableSplash}>
+                <Button id="close-splash" type="primary" onClick={this.disableSplash}>
                   Click to Continue
                 </Button>
               ) : (

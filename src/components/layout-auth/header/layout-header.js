@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -13,7 +13,7 @@ import { logoutUser } from '../../../service/auth-service';
 // Assets
 import Logo from '../../../assets/logo.png';
 
-class LayoutHeader extends Component {
+class LayoutHeader extends PureComponent {
   state = {
     loadingLogout: false,
   };
@@ -42,10 +42,11 @@ class LayoutHeader extends Component {
       <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
         <div className="logo" style={{ float: 'left' }}>
           <Button
+            id="toggle-sider"
             className="btn-secondary"
             size="large"
             icon={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
-            onClick={() => toggleSider()}
+            onClick={toggleSider}
           />
           <Link to="/dashboard">
             <img

@@ -1,6 +1,94 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LayoutHeader component renders correctly 1`] = `
+exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
+<Adapter
+  style={
+    Object {
+      "paddingLeft": "5px",
+      "paddingRight": "5px",
+      "textAlign": "center",
+    }
+  }
+>
+  <div
+    className="logo"
+    style={
+      Object {
+        "float": "left",
+      }
+    }
+  >
+    <Button
+      block={false}
+      className="btn-secondary"
+      ghost={false}
+      htmlType="button"
+      icon="menu-unfold"
+      id="toggle-sider"
+      loading={false}
+      onClick={[Function]}
+      size="large"
+    />
+    <Link
+      to="/dashboard"
+    >
+      <img
+        alt="Logo"
+        src="logo.png"
+        style={
+          Object {
+            "marginLeft": "15px",
+            "marginRight": "30px",
+            "width": "120px",
+          }
+        }
+      />
+    </Link>
+  </div>
+  <div
+    className="logo"
+    style={
+      Object {
+        "float": "right",
+      }
+    }
+  >
+    <Button
+      block={false}
+      className="btn-secondary"
+      ghost={false}
+      htmlType="button"
+      icon="logout"
+      id="logout-btn"
+      loading={false}
+      onClick={[Function]}
+      size="large"
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "float": "right",
+        "marginRight": "35px",
+      }
+    }
+  >
+    <AudioToggle
+      audioArray={
+        Array [
+          "top-gear.mp3",
+          "super-mario-world.mp3",
+          "super-mario-kart.mp3",
+        ]
+      }
+      gradualSpeed={3}
+      inlineMode={true}
+    />
+  </div>
+</Adapter>
+`;
+
+exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
 <Adapter
   style={
     Object {
@@ -24,7 +112,9 @@ exports[`LayoutHeader component renders correctly 1`] = `
       ghost={false}
       htmlType="button"
       icon="menu-fold"
+      id="toggle-sider"
       loading={false}
+      onClick={[Function]}
       size="large"
     />
     <Link
@@ -43,28 +133,6 @@ exports[`LayoutHeader component renders correctly 1`] = `
       />
     </Link>
   </div>
-  <Input
-    disabled={false}
-    id="header-search"
-    placeholder="Search Games"
-    prefix={
-      <Icon
-        style={
-          Object {
-            "color": "#b3b3b3",
-          }
-        }
-        type="search"
-      />
-    }
-    size="large"
-    style={
-      Object {
-        "width": "50%",
-      }
-    }
-    type="text"
-  />
   <div
     className="logo"
     style={
@@ -83,6 +151,26 @@ exports[`LayoutHeader component renders correctly 1`] = `
       loading={false}
       onClick={[Function]}
       size="large"
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "float": "right",
+        "marginRight": "35px",
+      }
+    }
+  >
+    <AudioToggle
+      audioArray={
+        Array [
+          "top-gear.mp3",
+          "super-mario-world.mp3",
+          "super-mario-kart.mp3",
+        ]
+      }
+      gradualSpeed={3}
+      inlineMode={true}
     />
   </div>
 </Adapter>

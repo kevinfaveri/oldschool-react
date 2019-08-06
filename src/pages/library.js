@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import {
-  Row, Col, Spin, Input, Icon,
+  Row, Col, Input, Icon,
 } from 'antd';
-import QueueAnim from 'rc-queue-anim';
-import Shortid from 'shortid';
 import LayoutAuth from '../components/layout-auth/layout-auth';
-import GameCard from '../components/game-card/game-card';
 import { getAllGames, searchInAllGames } from '../service/games-service';
 import ModalGame from '../components/modal-game/modal-game';
+import GameList from '../components/game-list/game-list';
 
 const GAMES_TOTAL = 24;
 
@@ -63,61 +61,19 @@ class Library extends Component {
     const { selectedGame, modalGameVisible } = this.state;
     if (selectedGame !== null) {
       return (
-        <ModalGame visible={modalGameVisible} game={selectedGame} onCancel={this.onCancelModal} />
+        <ModalGame
+          className="clean-card"
+          visible={modalGameVisible}
+          game={selectedGame}
+          onCancel={this.onCancelModal}
+        />
       );
     }
     return '';
   }
 
-  renderGameList() {
-    const { isLoading, gamesArray } = this.state;
-    if (isLoading) {
-      return (
-        <h1 className="text-center">
-          <Spin tip="Loading games..." size="large" style={{ marginTop: '25px' }} />
-        </h1>
-      );
-    }
-    if (gamesArray.length !== 0) {
-      return (
-        <>
-          <h1 className="text-primary" style={{ margin: '15px' }}>
-            Showing only {GAMES_TOTAL} games...
-          </h1>
-          <QueueAnim type="bottom" duration={700}>
-            {gamesArray.map(item => (
-              <Col
-                span={6}
-                style={{
-                  marginTop: '20px',
-                  marginBottom: '20px',
-                  height: '470px',
-                  minHeight: '470px',
-                  maxHeight: '470px',
-                }}
-                key={Shortid.generate()}
-              >
-                <GameCard
-                  game={item}
-                  onClick={() => {
-                    this.gameOnClick(item);
-                  }}
-                />
-              </Col>
-            ))}
-          </QueueAnim>
-        </>
-      );
-    }
-    return (
-      <h1 className="text-center text-primary" style={{ margin: '15px' }}>
-        There are no games available, please try again later...
-      </h1>
-    );
-  }
-
   render() {
-    const { searchTerm, isLoading } = this.state;
+    const { searchTerm, isLoading, gamesArray } = this.state;
     return (
       <LayoutAuth>
         <div
@@ -142,7 +98,12 @@ class Library extends Component {
             </Col>
           </Row>
           <Row style={{ padding: '30px 15px' }} gutter={24}>
-            {this.renderGameList()}
+            <GameList
+              isLoading={isLoading}
+              gamesArray={gamesArray}
+              maxTotalGames={GAMES_TOTAL}
+              gameOnClick={this.gameOnClick}
+            />
           </Row>
         </div>
         {this.renderModalGame()}

@@ -5,12 +5,65 @@ exports[`Favs page component renders correctly 1`] = `
   <div
     style={
       Object {
-        "marginLeft": "50px",
-        "marginRight": "50px",
+        "height": "100vh",
+        "overflow": "auto",
       }
     }
   >
-    Favs Page ok!
+    <Row
+      gutter={0}
+      style={
+        Object {
+          "marginTop": "2vh",
+        }
+      }
+    >
+      <Col
+        offset={6}
+        span={12}
+      >
+        <Input
+          className="game-search"
+          disabled={true}
+          onChange={[Function]}
+          onPressEnter={[Function]}
+          placeholder="Search Fav Games"
+          prefix={
+            <Icon
+              style={
+                Object {
+                  "color": "#b3b3b3",
+                }
+              }
+              type="search"
+            />
+          }
+          size="large"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="text"
+          value=""
+        />
+      </Col>
+    </Row>
+    <Row
+      gutter={24}
+      style={
+        Object {
+          "padding": "30px 15px",
+        }
+      }
+    >
+      <GameList
+        gameOnClick={[Function]}
+        gamesArray={Array []}
+        isLoading={true}
+        maxTotalGames={24}
+      />
+    </Row>
   </div>
 </LayoutAuth>
 `;

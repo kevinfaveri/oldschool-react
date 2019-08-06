@@ -13,6 +13,23 @@ exports[`ModalGame component renders correctly 1`] = `
   visible={true}
   width={520}
 >
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    style={
+      Object {
+        "left": "85%",
+        "position": "absolute",
+        "top": "15%",
+      }
+    }
+    type="primary"
+  >
+    FAV
+  </Button>
   <h1
     className="text-center text-primary"
   >

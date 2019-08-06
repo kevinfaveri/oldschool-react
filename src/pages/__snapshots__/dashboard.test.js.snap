@@ -1,156 +1,263 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard page component renders correctly if game list is empty 1`] = `
-<LayoutAuth>
-  <h1
-    className="text-center text-primary"
-    style={
-      Object {
-        "margin": "15px",
-      }
-    }
-  >
-    There are no games available, please try again later...
-  </h1>
-</LayoutAuth>
-`;
-
 exports[`Dashboard page component renders correctly if game list is loading 1`] = `
 <LayoutAuth>
   <Row
-    className="text-center"
-    gutter={0}
+    gutter={24}
   >
-    <Spin
-      size="large"
-      spinning={true}
-      style={
-        Object {
-          "marginTop": "25px",
+    <Col
+      offset={1}
+      span={22}
+    >
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
+          }
         }
-      }
-      tip="Loading games..."
-      wrapperClassName=""
-    />
+      >
+        Welcome to the Old School Game Library
+      </h1>
+      <Carousel
+        imageArray={
+          Array [
+            "super-mario-kart.png",
+            "super-mario-world.jpg",
+            "top-gear.jpg",
+          ]
+        }
+        intervalSeconds={5}
+      />
+    </Col>
+  </Row>
+  <Row
+    gutter={24}
+  >
+    <Col
+      offset={2}
+      span={8}
+    >
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
+          }
+        }
+      >
+        <Link
+          to="/library"
+        >
+          Library
+        </Link>
+      </h1>
+      <div
+        className="clean-card"
+        style={
+          Object {
+            "padding": "15px",
+          }
+        }
+      >
+        <h1
+          className="text-center"
+        >
+          <Spin
+            size="large"
+            spinning={true}
+            style={
+              Object {
+                "marginTop": "2vh",
+              }
+            }
+            tip="Loading, please wait..."
+            wrapperClassName=""
+          />
+        </h1>
+      </div>
+    </Col>
+    <Col
+      offset={2}
+      span={8}
+    >
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
+          }
+        }
+      >
+        <Link
+          to="/favs"
+        >
+          Your Favs
+        </Link>
+      </h1>
+      <div
+        className="clean-card"
+        style={
+          Object {
+            "padding": "15px",
+          }
+        }
+      >
+        <h1
+          className="text-center"
+        >
+          <Spin
+            size="large"
+            spinning={true}
+            style={
+              Object {
+                "marginTop": "2vh",
+              }
+            }
+            tip="Loading, please wait..."
+            wrapperClassName=""
+          />
+        </h1>
+      </div>
+    </Col>
   </Row>
 </LayoutAuth>
 `;
 
-exports[`Dashboard page component renders correctly if game list is not empty 1`] = `
+exports[`Dashboard page component renders correctly if has finished loading 1`] = `
 <LayoutAuth>
-  <div
-    style={
-      Object {
-        "height": "100vh",
-        "overflow": "auto",
-      }
-    }
+  <Row
+    gutter={24}
   >
-    <Row
-      gutter={24}
-      style={
-        Object {
-          "padding": "30px 15px",
-        }
-      }
+    <Col
+      offset={1}
+      span={22}
     >
-      <QueueAnim
-        animConfig={null}
-        animatingClassName={
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
+          }
+        }
+      >
+        Welcome to the Old School Game Library
+      </h1>
+      <Carousel
+        imageArray={
           Array [
-            "queue-anim-entering",
-            "queue-anim-leaving",
+            "super-mario-kart.png",
+            "super-mario-world.jpg",
+            "top-gear.jpg",
           ]
         }
-        appear={true}
-        component="div"
-        componentProps={Object {}}
-        delay={0}
-        duration={700}
-        ease="easeOutQuart"
-        forcedReplay={false}
-        interval={100}
-        leaveReverse={false}
-        onEnd={[Function]}
-        type="bottom"
+        intervalSeconds={5}
+      />
+    </Col>
+  </Row>
+  <Row
+    gutter={24}
+  >
+    <Col
+      offset={2}
+      span={8}
+    >
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
+          }
+        }
       >
-        <Col
-          key="0"
-          span={6}
-          style={
-            Object {
-              "height": "470px",
-              "marginBottom": "20px",
-              "marginTop": "20px",
-              "maxHeight": "470px",
-              "minHeight": "470px",
-            }
-          }
+        <Link
+          to="/library"
         >
-          <GameCard
-            game={
-              Object {
-                "Name": "Super Mario Kart",
-                "Overview": "The best kart game in the world, y' now",
-                "Platform": "Super Nintendo Entertainment System",
-                "VideoURL": null,
-              }
-            }
-            onClick={[Function]}
-          />
-        </Col>
-        <Col
-          key="1"
-          span={6}
-          style={
-            Object {
-              "height": "470px",
-              "marginBottom": "20px",
-              "marginTop": "20px",
-              "maxHeight": "470px",
-              "minHeight": "470px",
-            }
+          Library
+        </Link>
+      </h1>
+      <div
+        className="clean-card"
+        style={
+          Object {
+            "padding": "15px",
           }
+        }
+      >
+        <h3
+          className="text-primary"
         >
-          <GameCard
-            game={
-              Object {
-                "Name": "Super Mario Kart",
-                "Overview": "The best kart game in the world, y' now",
-                "Platform": "Super Nintendo Entertainment System",
-                "VideoURL": null,
-              }
-            }
-            onClick={[Function]}
-          />
-        </Col>
-        <Col
-          key="2"
-          span={6}
-          style={
-            Object {
-              "height": "470px",
-              "marginBottom": "20px",
-              "marginTop": "20px",
-              "maxHeight": "470px",
-              "minHeight": "470px",
-            }
+          Total: 
+          2000
+        </h3>
+        <h3
+          className="text-primary"
+          key="id1"
+        >
+          SNES
+          : 
+          1000
+        </h3>
+        <h3
+          className="text-primary"
+          key="id2"
+        >
+          PSX
+          : 
+          1000
+        </h3>
+      </div>
+    </Col>
+    <Col
+      offset={2}
+      span={8}
+    >
+      <h1
+        className="text-center text-primary text-big"
+        style={
+          Object {
+            "marginTop": "2vh",
           }
+        }
+      >
+        <Link
+          to="/favs"
         >
-          <GameCard
-            game={
-              Object {
-                "Name": "Super Mario Kart",
-                "Overview": "The best kart game in the world, y' now",
-                "Platform": "Super Nintendo Entertainment System",
-                "VideoURL": null,
-              }
-            }
-            onClick={[Function]}
-          />
-        </Col>
-      </QueueAnim>
-    </Row>
-  </div>
+          Your Favs
+        </Link>
+      </h1>
+      <div
+        className="clean-card"
+        style={
+          Object {
+            "padding": "15px",
+          }
+        }
+      >
+        <h3
+          className="text-primary"
+        >
+          Total: 
+          1500
+        </h3>
+        <h3
+          className="text-primary"
+          key="id3"
+        >
+          SNES
+          : 
+          500
+        </h3>
+        <h3
+          className="text-primary"
+          key="id4"
+        >
+          PSX
+          : 
+          1000
+        </h3>
+      </div>
+    </Col>
+  </Row>
 </LayoutAuth>
 `;
