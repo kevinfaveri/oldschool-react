@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import {
   Row, Col, Input, Icon,
 } from 'antd';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import LayoutAuth from '../components/layout-auth/layout-auth';
-import { getAllGames, searchInAllGames } from '../service/games-service';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
+import * as GamesAction from '../store/actions/games';
 
 const GAMES_TOTAL = 24;
 
 class Library extends Component {
   state = {
-    isLoading: true,
-    gamesArray: [],
     modalGameVisible: false,
     selectedGame: null,
     searchTerm: '',
   };
 
   async componentDidMount() {
-    const gameListFromApi = await getAllGames(GAMES_TOTAL);
-    this.setState({
-      gamesArray: [...gameListFromApi],
-      isLoading: false,
-    });
+    const { requestGameList } = this.props;
+    requestGameList(GAMES_TOTAL);
   }
 
   gameOnClick = (game) => {
@@ -40,17 +38,10 @@ class Library extends Component {
     });
   };
 
-  searchGame = async () => {
+  searchGame = () => {
     const { searchTerm } = this.state;
-
-    this.setState({
-      isLoading: true,
-    });
-    const gameListFromApi = await searchInAllGames(searchTerm, GAMES_TOTAL);
-    this.setState({
-      gamesArray: [...gameListFromApi],
-      isLoading: false,
-    });
+    const { searchGameList } = this.props;
+    searchGameList(searchTerm, GAMES_TOTAL);
   };
 
   onChangeInput = (e) => {
@@ -73,7 +64,9 @@ class Library extends Component {
   }
 
   render() {
-    const { searchTerm, isLoading, gamesArray } = this.state;
+    const { searchTerm } = this.state;
+    const { isLoading, gameList } = this.props;
+
     return (
       <LayoutAuth>
         <div
@@ -93,14 +86,13 @@ class Library extends Component {
                 onPressEnter={this.searchGame}
                 onChange={this.onChangeInput}
                 value={searchTerm}
-                disabled={isLoading}
               />
             </Col>
           </Row>
           <Row style={{ padding: '30px 15px' }} gutter={24}>
             <GameList
               isLoading={isLoading}
-              gamesArray={gamesArray}
+              gamesArray={gameList}
               maxTotalGames={GAMES_TOTAL}
               gameOnClick={this.gameOnClick}
             />
@@ -112,4 +104,21 @@ class Library extends Component {
   }
 }
 
-export default Library;
+const mapStateToProps = state => ({
+  isLoading: state.games.isLoading,
+  gameList: state.games.gameList,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(GamesAction, dispatch);
+
+Library.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  gameList: PropTypes.array.isRequired,
+  requestGameList: PropTypes.func.isRequired,
+  searchGameList: PropTypes.func.isRequired,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Library);

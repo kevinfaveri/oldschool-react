@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Library page component renders correctly 1`] = `
+exports[`Library page component renders correctly when loading 1`] = `
 <LayoutAuth>
   <div
     style={
@@ -24,7 +24,6 @@ exports[`Library page component renders correctly 1`] = `
       >
         <Input
           className="game-search"
-          disabled={true}
           onChange={[Function]}
           onPressEnter={[Function]}
           placeholder="Search Games"
@@ -61,6 +60,149 @@ exports[`Library page component renders correctly 1`] = `
         gameOnClick={[Function]}
         gamesArray={Array []}
         isLoading={true}
+        maxTotalGames={24}
+      />
+    </Row>
+  </div>
+</LayoutAuth>
+`;
+
+exports[`Library page component renders correctly when not loading and has games 1`] = `
+<LayoutAuth>
+  <div
+    style={
+      Object {
+        "height": "100vh",
+        "overflow": "auto",
+      }
+    }
+  >
+    <Row
+      gutter={0}
+      style={
+        Object {
+          "marginTop": "2vh",
+        }
+      }
+    >
+      <Col
+        offset={6}
+        span={12}
+      >
+        <Input
+          className="game-search"
+          onChange={[Function]}
+          onPressEnter={[Function]}
+          placeholder="Search Games"
+          prefix={
+            <Icon
+              style={
+                Object {
+                  "color": "#b3b3b3",
+                }
+              }
+              type="search"
+            />
+          }
+          size="large"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="text"
+          value=""
+        />
+      </Col>
+    </Row>
+    <Row
+      gutter={24}
+      style={
+        Object {
+          "padding": "30px 15px",
+        }
+      }
+    >
+      <GameList
+        gameOnClick={[Function]}
+        gamesArray={
+          Array [
+            Object {
+              "Name": "Game",
+              "Overview": "Overview",
+              "Platform": "Game",
+              "VideoURL": undefined,
+            },
+          ]
+        }
+        isLoading={false}
+        maxTotalGames={24}
+      />
+    </Row>
+  </div>
+</LayoutAuth>
+`;
+
+exports[`Library page component renders correctly when not loading and not has games 1`] = `
+<LayoutAuth>
+  <div
+    style={
+      Object {
+        "height": "100vh",
+        "overflow": "auto",
+      }
+    }
+  >
+    <Row
+      gutter={0}
+      style={
+        Object {
+          "marginTop": "2vh",
+        }
+      }
+    >
+      <Col
+        offset={6}
+        span={12}
+      >
+        <Input
+          className="game-search"
+          onChange={[Function]}
+          onPressEnter={[Function]}
+          placeholder="Search Games"
+          prefix={
+            <Icon
+              style={
+                Object {
+                  "color": "#b3b3b3",
+                }
+              }
+              type="search"
+            />
+          }
+          size="large"
+          style={
+            Object {
+              "width": "100%",
+            }
+          }
+          type="text"
+          value=""
+        />
+      </Col>
+    </Row>
+    <Row
+      gutter={24}
+      style={
+        Object {
+          "padding": "30px 15px",
+        }
+      }
+    >
+      <GameList
+        gameOnClick={[Function]}
+        gamesArray={Array []}
+        isLoading={false}
         maxTotalGames={24}
       />
     </Row>

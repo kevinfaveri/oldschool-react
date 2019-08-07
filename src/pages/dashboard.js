@@ -4,30 +4,18 @@ import { Link } from 'react-router-dom';
 import Shortid from 'shortid';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import LayoutAuth from '../components/layout-auth/layout-auth';
 import Carousel from '../components/carousel/carousel';
-import { getGamesData, getFavsData } from '../service/games-service';
 import * as GamesAction from '../store/actions/games';
 
 class Dashboard extends Component {
-  state = {
-    isLoading: true,
-    gamesData: null,
-    favsData: null,
-  };
-
   async componentDidMount() {
-    const { requestGamesData } = this.props;
-    requestGamesData();
-    const favsData = await getFavsData();
-    this.setState({
-      favsData,
-      isLoading: false,
-    });
+    const { requestDashboardData } = this.props;
+    requestDashboardData();
   }
 
   renderGamesData(gamesData) {
-    const { isLoading } = this.state;
     const { isLoadingData } = this.props;
 
     if (isLoadingData) {
@@ -50,9 +38,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { favsData } = this.state;
-    const { gamesData } = this.props;
-    console.log('gamesData', gamesData);
+    const { gamesData, favsData } = this.props;
 
     return (
       <LayoutAuth>
@@ -90,9 +76,17 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   isLoadingData: state.games.isLoading,
   gamesData: state.games.gamesData,
+  favsData: state.games.favsData,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(GamesAction, dispatch);
+
+Dashboard.propTypes = {
+  isLoadingData: PropTypes.bool.isRequired,
+  gamesData: PropTypes.object.isRequired,
+  favsData: PropTypes.object.isRequired,
+  requestDashboardData: PropTypes.func.isRequired,
+};
 
 export default connect(
   mapStateToProps,

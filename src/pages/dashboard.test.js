@@ -12,7 +12,14 @@ jest.mock('shortid', () => ({
 
 describe('Dashboard page component', () => {
   it('renders correctly if game list is loading', () => {
-    const wrapper = shallow(<Dashboard />);
+    const wrapper = shallow(
+      <Dashboard.WrappedComponent
+        isLoadingData
+        gamesData={{}}
+        favsData={{}}
+        requestDashboardData={() => {}}
+      />,
+    );
     wrapper.setState({
       isLoading: true,
     });
@@ -21,19 +28,20 @@ describe('Dashboard page component', () => {
   });
 
   it('renders correctly if has finished loading', () => {
-    const wrapper = shallow(<Dashboard />);
-    wrapper.setState({
-      gamesData: {
-        total: 2000,
-        list: [{ total: 1000, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
-      },
-      favsData: {
-        total: 1500,
-        list: [{ total: 500, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
-      },
-      isLoading: false,
-    });
-    wrapper.update();
+    const wrapper = shallow(
+      <Dashboard.WrappedComponent
+        isLoadingData={false}
+        gamesData={{
+          total: 2000,
+          list: [{ total: 1000, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
+        }}
+        favsData={{
+          total: 1500,
+          list: [{ total: 500, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
+        }}
+        requestDashboardData={() => {}}
+      />,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 });

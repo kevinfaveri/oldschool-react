@@ -2,28 +2,26 @@ import React, { Component } from 'react';
 import {
   Row, Col, Input, Icon,
 } from 'antd';
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import LayoutAuth from '../components/layout-auth/layout-auth';
-import { getAllFavs, searchInFavs } from '../service/games-service';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
+import * as GamesAction from '../store/actions/games';
 
 const GAMES_TOTAL = 24;
 
 class Favs extends Component {
   state = {
-    isLoading: true,
-    gamesArray: [],
     modalGameVisible: false,
     selectedGame: null,
     searchTerm: '',
   };
 
   async componentDidMount() {
-    const gameListFromApi = await getAllFavs(GAMES_TOTAL);
-    this.setState({
-      gamesArray: [...gameListFromApi],
-      isLoading: false,
-    });
+    const { requestFavList } = this.props;
+    requestFavList(GAMES_TOTAL);
   }
 
   gameOnClick = (game) => {
@@ -40,17 +38,10 @@ class Favs extends Component {
     });
   };
 
-  searchGame = async () => {
+  searchGame = () => {
     const { searchTerm } = this.state;
-
-    this.setState({
-      isLoading: true,
-    });
-    const gameListFromApi = await searchInFavs(searchTerm, GAMES_TOTAL);
-    this.setState({
-      gamesArray: [...gameListFromApi],
-      isLoading: false,
-    });
+    const { searchFavList } = this.props;
+    searchFavList(searchTerm, GAMES_TOTAL);
   };
 
   onChangeInput = (e) => {
@@ -73,7 +64,9 @@ class Favs extends Component {
   }
 
   render() {
-    const { searchTerm, isLoading, gamesArray } = this.state;
+    const { searchTerm } = this.state;
+    const { isLoading, favList } = this.props;
+
     return (
       <LayoutAuth>
         <div
@@ -93,14 +86,13 @@ class Favs extends Component {
                 onPressEnter={this.searchGame}
                 onChange={this.onChangeInput}
                 value={searchTerm}
-                disabled={isLoading}
               />
             </Col>
           </Row>
           <Row style={{ padding: '30px 15px' }} gutter={24}>
             <GameList
               isLoading={isLoading}
-              gamesArray={gamesArray}
+              gamesArray={favList}
               maxTotalGames={GAMES_TOTAL}
               gameOnClick={this.gameOnClick}
             />
@@ -112,4 +104,21 @@ class Favs extends Component {
   }
 }
 
-export default Favs;
+const mapStateToProps = state => ({
+  isLoading: state.games.isLoading,
+  favList: state.games.favList,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(GamesAction, dispatch);
+
+Favs.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  favList: PropTypes.array.isRequired,
+  requestFavList: PropTypes.func.isRequired,
+  searchFavList: PropTypes.func.isRequired,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Favs);
