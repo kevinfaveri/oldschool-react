@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-  Route, BrowserRouter, Switch,
-} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import withSplashScreen from '../components/splash-screen/with-splash-screen';
 import * as CommonPages from './common-pages';
@@ -11,7 +9,7 @@ import PrivateRoute from './private-route';
 
 const Routes = () => (
   <div id="routes">
-    <BrowserRouter>
+    <>
       <Switch>
         {/* Common Routes */}
         <Route exact path="/" component={CommonPages.Home} />
@@ -30,7 +28,7 @@ const Routes = () => (
         <Route exact path="/500" component={CommonPages.Page500} />
         <Route component={Redirect} />
       </Switch>
-    </BrowserRouter>
+    </>
   </div>
 );
 

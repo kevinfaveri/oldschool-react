@@ -1,11 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import Routes from './routes/routes';
-import Store from './store/index';
+import { history, store } from './store';
 
 const App = () => (
-  <Provider store={Store}>
-    <Routes />
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
   </Provider>
 );
 

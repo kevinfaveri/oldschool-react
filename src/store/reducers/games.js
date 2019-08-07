@@ -9,9 +9,9 @@ import {
 } from '../actions/games';
 
 const INITIAL_STATE = {
-  isLoading: true,
-  gamesData: {},
-  favsData: {},
+  isLoading: false,
+  gamesData: { total: 0, list: [] },
+  favsData: { total: 0, list: [] },
   gameList: [],
   favList: [],
 };

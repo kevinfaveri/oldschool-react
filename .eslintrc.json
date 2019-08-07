@@ -4,7 +4,7 @@
     "browser": true,
     "jest": true
   },
-  "plugins": ["react", "jsx-a11y", "import"],
+  "plugins": ["react", "jsx-a11y", "import", "react-hooks"],
   "extends": "airbnb",
   "rules": {
     "react/jsx-filename-extension": [
@@ -20,6 +20,13 @@
     "no-console": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"]}]
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["**/*.test.js", "**/*.spec.js", "**/setupTests.js"]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
