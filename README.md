@@ -1,3 +1,3 @@
-# Basic Redux Branch
+# Hooks Branch
 
-This branch is a react-create-app boilerplate from basic-redux branch + Redux Saga added to control the app side effects.
+This branch is a react-create-app boilerplate from redux-saga branch + connected-router-redux + Hooks added.
