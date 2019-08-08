@@ -5,7 +5,6 @@ import {
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LayoutAuth from '../components/layout-auth/layout-auth';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
 import * as GamesAction from '../store/actions/games';
@@ -68,7 +67,7 @@ class Favs extends Component {
     const { isLoading, favList } = this.props;
 
     return (
-      <LayoutAuth>
+      <>
         <div
           style={{
             height: '100vh',
@@ -99,7 +98,7 @@ class Favs extends Component {
           </Row>
         </div>
         {this.renderModalGame()}
-      </LayoutAuth>
+      </>
     );
   }
 }

@@ -20,8 +20,6 @@ export default () => {
   const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
   const toggleSider = () => dispatch(SiderActions.toggleSider());
 
-  console.log('Rerender');
-
   return (
     <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
       <div className="logo" style={{ float: 'left' }}>

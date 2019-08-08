@@ -5,7 +5,6 @@ import Shortid from 'shortid';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import LayoutAuth from '../components/layout-auth/layout-auth';
 import Carousel from '../components/carousel/carousel';
 import * as GamesAction from '../store/actions/games';
 
@@ -41,7 +40,7 @@ class Dashboard extends Component {
     const { gamesData, favsData } = this.props;
 
     return (
-      <LayoutAuth>
+      <>
         <Row gutter={24}>
           <Col span={22} offset={1}>
             <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
@@ -68,7 +67,7 @@ class Dashboard extends Component {
             </div>
           </Col>
         </Row>
-      </LayoutAuth>
+      </>
     );
   }
 }

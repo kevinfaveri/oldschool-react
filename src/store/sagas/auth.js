@@ -10,9 +10,7 @@ function* initLogout() {
     const loginResult = yield call(logoutUser);
     yield put({ type: SUCCESS_LOGOUT });
     if (loginResult) {
-      console.log('Will Push NOW');
       yield put(push('/'));
-      console.log('Has Pushed');
     }
   } catch (err) {
     yield put({ type: FAILURE_LOGOUT });

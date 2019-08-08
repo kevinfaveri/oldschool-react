@@ -11,9 +11,7 @@ export default () => {
     ({ key }) => {
       switch (key) {
         case '1':
-          console.log('Will Push NOW');
           dispatch(push('/dashboard'));
-          console.log('HAS PUSHED');
           break;
         case '2':
           dispatch(push('/library'));
