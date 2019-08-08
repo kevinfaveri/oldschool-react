@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Row, Col, Input, Icon,
 } from 'antd';
@@ -7,29 +7,31 @@ import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
 import * as GamesAction from '../store/actions/games';
 
-const GAMES_TOTAL = 24;
+const GAMES_TOTAL = 12;
 const INITIAL_STATE = {
   modalGameVisible: false,
   selectedGame: null,
   searchTerm: '',
 };
 
-export default () => {
-  // TODO: Bug de Saga: Estar na página inicial e antes da página inicial resolver mudar para esta página library, ver o que acontece pelo log
-  // TODO: Verificar cenário onde ele fica re-renderizando os valores, como o game list, quando eu mudo a pesquisa
+export default function Library() {
   const [{ modalGameVisible, selectedGame, searchTerm }, setState] = useState(INITIAL_STATE);
 
   const dispatch = useDispatch();
-  const { gameList, isLoading } = useSelector(state => state.games);
+  const { gameList, isLoadingGameList } = useSelector(state => state.games);
 
   useEffect(() => {
     const requestGameList = () => dispatch(GamesAction.requestGameList(GAMES_TOTAL));
     requestGameList();
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
-  const gameOnClick = (game) => {
-    setState(prevState => ({ ...prevState, modalGameVisible: true, selectedGame: game }));
-  };
+  const gameOnClick = useCallback(
+    (game) => {
+      setState(prevState => ({ ...prevState, modalGameVisible: true, selectedGame: game }));
+    },
+    [setState],
+  );
 
   const onCancelModal = () => {
     setState(prevState => ({ ...prevState, modalGameVisible: false, selectedGame: null }));
@@ -41,10 +43,8 @@ export default () => {
   };
 
   const onChangeInput = (e) => {
-    // TODO: VER BUG AQUI QUANDO COMEÇO A ESCREVER MUITO RAPIDO
-    // TODO: ESTÁ RERENDERIZANDO SEMPRE QUE ATUALIZO O SEARCHTERM
-    console.log('event input', e);
-    setState(prevState => ({ ...prevState, searchTerm: e.target.value }));
+    const inputValue = e.target.value;
+    setState(prevState => ({ ...prevState, searchTerm: inputValue }));
   };
 
   const renderModalGame = () => {
@@ -85,7 +85,7 @@ export default () => {
         </Row>
         <Row style={{ padding: '30px 15px' }} gutter={24}>
           <GameList
-            isLoading={isLoading}
+            isLoading={isLoadingGameList}
             gamesArray={gameList}
             maxTotalGames={GAMES_TOTAL}
             gameOnClick={gameOnClick}

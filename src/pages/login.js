@@ -1,31 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import queryString from 'query-string';
 import { Row, Col, Alert } from 'antd';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import HomeCard from '../components/home-card/home-card';
 import LoginForm from '../components/login-form/login-form';
 
-class Login extends Component {
-  state = {
-    showExpiredAlert: false,
-  };
+export default function Login() {
+  const [{ showExpiredAlert }, setState] = useState({ showExpiredAlert: false });
+  const searchString = useSelector(state => state.router.location.search);
 
-  componentWillMount() {
-    this.expiredLoginAlert();
-  }
-
-  expiredLoginAlert = () => {
-    const { location } = this.props;
-    const { search } = location;
-    this.setState({ showExpiredAlert: false });
-    const queryParams = queryString.parse(search);
+  const expiredLoginAlert = () => {
+    setState(prevState => ({ ...prevState, showExpiredAlert: false }));
+    const queryParams = queryString.parse(searchString);
     if (queryParams && queryParams.loginExpired === 'true') {
-      this.setState({ showExpiredAlert: true });
+      setState(prevState => ({ ...prevState, showExpiredAlert: true }));
     }
   };
 
-  renderAlert() {
-    const { showExpiredAlert } = this.state;
+  useEffect(() => {
+    expiredLoginAlert();
+    // eslint-disable-next-line
+  }, []);
+
+  const renderAlert = () => {
     if (showExpiredAlert) {
       return (
         <Alert
@@ -37,30 +34,16 @@ class Login extends Component {
       );
     }
     return null;
-  }
+  };
 
-  render() {
-    return (
-      <Row>
-        <Col span={6} offset={9} style={{ marginTop: '10%' }}>
-          {this.renderAlert()}
-          <HomeCard>
-            <LoginForm style={{ marginTop: '15px' }} />
-          </HomeCard>
-        </Col>
-      </Row>
-    );
-  }
+  return (
+    <Row>
+      <Col span={6} offset={9} style={{ marginTop: '10%' }}>
+        {renderAlert()}
+        <HomeCard>
+          <LoginForm style={{ marginTop: '15px' }} />
+        </HomeCard>
+      </Col>
+    </Row>
+  );
 }
-
-Login.defaultProps = {
-  location: {},
-};
-
-Login.propTypes = {
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }),
-};
-
-export default Login;

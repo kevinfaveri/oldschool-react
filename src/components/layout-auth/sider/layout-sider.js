@@ -1,33 +1,30 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
 import { getActiveMenuItem } from '../../../utils/routes';
 
-export default () => {
+export default function LayoutSider() {
   const dispatch = useDispatch();
 
-  const handleClick = useCallback(
-    ({ key }) => {
-      switch (key) {
-        case '1':
-          dispatch(push('/dashboard'));
-          break;
-        case '2':
-          dispatch(push('/library'));
-          break;
-        case '3':
-          dispatch(push('/favs'));
-          break;
-        case '4':
-          dispatch(push('/about'));
-          break;
-        default:
-          dispatch(push('/dashboard'));
-      }
-    },
-    [dispatch],
-  );
+  const handleClick = ({ key }) => {
+    switch (key) {
+      case '1':
+        dispatch(push('/dashboard'));
+        break;
+      case '2':
+        dispatch(push('/library'));
+        break;
+      case '3':
+        dispatch(push('/favs'));
+        break;
+      case '4':
+        dispatch(push('/about'));
+        break;
+      default:
+        dispatch(push('/dashboard'));
+    }
+  };
 
   const pathname = useSelector(state => state.router.location.pathname);
   const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
@@ -59,4 +56,4 @@ export default () => {
       </Menu>
     </Layout.Sider>
   );
-};
+}

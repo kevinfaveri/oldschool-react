@@ -6,17 +6,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import Carousel from '../components/carousel/carousel';
 import * as GamesAction from '../store/actions/games';
 
-export default () => {
+export default function Dashboard() {
   const dispatch = useDispatch();
-  const { gamesData, favsData, isLoading } = useSelector(state => state.games);
+  const { gamesData, favsData, isLoadingDashboard } = useSelector(state => state.games);
 
   useEffect(() => {
     const requestDashboardData = () => dispatch(GamesAction.requestDashboardData());
     requestDashboardData();
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   const renderGamesData = (data) => {
-    if (isLoading) {
+    if (isLoadingDashboard) {
       return (
         <h1 className="text-center">
           <Spin tip="Loading, please wait..." size="large" style={{ marginTop: '2vh' }} />

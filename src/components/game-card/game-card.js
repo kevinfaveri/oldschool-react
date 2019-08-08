@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import './game-card.css';
@@ -55,4 +55,4 @@ GameCard.propTypes = {
   }),
 };
 
-export default GameCard;
+export default memo(GameCard);

@@ -25,6 +25,7 @@ const CommonRoutes = () => (
 const AuthRoutes = () => (
   <Route exact path={['/dashboard', '/library', '/favs', '/about']}>
     <LayoutAuth>
+      {/* Auth Pages */}
       <PrivateRoute exact path="/dashboard" component={AuthPages.Dashboard} />
       <PrivateRoute exact path="/library" component={AuthPages.Library} />
       <PrivateRoute exact path="/favs" component={AuthPages.Favs} />

@@ -1,20 +1,22 @@
-import React, { Component } from 'react';
+import React, { memo, useState } from 'react';
 import {
   Form, Input, Icon, Button,
 } from 'antd';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
 import { registerUser } from '../../service/auth-service';
 
-class RegisterForm extends Component {
-  state = {
+const RegisterForm = ({ form }) => {
+  const dispatch = useDispatch();
+
+  const [{ confirmDirty, isLoading }, setState] = useState({
     confirmDirty: false,
     isLoading: false,
-  };
+  });
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { form, history } = this.props;
     const formValid = await new Promise((resolve) => {
       form.validateFields((err, values) => {
         resolve({ err, values });
@@ -22,15 +24,14 @@ class RegisterForm extends Component {
     });
 
     if (!formValid.err) {
-      this.setState({ isLoading: true });
+      setState(prevState => ({ ...prevState, isLoading: true }));
       await registerUser(formValid.values);
-      this.setState({ isLoading: false });
-      history.push('/dashboard');
+      setState(prevState => ({ ...prevState, isLoading: false }));
+      dispatch(push('/dashboard'));
     }
   };
 
-  compareToFirstPassword = (rule, value, callback) => {
-    const { form } = this.props;
+  const compareToFirstPassword = (rule, value, callback) => {
     if (value && value !== form.getFieldValue('password')) {
       callback('The passwords are not the same!');
     } else {
@@ -38,117 +39,110 @@ class RegisterForm extends Component {
     }
   };
 
-  validateToNextPassword = (rule, value, callback) => {
-    const { form } = this.props;
-    const { confirmDirty } = this.state;
+  const validateToNextPassword = (rule, value, callback) => {
     if (value && confirmDirty) {
       form.validateFields(['confirm'], { force: true });
     }
     callback();
   };
 
-  render() {
-    const formItemLayout = {
-      labelCol: {
-        span: 20,
-        offset: 2,
+  const formItemLayout = {
+    labelCol: {
+      span: 20,
+      offset: 2,
+    },
+    wrapperCol: {
+      span: 20,
+      offset: 2,
+    },
+    labelAlign: 'left',
+  };
+
+  const requiredConfigRules = {
+    rules: [{ type: 'string', required: true, message: 'This field is required!' }],
+  };
+
+  const emailRules = {
+    rules: [
+      ...requiredConfigRules.rules,
+      {
+        type: 'email',
+        message: 'This is not a valid e-mail!',
       },
-      wrapperCol: {
-        span: 20,
-        offset: 2,
+    ],
+  };
+
+  const passwordRules = {
+    rules: [
+      ...requiredConfigRules.rules,
+      {
+        validator: validateToNextPassword,
       },
-      labelAlign: 'left',
-    };
+    ],
+  };
 
-    const requiredConfigRules = {
-      rules: [{ type: 'string', required: true, message: 'This field is required!' }],
-    };
+  const confirmRules = {
+    rules: [
+      ...requiredConfigRules.rules,
+      {
+        validator: compareToFirstPassword,
+      },
+    ],
+  };
 
-    const emailRules = {
-      rules: [
-        ...requiredConfigRules.rules,
-        {
-          type: 'email',
-          message: 'This is not a valid e-mail!',
-        },
-      ],
-    };
+  const { getFieldDecorator } = form;
 
-    const passwordRules = {
-      rules: [
-        ...requiredConfigRules.rules,
-        {
-          validator: this.validateToNextPassword,
-        },
-      ],
-    };
-
-    const confirmRules = {
-      rules: [
-        ...requiredConfigRules.rules,
-        {
-          validator: this.compareToFirstPassword,
-        },
-      ],
-    };
-
-    const { form } = this.props;
-    const { getFieldDecorator } = form;
-    const { isLoading } = this.state;
-
-    return (
-      <Form {...formItemLayout} onSubmit={this.handleSubmit} className="register-form">
-        <Form.Item label="Name">
-          {getFieldDecorator('name', requiredConfigRules)(
-            <Input prefix={<Icon type="user" />} placeholder="Name" />,
-          )}
-        </Form.Item>
-        <Form.Item label="Username">
-          {getFieldDecorator('username', requiredConfigRules)(
-            <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
-          )}
-        </Form.Item>
-        <Form.Item label="E-mail">
-          {getFieldDecorator('email', emailRules)(
-            <Input prefix={<Icon type="mail" />} placeholder="E-mail" />,
-          )}
-        </Form.Item>
-        <Form.Item label="Password" hasFeedback>
-          {getFieldDecorator('password', passwordRules)(
-            <Input.Password
-              prefix={<Icon type="lock" />}
-              placeholder="Password"
-              autoComplete="new-password"
-            />,
-          )}
-        </Form.Item>
-        <Form.Item label="Confirm Password" hasFeedback>
-          {getFieldDecorator('confirm', confirmRules)(
-            <Input.Password
-              prefix={<Icon type="lock" />}
-              placeholder="Confirm Password"
-              autoComplete="new-password"
-            />,
-          )}
-        </Form.Item>
-        <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            style={{ width: '100%', marginTop: '15px' }}
-            loading={isLoading}
-          >
-            Register
-          </Button>
-        </Form.Item>
-      </Form>
-    );
-  }
-}
+  return (
+    <Form {...formItemLayout} onSubmit={handleSubmit} className="register-form">
+      <Form.Item label="Name">
+        {getFieldDecorator('name', requiredConfigRules)(
+          <Input prefix={<Icon type="user" />} placeholder="Name" />,
+        )}
+      </Form.Item>
+      <Form.Item label="Username">
+        {getFieldDecorator('username', requiredConfigRules)(
+          <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
+        )}
+      </Form.Item>
+      <Form.Item label="E-mail">
+        {getFieldDecorator('email', emailRules)(
+          <Input prefix={<Icon type="mail" />} placeholder="E-mail" />,
+        )}
+      </Form.Item>
+      <Form.Item label="Password" hasFeedback>
+        {getFieldDecorator('password', passwordRules)(
+          <Input.Password
+            prefix={<Icon type="lock" />}
+            placeholder="Password"
+            autoComplete="new-password"
+          />,
+        )}
+      </Form.Item>
+      <Form.Item label="Confirm Password" hasFeedback>
+        {getFieldDecorator('confirm', confirmRules)(
+          <Input.Password
+            prefix={<Icon type="lock" />}
+            placeholder="Confirm Password"
+            autoComplete="new-password"
+          />,
+        )}
+      </Form.Item>
+      <Form.Item>
+        <Button
+          type="primary"
+          htmlType="submit"
+          style={{ width: '100%', marginTop: '15px' }}
+          loading={isLoading}
+        >
+          Register
+        </Button>
+      </Form.Item>
+    </Form>
+  );
+};
 
 RegisterForm.defaultProps = {
   form: {},
-  history: {},
 };
 
 RegisterForm.propTypes = {
@@ -157,11 +151,8 @@ RegisterForm.propTypes = {
     validateFields: PropTypes.func.isRequired,
     getFieldValue: PropTypes.func.isRequired,
   }),
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }),
 };
 
 const RegisterFormComponent = Form.create({ name: 'register_form' })(RegisterForm);
 
-export default withRouter(RegisterFormComponent);
+export default memo(RegisterFormComponent);

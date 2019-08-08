@@ -9,7 +9,7 @@ import AudioToggle from '../../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../../assets/logo.png';
 
-export default () => {
+export default function LayoutHeader() {
   const { Header } = Layout;
   const dispatch = useDispatch();
 
@@ -55,4 +55,4 @@ export default () => {
       </div>
     </Header>
   );
-};
+}

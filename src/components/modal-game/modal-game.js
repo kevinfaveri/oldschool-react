@@ -1,79 +1,67 @@
-import React, { PureComponent } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { Modal, Button } from 'antd';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
 import { isGameFavorited, saveToFavs, removeFromFavs } from '../../service/games-service';
 
-class ModalGame extends PureComponent {
-  state = {
-    favLabel: 'fav',
+const ModalGame = ({
+  game, visible, onCancel, onOk,
+}) => {
+  const [{ favLabel }, setState] = useState({ favLabel: '' });
+
+  const revalidateGame = () => {
+    setState(prevState => ({ ...prevState, favLabel: isGameFavorited(game) ? 'UNFAV' : 'FAV' }));
   };
 
-  componentWillMount() {
-    const { game } = this.props;
-    this.revalidateGame(game);
-  }
+  useEffect(() => {
+    revalidateGame();
+    // eslint-disable-next-line
+  }, []);
 
-  revalidateGame(game) {
-    this.setState({ favLabel: isGameFavorited(game) ? 'UNFAV' : 'FAV' });
-  }
-
-  saveFav(game) {
+  const saveFav = () => {
     saveToFavs(game);
-    this.revalidateGame(game);
-  }
+    revalidateGame(game);
+  };
 
-  removeFav(game) {
+  const removeFav = () => {
     removeFromFavs(game);
-    this.revalidateGame(game);
-  }
+    revalidateGame(game);
+  };
 
-  render() {
-    const {
-      visible, onOk, onCancel, game,
-    } = this.props;
-
-    const { favLabel } = this.state;
-
-    return (
-      <Modal title={game.Name} visible={visible} onOk={onOk} onCancel={onCancel} footer={null}>
-        <Button
-          type="primary"
-          style={{ position: 'absolute', top: '15%', left: '85%' }}
-          onClick={favLabel === 'UNFAV' ? () => this.removeFav(game) : () => this.saveFav(game)}
-        >
-          {favLabel}
-        </Button>
-        <h1 className="text-center text-primary">{game.Name}</h1>
-        <div className="text-center" style={{ padding: '15px' }}>
-          {game.VideoURL !== undefined ? (
-            <ReactPlayer url={game.VideoURL} width="inherit" height="inherit" />
-          ) : (
-            <div style={{ height: 'inherit' }} className="text-center">
-              <strong>No video available for this game.</strong>
-            </div>
-          )}
-        </div>
-        <div className="text-center">
-          <strong>Platform: </strong>
-          <span>{game.Platform}</span>
-        </div>
-        <div className="text-center">
-          <strong>Overview: </strong>
-          <span>{game.Overview}</span>
-        </div>
-      </Modal>
-    );
-  }
-}
+  return (
+    <Modal title={game.Name} visible={visible} onOk={onOk} onCancel={onCancel} footer={null}>
+      <Button
+        type="primary"
+        style={{ float: 'right', marginRight: '15px' }}
+        onClick={favLabel === 'UNFAV' ? () => removeFav(game) : () => saveFav(game)}
+      >
+        {favLabel}
+      </Button>
+      <h1 className="text-center text-primary">{game.Name}</h1>
+      <div className="text-center" style={{ padding: '15px' }}>
+        {game.VideoURL !== undefined ? (
+          <ReactPlayer url={game.VideoURL} width="inherit" height="inherit" />
+        ) : (
+          <div style={{ height: 'inherit' }} className="text-center">
+            <strong>No video available for this game.</strong>
+          </div>
+        )}
+      </div>
+      <div className="text-center">
+        <strong>Platform: </strong>
+        <span>{game.Platform}</span>
+      </div>
+      <div className="text-center">
+        <strong>Overview: </strong>
+        <span>{game.Overview}</span>
+      </div>
+    </Modal>
+  );
+};
 
 ModalGame.defaultProps = {
   onOk: () => {},
-  onCancel: () => {},
   game: {
-    Name: 'Super Mario Kart',
-    Overview: "The best kart game in the world, y' now",
-    Platform: 'Super Nintendo Entertainment System',
     VideoURL: null,
   },
 };
@@ -81,13 +69,13 @@ ModalGame.defaultProps = {
 ModalGame.propTypes = {
   visible: PropTypes.bool.isRequired,
   onOk: PropTypes.func,
-  onCancel: PropTypes.func,
+  onCancel: PropTypes.func.isRequired,
   game: PropTypes.shape({
-    Name: PropTypes.string,
-    Overview: PropTypes.string,
-    Platform: PropTypes.string,
+    Name: PropTypes.string.isRequired,
+    Overview: PropTypes.string.isRequired,
+    Platform: PropTypes.string.isRequired,
     VideoURL: PropTypes.string,
   }),
 };
 
-export default ModalGame;
+export default memo(ModalGame);
