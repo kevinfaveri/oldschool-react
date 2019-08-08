@@ -14,7 +14,6 @@ export default () => {
   const dispatch = useDispatch();
 
   const isLoadingLogout = useSelector(state => state.auth.isLoadingLogout);
-  // Verificar aqui no caso da Arrow Function estar sendo criado toda vez
   const initLogout = () => dispatch(AuthActions.initLogout());
 
   const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);

@@ -17,6 +17,7 @@ const INITIAL_STATE = {
 };
 
 const games = (state = INITIAL_STATE, action) => {
+  console.log('action', action);
   switch (action.type) {
     case LOADING_GAMES_STORE:
       state = { ...state, isLoading: true };
