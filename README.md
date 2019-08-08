@@ -10,6 +10,6 @@ This project will be a fully featured React ecossystem boilerplate with the them
 
 - redux-saga branch: basic-redux branch + Redux Saga added to manage side effects.
 
-- hooks branch: redux-saga branch + code refactoring using Hooks for everything!
+- hooks branch: redux-saga branch + connected-react-router (the "new react-router-redux") + code refactoring using Hooks for everything!
 
 - styled-components branch: hooks branch + code refactoring using styled-components for the styling!
