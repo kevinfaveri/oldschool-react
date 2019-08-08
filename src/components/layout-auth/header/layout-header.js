@@ -17,8 +17,10 @@ export default () => {
   // Verificar aqui no caso da Arrow Function estar sendo criado toda vez
   const initLogout = () => dispatch(AuthActions.initLogout());
 
-  const siderCollapsed = useSelector(state => state.sider.collapsed);
+  const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
   const toggleSider = () => dispatch(SiderActions.toggleSider());
+
+  console.log('Rerender');
 
   return (
     <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
@@ -27,7 +29,7 @@ export default () => {
           id="toggle-sider"
           className="btn-secondary"
           size="large"
-          icon={siderCollapsed ? 'menu-unfold' : 'menu-fold'}
+          icon={isSiderCollapsed ? 'menu-unfold' : 'menu-fold'}
           onClick={toggleSider}
         />
         <Link to="/dashboard">

@@ -1,76 +1,64 @@
-import React, { PureComponent } from 'react';
+import React, { useCallback } from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { push } from 'connected-react-router';
 import { getActiveMenuItem } from '../../../utils/routes';
 
-class LayoutSider extends PureComponent {
-  onClick = ({ key }) => {
-    const { history } = this.props;
-    switch (key) {
-      case '1':
-        history.push('/dashboard');
-        break;
-      case '2':
-        history.push('/library');
-        break;
-      case '3':
-        history.push('/favs');
-        break;
-      case '4':
-        history.push('/about');
-        break;
-      default:
-        history.push('/dashboard');
-    }
-  };
+export default () => {
+  const dispatch = useDispatch();
 
-  render() {
-    const { siderCollapsed, location } = this.props;
+  const handleClick = useCallback(
+    ({ key }) => {
+      switch (key) {
+        case '1':
+          console.log('Will Push NOW');
+          dispatch(push('/dashboard'));
+          console.log('HAS PUSHED');
+          break;
+        case '2':
+          dispatch(push('/library'));
+          break;
+        case '3':
+          dispatch(push('/favs'));
+          break;
+        case '4':
+          dispatch(push('/about'));
+          break;
+        default:
+          dispatch(push('/dashboard'));
+      }
+    },
+    [dispatch],
+  );
 
-    return (
-      <Layout.Sider collapsedWidth={0} trigger={null} collapsible collapsed={siderCollapsed}>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={[...getActiveMenuItem(location.pathname)]}
-          onClick={this.onClick}
-        >
-          <Menu.Item key="1">
-            <Icon type="home" theme="filled" />
-            <span>Home</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon type="file-search" theme="outlined" />
-            <span>Library</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon type="star" theme="filled" />
-            <span>Your List</span>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Icon type="info-circle" theme="filled" />
-            <span>About</span>
-          </Menu.Item>
-        </Menu>
-      </Layout.Sider>
-    );
-  }
-}
+  const pathname = useSelector(state => state.router.location.pathname);
+  const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
 
-const mapStateToProps = state => ({
-  siderCollapsed: state.sider.collapsed,
-});
-
-LayoutSider.propTypes = {
-  siderCollapsed: PropTypes.bool.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
+  return (
+    <Layout.Sider collapsedWidth={0} trigger={null} collapsible collapsed={isSiderCollapsed}>
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={[...getActiveMenuItem(pathname)]}
+        onClick={handleClick}
+      >
+        <Menu.Item key="1">
+          <Icon type="home" theme="filled" />
+          <span>Home</span>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Icon type="file-search" theme="outlined" />
+          <span>Library</span>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Icon type="star" theme="filled" />
+          <span>Your List</span>
+        </Menu.Item>
+        <Menu.Item key="4">
+          <Icon type="info-circle" theme="filled" />
+          <span>About</span>
+        </Menu.Item>
+      </Menu>
+    </Layout.Sider>
+  );
 };
-
-export default withRouter(connect(mapStateToProps)(LayoutSider));
