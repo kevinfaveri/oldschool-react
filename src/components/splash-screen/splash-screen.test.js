@@ -19,10 +19,10 @@ describe('SplashScreen component', () => {
     const clock = sinon.useFakeTimers();
     const SplashScreenComponent = withSplashScreen(React.Fragment);
     const wrapper = shallow(<SplashScreenComponent />);
-    wrapper.setState({ loading: true });
-    expect(wrapper.state().loading).toBe(true);
+    wrapper.setState({ isLoading: true });
+    expect(wrapper.state().isLoading).toBe(true);
     clock.tick(5000);
     wrapper.find('#close-splash').simulate('click');
-    expect(wrapper.state().loading).toBe(false);
+    expect(wrapper.state().isLoading).toBe(false);
   });
 });

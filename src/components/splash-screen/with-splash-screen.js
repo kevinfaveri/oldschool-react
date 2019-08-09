@@ -9,6 +9,7 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../assets/logo.png';
 
+// TODO: Add Tests / Testes Sagas e Reducers também se possível
 const withSplashScreen = WrappedComponent => (props) => {
   const [{ isLoading, showClose }, setState] = useState({
     isLoading: true,
