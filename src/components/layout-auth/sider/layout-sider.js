@@ -36,6 +36,7 @@ export default function LayoutSider() {
         mode="inline"
         defaultSelectedKeys={[...getActiveMenuItem(pathname)]}
         onClick={handleClick}
+        id="sider-menu"
       >
         <Menu.Item key="1">
           <Icon type="home" theme="filled" />

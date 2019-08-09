@@ -23,8 +23,6 @@ const RegisterForm = ({ form }) => {
       });
     });
 
-    console.log('Event>>>', e);
-    console.log('FORMVALID>>>', formValid.err);
     if (!formValid.err) {
       setState(prevState => ({ ...prevState, isLoading: true }));
       await registerUser(formValid.values);

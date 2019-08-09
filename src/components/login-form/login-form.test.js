@@ -1,5 +1,10 @@
 import { Modal } from 'antd';
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import LoginForm from './login-form';
+
+const store = configureStore([])();
 
 jest.mock('antd', () => ({
   ...jest.requireActual('antd'),
@@ -8,6 +13,10 @@ jest.mock('antd', () => ({
 
 jest.mock('../../service/auth-service.js', () => ({
   ...jest.requireActual('../../service/auth-service.js'),
+  isUserLogged: jest
+    .fn()
+    .mockReturnValueOnce(false)
+    .mockReturnValueOnce(true),
   loginUser: jest
     .fn()
     .mockReturnValueOnce(true)
@@ -15,32 +24,52 @@ jest.mock('../../service/auth-service.js', () => ({
 }));
 
 describe('LoginForm component', () => {
-  const spyHistPush = sinon.spy();
-
-  const historyMock = { push: spyHistPush };
-
-  it('renders correctly', () => {
+  function rendersCorrectly() {
     const testForm = {
       getFieldDecorator: jest.fn(opts => c => c),
       validateFields: jest.fn(),
     };
-    const wrapper = shallow(<LoginForm.WrappedComponent history={historyMock} form={testForm} />);
-    expect(wrapper).toMatchSnapshot();
-    wrapper.setState({ userLogged: true });
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    let wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LoginForm form={testForm} id="loginform-component" />
+        </Provider>
+      </MemoryRouter>,
+    );
+    expect(wrapper.find('#loginform-component')).toMatchSnapshot();
+  }
+
+  it('renders correctly when user not logged', () => {
+    rendersCorrectly();
+  });
+
+  it('renders correctly when user logged', () => {
+    rendersCorrectly();
   });
 
   it('should handleSubmit and simulate success on login, redirect to dashboard', async (done) => {
+    const spy = sinon.spy(action => action);
+    store.dispatch = spy;
+
     const testForm = {
       getFieldDecorator: jest.fn(opts => jest.fn()),
       validateFields: jest.fn(callback => callback(false, [])),
     };
 
-    const wrapper = shallow(<LoginForm.WrappedComponent history={historyMock} form={testForm} />);
-    await wrapper.instance().handleSubmit(new Event('submit'));
-    expect(spyHistPush.calledOnce).toBe(true);
-    expect(spyHistPush.args[0][0]).toBe('/dashboard');
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LoginForm form={testForm} />
+        </Provider>
+      </MemoryRouter>,
+    );
+    await wrapper
+      .find('#login-form')
+      .at(0)
+      .props()
+      .onSubmit(new Event('submit'));
+    expect(spy.calledOnce).toBe(true);
+    expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
     done();
   });
 
@@ -49,8 +78,18 @@ describe('LoginForm component', () => {
       getFieldDecorator: jest.fn(opts => jest.fn()),
       validateFields: jest.fn(callback => callback(false, [])),
     };
-    const wrapper = shallow(<LoginForm.WrappedComponent history={historyMock} form={testForm} />);
-    await wrapper.instance().handleSubmit(new Event('submit'));
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LoginForm form={testForm} />
+        </Provider>
+      </MemoryRouter>,
+    );
+    await wrapper
+      .find('#login-form')
+      .at(0)
+      .props()
+      .onSubmit(new Event('submit'));
     expect(Modal.error).toHaveBeenCalled();
     done();
   });

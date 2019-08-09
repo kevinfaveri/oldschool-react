@@ -78,7 +78,7 @@ const LoginForm = ({ form }) => {
   }
 
   return (
-    <Form {...formItemLayout} onSubmit={handleSubmit} className="login-form">
+    <Form {...formItemLayout} onSubmit={handleSubmit} className="login-form" id="login-form">
       <Form.Item>
         {getFieldDecorator('username', { initialValue: rememberMe, ...requiredConfig })(
           <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
