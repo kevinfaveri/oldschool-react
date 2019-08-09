@@ -51,13 +51,20 @@ const Carousel = ({ imageArray, intervalSeconds }) => {
         id="previous-image"
         src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
         alt="Random Game"
+        data-index={previousImgIndex}
       />
       <img
         id="current-image"
         src={`${process.env.PUBLIC_URL}/image/${currentImg}`}
         alt="Random Game"
+        data-index={currentImgIndex}
       />
-      <img id="next-image" src={`${process.env.PUBLIC_URL}/image/${nextImg}`} alt="Random Game" />
+      <img
+        id="next-image"
+        src={`${process.env.PUBLIC_URL}/image/${nextImg}`}
+        alt="Random Game"
+        data-index={nextImgIndex}
+      />
     </div>
   );
 };

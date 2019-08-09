@@ -23,6 +23,8 @@ const RegisterForm = ({ form }) => {
       });
     });
 
+    console.log('Event>>>', e);
+    console.log('FORMVALID>>>', formValid.err);
     if (!formValid.err) {
       setState(prevState => ({ ...prevState, isLoading: true }));
       await registerUser(formValid.values);
@@ -93,7 +95,7 @@ const RegisterForm = ({ form }) => {
   const { getFieldDecorator } = form;
 
   return (
-    <Form {...formItemLayout} onSubmit={handleSubmit} className="register-form">
+    <Form {...formItemLayout} onSubmit={handleSubmit} className="register-form" id="register-form">
       <Form.Item label="Name">
         {getFieldDecorator('name', requiredConfigRules)(
           <Input prefix={<Icon type="user" />} placeholder="Name" />,

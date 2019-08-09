@@ -14,7 +14,7 @@ exports[`Register page component renders correctly 1`] = `
     }
   >
     <HomeCard>
-      <withRouter(Form(RegisterForm)) />
+      <Memo(Form(RegisterForm)) />
     </HomeCard>
   </Col>
 </Row>

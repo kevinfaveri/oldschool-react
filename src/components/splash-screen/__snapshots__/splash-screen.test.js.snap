@@ -32,22 +32,13 @@ exports[`SplashScreen component renders correctly 1`] = `
     className="text-center"
     gutter={0}
   >
-    <Carousel
-      imageArray={
-        Array [
-          "super-mario-kart.png",
-          "super-mario-world.jpg",
-          "top-gear.jpg",
-        ]
-      }
-      intervalSeconds={5}
-    />
+    <Memo(Carousel) />
   </Row>
   <Row
     className="text-center"
     gutter={0}
   >
-    <AudioToggle
+    <Memo(AudioToggle)
       audioArray={
         Array [
           "top-gear.mp3",
@@ -55,8 +46,6 @@ exports[`SplashScreen component renders correctly 1`] = `
           "super-mario-kart.mp3",
         ]
       }
-      gradualSpeed={3}
-      inlineMode={false}
     />
   </Row>
   <Row
@@ -108,22 +97,13 @@ exports[`SplashScreen component renders correctly 2`] = `
     className="text-center"
     gutter={0}
   >
-    <Carousel
-      imageArray={
-        Array [
-          "super-mario-kart.png",
-          "super-mario-world.jpg",
-          "top-gear.jpg",
-        ]
-      }
-      intervalSeconds={5}
-    />
+    <Memo(Carousel) />
   </Row>
   <Row
     className="text-center"
     gutter={0}
   >
-    <AudioToggle
+    <Memo(AudioToggle)
       audioArray={
         Array [
           "top-gear.mp3",
@@ -131,8 +111,6 @@ exports[`SplashScreen component renders correctly 2`] = `
           "super-mario-kart.mp3",
         ]
       }
-      gradualSpeed={3}
-      inlineMode={false}
     />
   </Row>
   <Row
@@ -148,18 +126,6 @@ exports[`SplashScreen component renders correctly 2`] = `
   <Row
     className="text-center"
     gutter={0}
-  >
-    <Button
-      block={false}
-      ghost={false}
-      htmlType="button"
-      id="close-splash"
-      loading={false}
-      onClick={[Function]}
-      type="primary"
-    >
-      Click to Continue
-    </Button>
-  </Row>
+  />
 </div>
 `;

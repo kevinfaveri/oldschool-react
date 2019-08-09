@@ -60,7 +60,7 @@ exports[`GameList component renders correctly when has games 1`] = `
         }
       }
     >
-      <GameCard
+      <Memo(GameCard)
         game={
           Object {
             "Name": "Super Mario Kart",
@@ -85,7 +85,7 @@ exports[`GameList component renders correctly when has games 1`] = `
         }
       }
     >
-      <GameCard
+      <Memo(GameCard)
         game={
           Object {
             "Name": "Super Mario Kart",
@@ -110,7 +110,7 @@ exports[`GameList component renders correctly when has games 1`] = `
         }
       }
     >
-      <GameCard
+      <Memo(GameCard)
         game={
           Object {
             "Name": "Super Mario Kart",

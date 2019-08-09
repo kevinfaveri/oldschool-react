@@ -35,7 +35,7 @@ exports[`Page404 component renders correctly Page404 1`] = `
             }
           }
         >
-          It seems to me that you're lost!
+          It seems to me that you are lost!
         </h1>
         <Link
           to="/"

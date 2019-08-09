@@ -35,7 +35,7 @@ exports[`Page401 component renders correctly Page401 1`] = `
             }
           }
         >
-          I'm sorry but you don't have permission.
+          I am sorry but you do not have permission.
         </h1>
         <Link
           to="/"

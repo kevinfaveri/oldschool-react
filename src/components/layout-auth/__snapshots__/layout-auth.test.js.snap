@@ -4,9 +4,9 @@ exports[`LayoutAuth component renders correctly 1`] = `
 <Adapter
   id="layout-auth"
 >
-  <withRouter(Connect(LayoutHeader)) />
+  <LayoutHeader />
   <Adapter>
-    <withRouter(Connect(LayoutSider)) />
+    <LayoutSider />
     <Adapter>
       TEST
     </Adapter>

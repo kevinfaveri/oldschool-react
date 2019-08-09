@@ -1,23 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Carousel component renders correctly 1`] = `
+exports[`Carousel component renders and unmount correctly 1`] = `
 <div
   id="animated-carousel"
 >
   <img
     alt="Random Game"
+    data-index={0}
     id="previous-image"
+    src="/image/super-mario-kart.png"
+  />
+  <img
+    alt="Random Game"
+    data-index={1}
+    id="current-image"
     src="/image/super-mario-world.jpg"
   />
   <img
     alt="Random Game"
-    id="current-image"
-    src="/image/top-gear.jpg"
-  />
-  <img
-    alt="Random Game"
+    data-index={2}
     id="next-image"
-    src="/image/super-mario-kart.png"
+    src="/image/top-gear.jpg"
   />
 </div>
 `;

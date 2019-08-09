@@ -6,9 +6,7 @@ exports[`ModalGame component renders correctly 1`] = `
   footer={null}
   maskTransitionName="fade"
   okType="primary"
-  onCancel={[Function]}
   onOk={[Function]}
-  title="Super Mario Kart"
   transitionName="zoom"
   visible={true}
   width={520}
@@ -21,20 +19,15 @@ exports[`ModalGame component renders correctly 1`] = `
     onClick={[Function]}
     style={
       Object {
-        "left": "85%",
-        "position": "absolute",
-        "top": "15%",
+        "float": "right",
+        "marginRight": "15px",
       }
     }
     type="primary"
-  >
-    FAV
-  </Button>
+  />
   <h1
     className="text-center text-primary"
-  >
-    Super Mario Kart
-  </h1>
+  />
   <div
     className="text-center"
     style={
@@ -147,9 +140,7 @@ exports[`ModalGame component renders correctly 1`] = `
     <strong>
       Platform: 
     </strong>
-    <span>
-      Super Nintendo Entertainment System
-    </span>
+    <span />
   </div>
   <div
     className="text-center"
@@ -157,9 +148,7 @@ exports[`ModalGame component renders correctly 1`] = `
     <strong>
       Overview: 
     </strong>
-    <span>
-      The best kart game in the world, y' now
-    </span>
+    <span />
   </div>
 </Modal>
 `;

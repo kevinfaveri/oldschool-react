@@ -4,11 +4,38 @@ exports[`AudioToggle component renders correctly 1`] = `
 <div
   id="audio-toggle"
 >
+  <h4
+    className="text-center text-primary"
+    style={Object {}}
+  >
+    Playing: 
+    top-gear.mp3
+  </h4>
   <Button
     block={false}
     ghost={false}
     htmlType="button"
-    icon="pause"
+    loading={false}
+    onClick={[Function]}
+    shape="circle"
+    size="large"
+    style={
+      Object {
+        "marginRight": "10px",
+      }
+    }
+    type="primary"
+  >
+    <Icon
+      theme="filled"
+      type="backward"
+    />
+  </Button>
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    icon="caret-right"
     id="audio-btn"
     loading={false}
     onClick={[Function]}
@@ -16,5 +43,25 @@ exports[`AudioToggle component renders correctly 1`] = `
     size="large"
     type="primary"
   />
+  <Button
+    block={false}
+    ghost={false}
+    htmlType="button"
+    loading={false}
+    onClick={[Function]}
+    shape="circle"
+    size="large"
+    style={
+      Object {
+        "marginLeft": "10px",
+      }
+    }
+    type="primary"
+  >
+    <Icon
+      theme="filled"
+      type="forward"
+    />
+  </Button>
 </div>
 `;

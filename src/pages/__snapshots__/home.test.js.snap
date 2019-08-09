@@ -26,16 +26,7 @@ exports[`Home page component renders correctly 1`] = `
     className="text-center"
     gutter={0}
   >
-    <Carousel
-      imageArray={
-        Array [
-          "super-mario-kart.png",
-          "super-mario-world.jpg",
-          "top-gear.jpg",
-        ]
-      }
-      intervalSeconds={5}
-    />
+    <Memo(Carousel) />
   </Row>
   <Row
     className="text-center"
