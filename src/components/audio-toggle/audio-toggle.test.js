@@ -33,7 +33,9 @@ describe('AudioToggle component', () => {
     const spy = sinon.spy(window.HTMLAudioElement.prototype, 'pause');
     const wrapper = mount(<AudioToggle />);
     wrapper.unmount();
-    clock.tick(30 * 1000);
+    act(() => {
+      clock.tick(30 * 1000);
+    });
     expect(spy.calledOnce).toBe(true);
     spy.restore();
   });
@@ -43,20 +45,25 @@ describe('AudioToggle component', () => {
     const spyPause = sinon.spy(window.HTMLAudioElement.prototype, 'pause');
     const wrapper = mount(<AudioToggle />);
 
-    wrapper
-      .find('#audio-btn')
-      .at(0)
-      .props()
-      .onClick();
+    act(() => {
+      wrapper
+        .find('#audio-btn')
+        .at(0)
+        .props()
+        .onClick();
+    });
+
     expect(spyPlay.calledOnce).toBe(true);
 
     wrapper.update();
 
-    wrapper
-      .find('#audio-btn')
-      .at(0)
-      .props()
-      .onClick();
+    act(() => {
+      wrapper
+        .find('#audio-btn')
+        .at(0)
+        .props()
+        .onClick();
+    });
 
     expect(spyPause.calledOnce).toBe(true);
     spyPlay.restore();
@@ -73,11 +80,13 @@ describe('AudioToggle component', () => {
         .props().icon,
     ).toBe('caret-right');
 
-    wrapper
-      .find('#audio-btn')
-      .at(0)
-      .props()
-      .onClick();
+    act(() => {
+      wrapper
+        .find('#audio-btn')
+        .at(0)
+        .props()
+        .onClick();
+    });
 
     wrapper.update();
 

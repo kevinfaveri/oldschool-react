@@ -63,11 +63,15 @@ describe('LoginForm component', () => {
         </Provider>
       </MemoryRouter>,
     );
-    await wrapper
-      .find('#login-form')
-      .at(0)
-      .props()
-      .onSubmit(new Event('submit'));
+
+    await act(async () => {
+      await wrapper
+        .find('#login-form')
+        .at(0)
+        .props()
+        .onSubmit(new Event('submit'));
+    });
+
     expect(spy.calledOnce).toBe(true);
     expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
     done();
@@ -78,6 +82,7 @@ describe('LoginForm component', () => {
       getFieldDecorator: jest.fn((opts) => jest.fn()),
       validateFields: jest.fn((callback) => callback(false, [])),
     };
+
     const wrapper = mount(
       <MemoryRouter>
         <Provider store={store}>
@@ -85,11 +90,15 @@ describe('LoginForm component', () => {
         </Provider>
       </MemoryRouter>,
     );
-    await wrapper
-      .find('#login-form')
-      .at(0)
-      .props()
-      .onSubmit(new Event('submit'));
+
+    await act(async () => {
+      await wrapper
+        .find('#login-form')
+        .at(0)
+        .props()
+        .onSubmit(new Event('submit'));
+    });
+
     expect(Modal.error).toHaveBeenCalled();
     done();
   });

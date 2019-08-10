@@ -39,11 +39,15 @@ describe('RegisterForm component', () => {
         <RegisterForm form={testForm} />
       </Provider>,
     );
-    await wrapper
-      .find('#register-form')
-      .at(0)
-      .props()
-      .onSubmit(new Event('submit'));
+
+    await act(async () => {
+      await wrapper
+        .find('#register-form')
+        .at(0)
+        .props()
+        .onSubmit(new Event('submit'));
+    });
+
     expect(spy.callCount).toBe(0);
     done();
   });
@@ -64,11 +68,14 @@ describe('RegisterForm component', () => {
       </Provider>,
     );
 
-    await wrapper
-      .find('#register-form')
-      .at(0)
-      .props()
-      .onSubmit(new Event('submit'));
+    await act(async () => {
+      await wrapper
+        .find('#register-form')
+        .at(0)
+        .props()
+        .onSubmit(new Event('submit'));
+    });
+
     expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
     expect(spy.callCount).toBe(1);
     done();

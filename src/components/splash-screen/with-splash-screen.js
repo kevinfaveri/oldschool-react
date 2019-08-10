@@ -9,12 +9,6 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 // Assets
 import Logo from '../../assets/logo.png';
 
-// TODO: Add Tests / Testes Sagas e Reducers também se possível e React Testing Library e verificar se snapshots estão certos
-// TODO: Testar uso de função anonima arrow em componente e ir ver no React DevTools
-// TODO: Ver como utilizar constante de ambiente .env que pegue do proccess
-// TODO: Refactor todos testes em uma pasta de testes
-// TODO: Exportar todas extensões utilizadas pelo VS Code
-// TODO: Fix VS Code Plugin
 const withSplashScreen = (WrappedComponent) => (props) => {
   const [{ isLoading, showClose }, setState] = useState({
     isLoading: true,
