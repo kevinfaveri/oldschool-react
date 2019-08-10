@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-  Row, Col, Input, Icon,
-} from 'antd';
+import { Row, Col, Input, Icon } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
@@ -15,36 +13,48 @@ const INITIAL_STATE = {
 };
 
 export default function Favs() {
-  const [{ modalGameVisible, selectedGame, searchTerm }, setState] = useState(INITIAL_STATE);
+  const [{ modalGameVisible, selectedGame, searchTerm }, setState] = useState(
+    INITIAL_STATE,
+  );
 
   const dispatch = useDispatch();
-  const { favList, isLoadingFavList } = useSelector(state => state.games);
+  const { favList, isLoadingFavList } = useSelector((state) => state.games);
 
   useEffect(() => {
-    const requestFavList = () => dispatch(GamesAction.requestFavList(GAMES_TOTAL));
+    const requestFavList = () =>
+      dispatch(GamesAction.requestFavList(GAMES_TOTAL));
     requestFavList();
     // eslint-disable-next-line
   }, []);
 
   const gameOnClick = useCallback(
     (game) => {
-      setState(prevState => ({ ...prevState, modalGameVisible: true, selectedGame: game }));
+      setState((prevState) => ({
+        ...prevState,
+        modalGameVisible: true,
+        selectedGame: game,
+      }));
     },
     [setState],
   );
 
   const onCancelModal = () => {
-    setState(prevState => ({ ...prevState, modalGameVisible: false, selectedGame: null }));
+    setState((prevState) => ({
+      ...prevState,
+      modalGameVisible: false,
+      selectedGame: null,
+    }));
   };
 
   const searchGame = () => {
-    const searchFavList = () => dispatch(GamesAction.searchFavList(searchTerm, GAMES_TOTAL));
+    const searchFavList = () =>
+      dispatch(GamesAction.searchFavList(searchTerm, GAMES_TOTAL));
     searchFavList();
   };
 
   const onChangeInput = (e) => {
     const inputValue = e.target.value;
-    setState(prevState => ({ ...prevState, searchTerm: inputValue }));
+    setState((prevState) => ({ ...prevState, searchTerm: inputValue }));
   };
 
   const renderModalGame = () => {
@@ -95,4 +105,4 @@ export default function Favs() {
       {renderModalGame()}
     </>
   );
-};
+}

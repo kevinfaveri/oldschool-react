@@ -11,11 +11,11 @@ import Logo from '../../assets/logo.png';
 
 // TODO: Add Tests / Testes Sagas e Reducers também se possível e React Testing Library e verificar se snapshots estão certos
 // TODO: Testar uso de função anonima arrow em componente e ir ver no React DevTools
-// TODO: Mudar readme da master: Boiler project for learning and test new concepts and React updates & tools
-// TODO: Adicionar nova branch: Storybook
-// TODO: Adicionar nova tool: Majestic
 // TODO: Ver como utilizar constante de ambiente .env que pegue do proccess
-const withSplashScreen = WrappedComponent => (props) => {
+// TODO: Refactor todos testes em uma pasta de testes
+// TODO: Exportar todas extensões utilizadas pelo VS Code
+// TODO: Fix VS Code Plugin
+const withSplashScreen = (WrappedComponent) => (props) => {
   const [{ isLoading, showClose }, setState] = useState({
     isLoading: true,
     showClose: false,
@@ -23,12 +23,12 @@ const withSplashScreen = WrappedComponent => (props) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setState(prevState => ({ ...prevState, showClose: true }));
+      setState((prevState) => ({ ...prevState, showClose: true }));
     }, 5000);
   }, []);
 
   const disableSplash = () => {
-    setState(prevState => ({ ...prevState, isLoading: false }));
+    setState((prevState) => ({ ...prevState, isLoading: false }));
   };
 
   if (isLoading) {
@@ -45,7 +45,11 @@ const withSplashScreen = WrappedComponent => (props) => {
         </Row>
         <Row className="text-center">
           <AudioToggle
-            audioArray={['top-gear.mp3', 'super-mario-world.mp3', 'super-mario-kart.mp3']}
+            audioArray={[
+              'top-gear.mp3',
+              'super-mario-world.mp3',
+              'super-mario-kart.mp3',
+            ]}
           />
         </Row>
         <Row className="text-center">

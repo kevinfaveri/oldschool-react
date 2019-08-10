@@ -1,8 +1,4 @@
-import {
-  INIT_LOGOUT,
-  SUCCESS_LOGOUT,
-  FAILURE_LOGOUT,
-} from '../actions/auth';
+import { INIT_LOGOUT, SUCCESS_LOGOUT, FAILURE_LOGOUT } from '../actions/auth';
 
 const INITIAL_STATE = {
   isLoadingLogout: false,

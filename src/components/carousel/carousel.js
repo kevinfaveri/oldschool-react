@@ -1,14 +1,20 @@
-import React, {
-  memo, useEffect, useState, useCallback,
-} from 'react';
+import React, { memo, useEffect, useState, useCallback } from 'react';
 import './carousel.css';
 import { getNextFile } from '../../utils/files';
-import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
+import {
+  validateStringArray,
+  validateNumberInterval,
+} from '../../utils/props-validate';
 
 const Carousel = ({ imageArray, intervalSeconds }) => {
   const [
     {
-      previousImg, previousImgIndex, currentImg, currentImgIndex, nextImg, nextImgIndex,
+      previousImg,
+      previousImgIndex,
+      currentImg,
+      currentImgIndex,
+      nextImg,
+      nextImgIndex,
     },
     setState,
   ] = useState({
@@ -75,8 +81,10 @@ Carousel.defaultProps = {
 };
 
 Carousel.propTypes = {
-  imageArray: (props, propName) => validateStringArray(props, propName, 'image', 3),
-  intervalSeconds: (props, propName) => validateNumberInterval(props, propName, 1, 10),
+  imageArray: (props, propName) =>
+    validateStringArray(props, propName, 'image', 3),
+  intervalSeconds: (props, propName) =>
+    validateNumberInterval(props, propName, 1, 10),
 };
 
 export default memo(Carousel);

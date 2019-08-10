@@ -1,8 +1,6 @@
 import React from 'react';
 // Components
-import {
-  Row, Button, Icon, Divider,
-} from 'antd';
+import { Row, Button, Icon, Divider } from 'antd';
 import { Link } from 'react-router-dom';
 import Carousel from '../components/carousel/carousel';
 
@@ -23,14 +21,24 @@ export default function Home() {
       </Row>
       <Row className="text-center">
         <Link to="/login">
-          <Button className="br" type="primary" size="large" style={{ marginRight: '15px' }}>
+          <Button
+            className="br"
+            type="primary"
+            size="large"
+            style={{ marginRight: '15px' }}
+          >
             <Icon type="login" />
             Login
           </Button>
         </Link>
         <Divider type="vertical" className="divider-primary" />
         <Link to="/register">
-          <Button type="primary" size="large" icon="edit" style={{ marginLeft: '15px' }}>
+          <Button
+            type="primary"
+            size="large"
+            icon="edit"
+            style={{ marginLeft: '15px' }}
+          >
             Register
             <Icon type="edit" theme="filled" />
           </Button>

@@ -39,7 +39,7 @@ describe('LayoutHeader component', () => {
   });
 
   it('should call push method after logout', async (done) => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
 
     const store = mockStore({
       auth: { isLoadingLogout: false },
@@ -68,7 +68,7 @@ describe('LayoutHeader component', () => {
   });
 
   it('should call toggleSider onClick', () => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
 
     const store = mockStore({
       auth: { isLoadingLogout: false },

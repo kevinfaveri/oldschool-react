@@ -12,7 +12,12 @@ jest.mock('shortid', () => ({
 describe('GameList component', () => {
   it('renders correctly when isLoading', () => {
     const wrapper = shallow(
-      <GameList isLoading gamesArray={[]} maxTotalGames={24} gameOnClick={() => {}} />,
+      <GameList
+        isLoading
+        gamesArray={[]}
+        maxTotalGames={24}
+        gameOnClick={() => {}}
+      />,
     );
     expect(wrapper).toMatchSnapshot();
   });
@@ -49,7 +54,12 @@ describe('GameList component', () => {
 
   it("renders correctly when don't has games", () => {
     const wrapper = shallow(
-      <GameList isLoading={false} gamesArray={[]} maxTotalGames={24} gameOnClick={() => {}} />,
+      <GameList
+        isLoading={false}
+        gamesArray={[]}
+        maxTotalGames={24}
+        gameOnClick={() => {}}
+      />,
     );
     expect(wrapper).toMatchSnapshot();
   });

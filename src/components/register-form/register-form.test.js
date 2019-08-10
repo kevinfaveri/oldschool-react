@@ -12,8 +12,8 @@ jest.mock('../../service/auth-service.js', () => ({
 describe('RegisterForm component', () => {
   it('renders correctly', () => {
     const testForm = {
-      getFieldValue: jest.fn(opts => c => c),
-      getFieldDecorator: jest.fn(opts => c => c),
+      getFieldValue: jest.fn((opts) => (c) => c),
+      getFieldDecorator: jest.fn((opts) => (c) => c),
       validateFields: jest.fn(),
     };
     const wrapper = mount(
@@ -25,13 +25,13 @@ describe('RegisterForm component', () => {
   });
 
   it('should handleSubmit and simulate failure on register', async (done) => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
     store.dispatch = spy;
 
     const testForm = {
-      getFieldValue: jest.fn(opts => c => c),
-      getFieldDecorator: jest.fn(opts => jest.fn()),
-      validateFields: jest.fn(callback => callback(true, [])),
+      getFieldValue: jest.fn((opts) => (c) => c),
+      getFieldDecorator: jest.fn((opts) => jest.fn()),
+      validateFields: jest.fn((callback) => callback(true, [])),
     };
 
     const wrapper = mount(
@@ -49,13 +49,13 @@ describe('RegisterForm component', () => {
   });
 
   it('should handleSubmit and simulate success on register', async (done) => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
     store.dispatch = spy;
 
     const testForm = {
-      getFieldValue: jest.fn(opts => c => c),
-      getFieldDecorator: jest.fn(opts => jest.fn()),
-      validateFields: jest.fn(callback => callback(false, [])),
+      getFieldValue: jest.fn((opts) => (c) => c),
+      getFieldDecorator: jest.fn((opts) => jest.fn()),
+      validateFields: jest.fn((callback) => callback(false, [])),
     };
 
     const wrapper = mount(

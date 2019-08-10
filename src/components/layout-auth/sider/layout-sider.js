@@ -26,11 +26,16 @@ export default function LayoutSider() {
     }
   };
 
-  const pathname = useSelector(state => state.router.location.pathname);
-  const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
+  const pathname = useSelector((state) => state.router.location.pathname);
+  const isSiderCollapsed = useSelector((state) => state.sider.isCollapsed);
 
   return (
-    <Layout.Sider collapsedWidth={0} trigger={null} collapsible collapsed={isSiderCollapsed}>
+    <Layout.Sider
+      collapsedWidth={0}
+      trigger={null}
+      collapsible
+      collapsed={isSiderCollapsed}
+    >
       <Menu
         theme="dark"
         mode="inline"

@@ -2,15 +2,20 @@ import React, { memo, useState, useEffect } from 'react';
 import { Modal, Button } from 'antd';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import { isGameFavorited, saveToFavs, removeFromFavs } from '../../service/games-service';
+import {
+  isGameFavorited,
+  saveToFavs,
+  removeFromFavs,
+} from '../../service/games-service';
 
-const ModalGame = ({
-  game, visible, onCancel, onOk,
-}) => {
+const ModalGame = ({ game, visible, onCancel, onOk }) => {
   const [{ favLabel }, setState] = useState({ favLabel: '' });
 
   const revalidateGame = () => {
-    setState(prevState => ({ ...prevState, favLabel: isGameFavorited(game) ? 'UNFAV' : 'FAV' }));
+    setState((prevState) => ({
+      ...prevState,
+      favLabel: isGameFavorited(game) ? 'UNFAV' : 'FAV',
+    }));
   };
 
   useEffect(() => {
@@ -29,11 +34,19 @@ const ModalGame = ({
   };
 
   return (
-    <Modal title={game.Name} visible={visible} onOk={onOk} onCancel={onCancel} footer={null}>
+    <Modal
+      title={game.Name}
+      visible={visible}
+      onOk={onOk}
+      onCancel={onCancel}
+      footer={null}
+    >
       <Button
         type="primary"
         style={{ float: 'right', marginRight: '15px' }}
-        onClick={favLabel === 'UNFAV' ? () => removeFav(game) : () => saveFav(game)}
+        onClick={
+          favLabel === 'UNFAV' ? () => removeFav(game) : () => saveFav(game)
+        }
       >
         {favLabel}
       </Button>

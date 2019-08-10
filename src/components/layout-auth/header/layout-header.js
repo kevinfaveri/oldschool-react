@@ -13,14 +13,16 @@ export default function LayoutHeader() {
   const { Header } = Layout;
   const dispatch = useDispatch();
 
-  const isLoadingLogout = useSelector(state => state.auth.isLoadingLogout);
+  const isLoadingLogout = useSelector((state) => state.auth.isLoadingLogout);
   const initLogout = () => dispatch(AuthActions.initLogout());
 
-  const isSiderCollapsed = useSelector(state => state.sider.isCollapsed);
+  const isSiderCollapsed = useSelector((state) => state.sider.isCollapsed);
   const toggleSider = () => dispatch(SiderActions.toggleSider());
 
   return (
-    <Header style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}>
+    <Header
+      style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}
+    >
       <div className="logo" style={{ float: 'left' }}>
         <Button
           id="toggle-sider"
@@ -50,7 +52,11 @@ export default function LayoutHeader() {
       <div style={{ float: 'right', marginRight: '35px' }}>
         <AudioToggle
           inlineMode
-          audioArray={['top-gear.mp3', 'super-mario-world.mp3', 'super-mario-kart.mp3']}
+          audioArray={[
+            'top-gear.mp3',
+            'super-mario-world.mp3',
+            'super-mario-kart.mp3',
+          ]}
         />
       </div>
     </Header>

@@ -40,11 +40,17 @@ describe('Dashboard page component', () => {
         isLoadingDashboard: false,
         gamesData: {
           total: 2000,
-          list: [{ total: 1000, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
+          list: [
+            { total: 1000, platform: 'SNES' },
+            { total: 1000, platform: 'PSX' },
+          ],
         },
         favsData: {
           total: 1500,
-          list: [{ total: 500, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
+          list: [
+            { total: 500, platform: 'SNES' },
+            { total: 1000, platform: 'PSX' },
+          ],
         },
       },
     });

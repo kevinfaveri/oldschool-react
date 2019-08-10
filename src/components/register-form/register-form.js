@@ -1,7 +1,5 @@
 import React, { memo, useState } from 'react';
-import {
-  Form, Input, Icon, Button,
-} from 'antd';
+import { Form, Input, Icon, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
@@ -24,9 +22,9 @@ const RegisterForm = ({ form }) => {
     });
 
     if (!formValid.err) {
-      setState(prevState => ({ ...prevState, isLoading: true }));
+      setState((prevState) => ({ ...prevState, isLoading: true }));
       await registerUser(formValid.values);
-      setState(prevState => ({ ...prevState, isLoading: false }));
+      setState((prevState) => ({ ...prevState, isLoading: false }));
       dispatch(push('/dashboard'));
     }
   };
@@ -59,7 +57,9 @@ const RegisterForm = ({ form }) => {
   };
 
   const requiredConfigRules = {
-    rules: [{ type: 'string', required: true, message: 'This field is required!' }],
+    rules: [
+      { type: 'string', required: true, message: 'This field is required!' },
+    ],
   };
 
   const emailRules = {
@@ -93,7 +93,12 @@ const RegisterForm = ({ form }) => {
   const { getFieldDecorator } = form;
 
   return (
-    <Form {...formItemLayout} onSubmit={handleSubmit} className="register-form" id="register-form">
+    <Form
+      {...formItemLayout}
+      onSubmit={handleSubmit}
+      className="register-form"
+      id="register-form"
+    >
       <Form.Item label="Name">
         {getFieldDecorator('name', requiredConfigRules)(
           <Input prefix={<Icon type="user" />} placeholder="Name" />,
@@ -101,7 +106,11 @@ const RegisterForm = ({ form }) => {
       </Form.Item>
       <Form.Item label="Username">
         {getFieldDecorator('username', requiredConfigRules)(
-          <Input prefix={<Icon type="user" />} placeholder="Username" autoComplete="username" />,
+          <Input
+            prefix={<Icon type="user" />}
+            placeholder="Username"
+            autoComplete="username"
+          />,
         )}
       </Form.Item>
       <Form.Item label="E-mail">
@@ -153,6 +162,8 @@ RegisterForm.propTypes = {
   }),
 };
 
-const RegisterFormComponent = Form.create({ name: 'register_form' })(RegisterForm);
+const RegisterFormComponent = Form.create({ name: 'register_form' })(
+  RegisterForm,
+);
 
 export default memo(RegisterFormComponent);

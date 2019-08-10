@@ -32,7 +32,7 @@ describe('LayoutSider component', () => {
   });
 
   it('should redirect when click on menu item', () => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
 
     const store = mockStore({
       router: { location: { pathname: '/dashboard' } },

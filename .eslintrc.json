@@ -1,5 +1,4 @@
 {
-  "parser": "babel-eslint",
   "env": {
     "browser": true,
     "jest": true
@@ -18,6 +17,7 @@
     "import/prefer-default-export": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-console": "off",
+    "object-curly-newline": "off",
     "no-param-reassign": "off",
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
     "import/no-extraneous-dependencies": [
@@ -27,6 +27,11 @@
       }
     ],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-props-no-spreading": "warn",
+    "implicit-arrow-linebreak": "warn",
+    "no-confusing-arrow": "warn",
+    "react/jsx-curly-newline": "warn",
+    "no-async-promise-executor": "warn"
   }
 }

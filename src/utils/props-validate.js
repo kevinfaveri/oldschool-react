@@ -1,5 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
-export const validateStringArray = (props, propName, publicFolderName, minSize) => {
+export const validateStringArray = (
+  props,
+  propName,
+  publicFolderName,
+  minSize,
+) => {
   const array = props[propName];
   if (Array.isArray(array)) {
     if (array.length < minSize) {
@@ -10,7 +15,9 @@ export const validateStringArray = (props, propName, publicFolderName, minSize) 
     for (let index = 0; index < array.length; index += 1) {
       const element = array[index];
       if (typeof element[index] !== 'string') {
-        return new Error(`The ${propName} object '${element}' is invalid (not an string)!'`);
+        return new Error(
+          `The ${propName} object '${element}' is invalid (not an string)!'`,
+        );
       }
     }
   } else {

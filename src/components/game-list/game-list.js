@@ -5,13 +5,15 @@ import QueueAnim from 'rc-queue-anim';
 import Shortid from 'shortid';
 import GameCard from '../game-card/game-card';
 
-const GameList = ({
-  isLoading, gamesArray, maxTotalGames, gameOnClick,
-}) => {
+const GameList = ({ isLoading, gamesArray, maxTotalGames, gameOnClick }) => {
   if (isLoading) {
     return (
       <h1 className="text-center">
-        <Spin tip="Loading games..." size="large" style={{ marginTop: '25px' }} />
+        <Spin
+          tip="Loading games..."
+          size="large"
+          style={{ marginTop: '25px' }}
+        />
       </h1>
     );
   }
@@ -22,7 +24,7 @@ const GameList = ({
           Showing a maximum of {maxTotalGames} games...
         </h1>
         <QueueAnim type="bottom" duration={700}>
-          {gamesArray.map(item => (
+          {gamesArray.map((item) => (
             <Col
               span={6}
               style={{

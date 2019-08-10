@@ -14,7 +14,9 @@ describe('Carousel component', () => {
 
   it('should have at least three images', () => {
     const wrapper = mount(<Carousel />);
-    expect(wrapper.getElement().props.imageArray.length).toBeGreaterThanOrEqual(3);
+    expect(wrapper.getElement().props.imageArray.length).toBeGreaterThanOrEqual(
+      3,
+    );
   });
 
   it('the images should exists in public folder', () => {

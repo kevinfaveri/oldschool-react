@@ -6,14 +6,16 @@ import HomeCard from '../components/home-card/home-card';
 import LoginForm from '../components/login-form/login-form';
 
 export default function Login() {
-  const [{ showExpiredAlert }, setState] = useState({ showExpiredAlert: false });
-  const searchString = useSelector(state => state.router.location.search);
+  const [{ showExpiredAlert }, setState] = useState({
+    showExpiredAlert: false,
+  });
+  const searchString = useSelector((state) => state.router.location.search);
 
   const expiredLoginAlert = () => {
-    setState(prevState => ({ ...prevState, showExpiredAlert: false }));
+    setState((prevState) => ({ ...prevState, showExpiredAlert: false }));
     const queryParams = queryString.parse(searchString);
     if (queryParams && queryParams.loginExpired === 'true') {
-      setState(prevState => ({ ...prevState, showExpiredAlert: true }));
+      setState((prevState) => ({ ...prevState, showExpiredAlert: true }));
     }
   };
 

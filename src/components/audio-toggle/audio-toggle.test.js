@@ -14,7 +14,9 @@ describe('AudioToggle component', () => {
 
   it('should have at least one audio', () => {
     const wrapper = mount(<AudioToggle />);
-    expect(wrapper.getElement().props.audioArray.length).toBeGreaterThanOrEqual(1);
+    expect(wrapper.getElement().props.audioArray.length).toBeGreaterThanOrEqual(
+      1,
+    );
   });
 
   it('the audios should exists in public folder', () => {
@@ -64,7 +66,12 @@ describe('AudioToggle component', () => {
   it('should switch btn icon onClick', () => {
     const wrapper = mount(<AudioToggle />);
 
-    expect(wrapper.find('#audio-btn').at(0).props().icon).toBe('caret-right');
+    expect(
+      wrapper
+        .find('#audio-btn')
+        .at(0)
+        .props().icon,
+    ).toBe('caret-right');
 
     wrapper
       .find('#audio-btn')
@@ -74,6 +81,11 @@ describe('AudioToggle component', () => {
 
     wrapper.update();
 
-    expect(wrapper.find('#audio-btn').at(0).props().icon).toBe('pause');
+    expect(
+      wrapper
+        .find('#audio-btn')
+        .at(0)
+        .props().icon,
+    ).toBe('pause');
   });
 });

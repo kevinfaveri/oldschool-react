@@ -1,9 +1,10 @@
-import React, {
-  memo, useState, useEffect, useCallback, useMemo,
-} from 'react';
+import React, { memo, useState, useEffect, useCallback, useMemo } from 'react';
 import { Button, Icon } from 'antd';
 import PropTypes from 'prop-types';
-import { validateStringArray, validateNumberInterval } from '../../utils/props-validate';
+import {
+  validateStringArray,
+  validateNumberInterval,
+} from '../../utils/props-validate';
 
 const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
   const randomAudio = audioArray[0];
@@ -27,12 +28,12 @@ const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
 
   const play = useCallback(() => {
     audio.play();
-    setState(prevState => ({ ...prevState, playing: true }));
+    setState((prevState) => ({ ...prevState, playing: true }));
   }, [audio]);
 
   const pause = useCallback(() => {
     audio.pause();
-    setState(prevState => ({ ...prevState, playing: false }));
+    setState((prevState) => ({ ...prevState, playing: false }));
   }, [audio]);
 
   const graduallyPause = () => {
@@ -66,7 +67,11 @@ const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
     audio.src = `${process.env.PUBLIC_URL}/audio/${newAudio}`;
     audio.load();
     audio.play();
-    setState(prevState => ({ ...prevState, currentlyPlaying: newAudio, currentIndex: newIndex }));
+    setState((prevState) => ({
+      ...prevState,
+      currentlyPlaying: newAudio,
+      currentIndex: newIndex,
+    }));
   };
 
   const previousAudio = () => {
@@ -134,8 +139,10 @@ AudioToggle.defaultProps = {
 };
 
 AudioToggle.propTypes = {
-  audioArray: (props, propName) => validateStringArray(props, propName, 'audio', 1),
-  gradualSpeed: (props, propName) => validateNumberInterval(props, propName, 3, 3),
+  audioArray: (props, propName) =>
+    validateStringArray(props, propName, 'audio', 1),
+  gradualSpeed: (props, propName) =>
+    validateNumberInterval(props, propName, 3, 3),
   inlineMode: PropTypes.bool,
 };
 

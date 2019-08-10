@@ -16,7 +16,7 @@ export const requestDashboardData = () => ({
   type: REQUEST_DASHBOARD_DATA,
 });
 
-export const requestGameList = sizeLimit => ({
+export const requestGameList = (sizeLimit) => ({
   type: REQUEST_GAME_LIST,
   payload: { sizeLimit },
 });
@@ -26,7 +26,7 @@ export const searchGameList = (searchTerm, sizeLimit) => ({
   payload: { searchTerm, sizeLimit },
 });
 
-export const requestFavList = sizeLimit => ({
+export const requestFavList = (sizeLimit) => ({
   type: REQUEST_FAV_LIST,
   payload: { sizeLimit },
 });

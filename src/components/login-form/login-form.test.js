@@ -26,7 +26,7 @@ jest.mock('../../service/auth-service.js', () => ({
 describe('LoginForm component', () => {
   function rendersCorrectly() {
     const testForm = {
-      getFieldDecorator: jest.fn(opts => c => c),
+      getFieldDecorator: jest.fn((opts) => (c) => c),
       validateFields: jest.fn(),
     };
     let wrapper = mount(
@@ -48,12 +48,12 @@ describe('LoginForm component', () => {
   });
 
   it('should handleSubmit and simulate success on login, redirect to dashboard', async (done) => {
-    const spy = sinon.spy(action => action);
+    const spy = sinon.spy((action) => action);
     store.dispatch = spy;
 
     const testForm = {
-      getFieldDecorator: jest.fn(opts => jest.fn()),
-      validateFields: jest.fn(callback => callback(false, [])),
+      getFieldDecorator: jest.fn((opts) => jest.fn()),
+      validateFields: jest.fn((callback) => callback(false, [])),
     };
 
     const wrapper = mount(
@@ -75,8 +75,8 @@ describe('LoginForm component', () => {
 
   it('should handleSubmit and simulate error on login, then show message', async (done) => {
     const testForm = {
-      getFieldDecorator: jest.fn(opts => jest.fn()),
-      validateFields: jest.fn(callback => callback(false, [])),
+      getFieldDecorator: jest.fn((opts) => jest.fn()),
+      validateFields: jest.fn((callback) => callback(false, [])),
     };
     const wrapper = mount(
       <MemoryRouter>

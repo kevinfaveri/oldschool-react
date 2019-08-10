@@ -8,10 +8,13 @@ import * as GamesAction from '../store/actions/games';
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const { gamesData, favsData, isLoadingDashboard } = useSelector(state => state.games);
+  const { gamesData, favsData, isLoadingDashboard } = useSelector(
+    (state) => state.games,
+  );
 
   useEffect(() => {
-    const requestDashboardData = () => dispatch(GamesAction.requestDashboardData());
+    const requestDashboardData = () =>
+      dispatch(GamesAction.requestDashboardData());
     requestDashboardData();
     // eslint-disable-next-line
   }, []);
@@ -20,14 +23,18 @@ export default function Dashboard() {
     if (isLoadingDashboard) {
       return (
         <h1 className="text-center">
-          <Spin tip="Loading, please wait..." size="large" style={{ marginTop: '2vh' }} />
+          <Spin
+            tip="Loading, please wait..."
+            size="large"
+            style={{ marginTop: '2vh' }}
+          />
         </h1>
       );
     }
     return (
       <>
         <h3 className="text-primary">Total: {data.total}</h3>
-        {data.list.map(gameList => (
+        {data.list.map((gameList) => (
           <h3 className="text-primary" key={Shortid.generate()}>
             {gameList.platform}: {gameList.total}
           </h3>
@@ -40,7 +47,10 @@ export default function Dashboard() {
     <>
       <Row gutter={24}>
         <Col span={22} offset={1}>
-          <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+          <h1
+            className="text-center text-primary text-big"
+            style={{ marginTop: '2vh' }}
+          >
             Welcome to the Old School Game Library
           </h1>
           <Carousel />
@@ -48,7 +58,10 @@ export default function Dashboard() {
       </Row>
       <Row gutter={24}>
         <Col span={8} offset={2}>
-          <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+          <h1
+            className="text-center text-primary text-big"
+            style={{ marginTop: '2vh' }}
+          >
             <Link to="/library">Library</Link>
           </h1>
           <div className="clean-card" style={{ padding: '15px' }}>
@@ -56,7 +69,10 @@ export default function Dashboard() {
           </div>
         </Col>
         <Col span={8} offset={2}>
-          <h1 className="text-center text-primary text-big" style={{ marginTop: '2vh' }}>
+          <h1
+            className="text-center text-primary text-big"
+            style={{ marginTop: '2vh' }}
+          >
             <Link to="/favs">Your Favs</Link>
           </h1>
           <div className="clean-card" style={{ padding: '15px' }}>
@@ -66,4 +82,4 @@ export default function Dashboard() {
       </Row>
     </>
   );
-};
+}

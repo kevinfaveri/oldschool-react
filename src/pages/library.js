@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import {
-  Row, Col, Input, Icon,
-} from 'antd';
+import { Row, Col, Input, Icon } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
@@ -15,36 +13,48 @@ const INITIAL_STATE = {
 };
 
 export default function Library() {
-  const [{ modalGameVisible, selectedGame, searchTerm }, setState] = useState(INITIAL_STATE);
+  const [{ modalGameVisible, selectedGame, searchTerm }, setState] = useState(
+    INITIAL_STATE,
+  );
 
   const dispatch = useDispatch();
-  const { gameList, isLoadingGameList } = useSelector(state => state.games);
+  const { gameList, isLoadingGameList } = useSelector((state) => state.games);
 
   useEffect(() => {
-    const requestGameList = () => dispatch(GamesAction.requestGameList(GAMES_TOTAL));
+    const requestGameList = () =>
+      dispatch(GamesAction.requestGameList(GAMES_TOTAL));
     requestGameList();
     // eslint-disable-next-line
   }, []);
 
   const gameOnClick = useCallback(
     (game) => {
-      setState(prevState => ({ ...prevState, modalGameVisible: true, selectedGame: game }));
+      setState((prevState) => ({
+        ...prevState,
+        modalGameVisible: true,
+        selectedGame: game,
+      }));
     },
     [setState],
   );
 
   const onCancelModal = () => {
-    setState(prevState => ({ ...prevState, modalGameVisible: false, selectedGame: null }));
+    setState((prevState) => ({
+      ...prevState,
+      modalGameVisible: false,
+      selectedGame: null,
+    }));
   };
 
   const searchGame = () => {
-    const searchGameList = () => dispatch(GamesAction.searchGameList(searchTerm, GAMES_TOTAL));
+    const searchGameList = () =>
+      dispatch(GamesAction.searchGameList(searchTerm, GAMES_TOTAL));
     searchGameList();
   };
 
   const onChangeInput = (e) => {
     const inputValue = e.target.value;
-    setState(prevState => ({ ...prevState, searchTerm: inputValue }));
+    setState((prevState) => ({ ...prevState, searchTerm: inputValue }));
   };
 
   const renderModalGame = () => {
@@ -95,4 +105,4 @@ export default function Library() {
       {renderModalGame()}
     </>
   );
-};
+}

@@ -1,6 +1,4 @@
-import {
-  all, put, call, takeLatest,
-} from 'redux-saga/effects';
+import { all, put, call, takeLatest } from 'redux-saga/effects';
 import {
   getGamesData,
   getFavsData,
@@ -23,16 +21,22 @@ import {
   FAILURE_FAV_LIST,
 } from '../actions/games';
 
-function* requestDashboardDataSaga() {
+export function* requestDashboardData() {
   try {
-    const [gamesData, favsData] = yield all([call(getGamesData), call(getFavsData)]);
-    yield put({ type: SUCCESS_DASHBOARD_DATA, payload: { gamesData, favsData } });
+    const [gamesData, favsData] = yield all([
+      call(getGamesData),
+      call(getFavsData),
+    ]);
+    yield put({
+      type: SUCCESS_DASHBOARD_DATA,
+      payload: { gamesData, favsData },
+    });
   } catch (err) {
     yield put({ type: FAILURE_DASHBOARD_DATA });
   }
 }
 
-function* requestGameListSaga(action) {
+export function* requestGameList(action) {
   try {
     const gameList = yield call(getAllGames, action.payload.sizeLimit);
     yield put({ type: SUCCESS_GAME_LIST, payload: { gameList } });
@@ -41,7 +45,7 @@ function* requestGameListSaga(action) {
   }
 }
 
-function* searchGameList(action) {
+export function* searchGameList(action) {
   try {
     const gameList = yield call(
       searchInAllGames,
@@ -56,13 +60,13 @@ function* searchGameList(action) {
 
 function* gameListSaga(action) {
   if (action.type === REQUEST_GAME_LIST) {
-    yield call(requestGameListSaga, action);
+    yield call(requestGameList, action);
   } else {
     yield call(searchGameList, action);
   }
 }
 
-function* requestFavListSaga(action) {
+export function* requestFavList(action) {
   try {
     const favList = yield call(getAllFavs, action.payload.sizeLimit);
     yield put({ type: SUCCESS_FAV_LIST, payload: { favList } });
@@ -71,9 +75,13 @@ function* requestFavListSaga(action) {
   }
 }
 
-function* searchFavList(action) {
+export function* searchFavList(action) {
   try {
-    const favList = yield call(searchInFavs, action.payload.searchTerm, action.payload.sizeLimit);
+    const favList = yield call(
+      searchInFavs,
+      action.payload.searchTerm,
+      action.payload.sizeLimit,
+    );
     yield put({ type: SUCCESS_FAV_LIST, payload: { favList } });
   } catch (err) {
     yield put({ type: FAILURE_FAV_LIST });
@@ -82,7 +90,7 @@ function* searchFavList(action) {
 
 function* favListSaga(action) {
   if (action.type === REQUEST_FAV_LIST) {
-    yield call(requestFavListSaga, action);
+    yield call(requestFavList, action);
   } else {
     yield call(searchFavList, action);
   }
@@ -90,7 +98,7 @@ function* favListSaga(action) {
 
 export default function* root() {
   yield all([
-    takeLatest(REQUEST_DASHBOARD_DATA, requestDashboardDataSaga),
+    takeLatest(REQUEST_DASHBOARD_DATA, requestDashboardData),
     takeLatest([REQUEST_GAME_LIST, SEARCH_GAME_LIST], gameListSaga),
     takeLatest([REQUEST_FAV_LIST, SEARCH_FAV_LIST], favListSaga),
   ]);
