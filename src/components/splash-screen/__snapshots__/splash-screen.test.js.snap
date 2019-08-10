@@ -3,10 +3,10 @@
 exports[`SplashScreen component renders correctly 1`] = `
 <div
   className="splash-screen"
+  id="splash-screen"
 >
-  <Row
-    className="text-center"
-    gutter={0}
+  <div
+    className="ant-row text-center"
   >
     <div
       className="header-logo"
@@ -16,51 +16,177 @@ exports[`SplashScreen component renders correctly 1`] = `
         src="logo.png"
       />
        
-      <Spin
-        size="large"
-        spinning={true}
-        wrapperClassName=""
-      />
+      <div
+        className="ant-spin ant-spin-lg ant-spin-spinning"
+      >
+        <span
+          className="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+        </span>
+      </div>
     </div>
     <div
       className="header-description"
     >
       The best game library app!
     </div>
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+  </div>
+  <div
+    className="ant-row text-center"
   >
-    <Memo(Carousel) />
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+    <div
+      id="animated-carousel"
+    >
+      <img
+        alt="Random Game"
+        data-index={0}
+        id="previous-image"
+        src="/image/super-mario-kart.png"
+      />
+      <img
+        alt="Random Game"
+        data-index={1}
+        id="current-image"
+        src="/image/super-mario-world.jpg"
+      />
+      <img
+        alt="Random Game"
+        data-index={2}
+        id="next-image"
+        src="/image/top-gear.jpg"
+      />
+    </div>
+  </div>
+  <div
+    className="ant-row text-center"
   >
-    <Memo(AudioToggle)
-      audioArray={
-        Array [
-          "top-gear.mp3",
-          "super-mario-world.mp3",
-          "super-mario-kart.mp3",
-        ]
-      }
-    />
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+    <div
+      id="audio-toggle"
+    >
+      <h4
+        className="text-center text-primary"
+        style={Object {}}
+      >
+        Playing: 
+        top-gear.mp3
+      </h4>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+        type="button"
+      >
+        <i
+          aria-label="icon: backward"
+          className="anticon anticon-backward"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="backward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-backward"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M485.6 249.9L198.2 498c-8.3 7.1-8.3 20.8 0 27.9l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9zm320 0L518.2 498a18.6 18.6 0 0 0-6.2 14c0 5.2 2.1 10.4 6.2 14l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9z"
+              key="svg-backward-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+        id="audio-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          aria-label="icon: caret-right"
+          className="anticon anticon-caret-right"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="caret-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-caret-right"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
+              key="svg-caret-right-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="button"
+      >
+        <i
+          aria-label="icon: forward"
+          className="anticon anticon-forward"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="forward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-forward"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M825.8 498L538.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L825.8 526c8.3-7.2 8.3-20.8 0-28zm-320 0L218.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L505.8 526c4.1-3.6 6.2-8.8 6.2-14 0-5.2-2.1-10.4-6.2-14z"
+              key="svg-forward-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+  </div>
+  <div
+    className="ant-row text-center"
   >
     <div
       className="header-description"
     >
       Meanwhile, please enjoy some nostalgia (turn on sound)!
     </div>
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+  </div>
+  <div
+    className="ant-row text-center"
   />
 </div>
 `;
@@ -68,10 +194,10 @@ exports[`SplashScreen component renders correctly 1`] = `
 exports[`SplashScreen component renders correctly 2`] = `
 <div
   className="splash-screen"
+  id="splash-screen"
 >
-  <Row
-    className="text-center"
-    gutter={0}
+  <div
+    className="ant-row text-center"
   >
     <div
       className="header-logo"
@@ -81,51 +207,192 @@ exports[`SplashScreen component renders correctly 2`] = `
         src="logo.png"
       />
        
-      <Spin
-        size="large"
-        spinning={true}
-        wrapperClassName=""
-      />
+      <div
+        className="ant-spin ant-spin-lg ant-spin-spinning"
+      >
+        <span
+          className="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+          <i
+            className="ant-spin-dot-item"
+          />
+        </span>
+      </div>
     </div>
     <div
       className="header-description"
     >
       The best game library app!
     </div>
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+  </div>
+  <div
+    className="ant-row text-center"
   >
-    <Memo(Carousel) />
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+    <div
+      id="animated-carousel"
+    >
+      <img
+        alt="Random Game"
+        data-index={1}
+        id="previous-image"
+        src="/image/super-mario-world.jpg"
+      />
+      <img
+        alt="Random Game"
+        data-index={2}
+        id="current-image"
+        src="/image/top-gear.jpg"
+      />
+      <img
+        alt="Random Game"
+        data-index={0}
+        id="next-image"
+        src="/image/super-mario-kart.png"
+      />
+    </div>
+  </div>
+  <div
+    className="ant-row text-center"
   >
-    <Memo(AudioToggle)
-      audioArray={
-        Array [
-          "top-gear.mp3",
-          "super-mario-world.mp3",
-          "super-mario-kart.mp3",
-        ]
-      }
-    />
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+    <div
+      id="audio-toggle"
+    >
+      <h4
+        className="text-center text-primary"
+        style={Object {}}
+      >
+        Playing: 
+        top-gear.mp3
+      </h4>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginRight": "10px",
+          }
+        }
+        type="button"
+      >
+        <i
+          aria-label="icon: backward"
+          className="anticon anticon-backward"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="backward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-backward"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M485.6 249.9L198.2 498c-8.3 7.1-8.3 20.8 0 27.9l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9zm320 0L518.2 498a18.6 18.6 0 0 0-6.2 14c0 5.2 2.1 10.4 6.2 14l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9z"
+              key="svg-backward-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+        id="audio-btn"
+        onClick={[Function]}
+        type="button"
+      >
+        <i
+          aria-label="icon: caret-right"
+          className="anticon anticon-caret-right"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="caret-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-caret-right"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
+              key="svg-caret-right-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+      <button
+        className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+        onClick={[Function]}
+        style={
+          Object {
+            "marginLeft": "10px",
+          }
+        }
+        type="button"
+      >
+        <i
+          aria-label="icon: forward"
+          className="anticon anticon-forward"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="forward"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            key="svg-forward"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M825.8 498L538.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L825.8 526c8.3-7.2 8.3-20.8 0-28zm-320 0L218.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L505.8 526c4.1-3.6 6.2-8.8 6.2-14 0-5.2-2.1-10.4-6.2-14z"
+              key="svg-forward-svg-0"
+            />
+          </svg>
+        </i>
+      </button>
+    </div>
+  </div>
+  <div
+    className="ant-row text-center"
   >
     <div
       className="header-description"
     >
       Meanwhile, please enjoy some nostalgia (turn on sound)!
     </div>
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
-  />
+  </div>
+  <div
+    className="ant-row text-center"
+  >
+    <button
+      className="ant-btn ant-btn-primary"
+      id="close-splash"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        key=".0"
+      >
+        Click to Continue
+      </span>
+    </button>
+  </div>
 </div>
 `;
+
+exports[`SplashScreen component renders correctly 3`] = `""`;

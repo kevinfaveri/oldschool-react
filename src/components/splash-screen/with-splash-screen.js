@@ -10,6 +10,11 @@ import AudioToggle from '../audio-toggle/audio-toggle';
 import Logo from '../../assets/logo.png';
 
 // TODO: Add Tests / Testes Sagas e Reducers também se possível e React Testing Library e verificar se snapshots estão certos
+// TODO: Testar uso de função anonima arrow em componente e ir ver no React DevTools
+// TODO: Mudar readme da master: Boiler project for learning and test new concepts and React updates & tools
+// TODO: Adicionar nova branch: Storybook
+// TODO: Adicionar nova tool: Majestic
+// TODO: Ver como utilizar constante de ambiente .env que pegue do proccess
 const withSplashScreen = WrappedComponent => (props) => {
   const [{ isLoading, showClose }, setState] = useState({
     isLoading: true,
@@ -28,7 +33,7 @@ const withSplashScreen = WrappedComponent => (props) => {
 
   if (isLoading) {
     return (
-      <div className="splash-screen">
+      <div className="splash-screen" id="splash-screen">
         <Row className="text-center">
           <div className="header-logo">
             <img src={Logo} alt="Logo" /> <Spin size="large" />

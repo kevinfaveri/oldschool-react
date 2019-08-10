@@ -30,10 +30,14 @@ describe('Carousel component', () => {
     const clock = sinon.useFakeTimers();
     const wrapper = mount(<Carousel intervalSeconds={1} />);
     expect(wrapper.find('#previous-image').prop('data-index')).toBe(0);
-    clock.tick(1001);
+    act(() => {
+      clock.tick(1001);
+    });
     wrapper.update();
     expect(wrapper.find('#previous-image').prop('data-index')).toBe(1);
-    clock.tick(1001);
+    act(() => {
+      clock.tick(1001);
+    });
     wrapper.update();
     expect(wrapper.find('#previous-image').prop('data-index')).toBe(2);
   });

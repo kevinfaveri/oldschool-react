@@ -1,68 +1,97 @@
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { MemoryRouter } from 'react-router-dom';
 import LayoutHeader from './layout-header';
+
+const mockStore = configureStore();
 
 describe('LayoutHeader component', () => {
   it('renders correctly sider collapsed', () => {
-    const spy = sinon.spy();
-    const historyMock = { push: spy };
-    const spyToggleSider = sinon.spy();
-    const wrapper = shallow(
-      <LayoutHeader.WrappedComponent
-        history={historyMock}
-        siderCollapsed
-        toggleSider={spyToggleSider}
-      />,
+    const store = mockStore({
+      auth: { isLoadingLogout: false },
+      sider: { isCollapsed: true },
+    });
+
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LayoutHeader />
+        </Provider>
+      </MemoryRouter>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('LayoutHeader')).toMatchSnapshot();
   });
 
   it('renders correctly sider uncollapsed', () => {
-    const spy = sinon.spy();
-    const historyMock = { push: spy };
-    const spyToggleSider = sinon.spy();
-    const wrapper = shallow(
-      <LayoutHeader.WrappedComponent
-        history={historyMock}
-        siderCollapsed={false}
-        toggleSider={spyToggleSider}
-      />,
+    const store = mockStore({
+      auth: { isLoadingLogout: false },
+      sider: { isCollapsed: false },
+    });
+
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LayoutHeader />
+        </Provider>
+      </MemoryRouter>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('LayoutHeader')).toMatchSnapshot();
   });
 
-  it('should setState of loadingLogout on logout-btn Click', async (done) => {
-    const spy = sinon.spy();
-    const historyMock = { push: spy };
-    const spyToggleSider = sinon.spy();
-    const wrapper = shallow(
-      <LayoutHeader.WrappedComponent
-        history={historyMock}
-        siderCollapsed
-        toggleSider={spyToggleSider}
-      />,
+  it('should call push method after logout', async (done) => {
+    const spy = sinon.spy(action => action);
+
+    const store = mockStore({
+      auth: { isLoadingLogout: false },
+      sider: { isCollapsed: true },
+    });
+
+    store.dispatch = spy;
+
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LayoutHeader />
+        </Provider>
+      </MemoryRouter>,
     );
 
-    wrapper.setState({ loadingLogout: false });
+    await wrapper
+      .find('#logout-btn')
+      .at(1)
+      .props()
+      .onClick();
 
-    await wrapper.instance().logout();
-    expect(spy.calledOnce).toBe(true);
-    expect(spy.args[0][0]).toBe('/');
-    expect(wrapper.state().loadingLogout).toBe(false);
+    expect(spy.args[0][0].type).toBe('INIT_LOGOUT');
+    expect(spy.callCount).toBe(1);
     done();
   });
 
-  it('should work call method toggleSider', () => {
-    const spy = sinon.spy();
-    const historyMock = { push: spy };
-    const spyToggleSider = sinon.spy();
-    const wrapper = shallow(
-      <LayoutHeader.WrappedComponent
-        history={historyMock}
-        siderCollapsed
-        toggleSider={spyToggleSider}
-      />,
+  it('should call toggleSider onClick', () => {
+    const spy = sinon.spy(action => action);
+
+    const store = mockStore({
+      auth: { isLoadingLogout: false },
+      sider: { isCollapsed: true },
+    });
+
+    store.dispatch = spy;
+
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <LayoutHeader />
+        </Provider>
+      </MemoryRouter>,
     );
 
-    wrapper.find('#toggle-sider').simulate('click');
-    expect(spyToggleSider.calledOnce).toBe(true);
+    wrapper
+      .find('#toggle-sider')
+      .at(1)
+      .props()
+      .onClick();
+
+    expect(spy.args[0][0].type).toBe('TOGGLE_SIDER');
+    expect(spy.callCount).toBe(1);
   });
 });

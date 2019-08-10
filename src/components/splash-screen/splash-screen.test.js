@@ -9,20 +9,40 @@ describe('SplashScreen component', () => {
   it('renders correctly', () => {
     const clock = sinon.useFakeTimers();
     const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = shallow(<SplashScreenComponent />);
+    const wrapper = mount(<SplashScreenComponent />);
     expect(wrapper).toMatchSnapshot();
-    clock.tick(5000);
+    act(() => {
+      clock.tick(5001);
+    });
+    wrapper.update();
+    expect(wrapper).toMatchSnapshot();
+    act(() => {
+      wrapper
+        .find('#close-splash')
+        .at(1)
+        .props()
+        .onClick();
+    });
+    wrapper.update();
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should setState loading = false after 5 seconds mounted', () => {
+  it('should hide splash onClick', () => {
     const clock = sinon.useFakeTimers();
     const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = shallow(<SplashScreenComponent />);
-    wrapper.setState({ isLoading: true });
-    expect(wrapper.state().isLoading).toBe(true);
-    clock.tick(5000);
-    wrapper.find('#close-splash').simulate('click');
-    expect(wrapper.state().isLoading).toBe(false);
+    const wrapper = mount(<SplashScreenComponent />);
+    act(() => {
+      clock.tick(5001);
+    });
+    wrapper.update();
+    act(() => {
+      wrapper
+        .find('#close-splash')
+        .at(1)
+        .props()
+        .onClick();
+    });
+    wrapper.update();
+    expect(wrapper.find('#splash-screen').exists()).toBe(false);
   });
 });

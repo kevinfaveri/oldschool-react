@@ -1,4 +1,9 @@
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
+import { MemoryRouter } from 'react-router-dom';
 import Dashboard from './dashboard';
+
+const mockStore = configureStore();
 
 jest.mock('shortid', () => ({
   ...jest.requireActual('shortid'),
@@ -12,36 +17,45 @@ jest.mock('shortid', () => ({
 
 describe('Dashboard page component', () => {
   it('renders correctly if game list is loading', () => {
-    const wrapper = shallow(
-      <Dashboard.WrappedComponent
-        isLoadingData
-        gamesData={{}}
-        favsData={{}}
-        requestDashboardData={() => {}}
-      />,
-    );
-    wrapper.setState({
-      isLoading: true,
+    const store = mockStore({
+      games: {
+        isLoadingDashboard: true,
+        gamesData: { total: 0, list: [] },
+        favsData: { total: 0, list: [] },
+      },
     });
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <Dashboard />
+        </Provider>
+      </MemoryRouter>,
+    );
+    expect(wrapper.find('Dashboard')).toMatchSnapshot();
   });
 
   it('renders correctly if has finished loading', () => {
-    const wrapper = shallow(
-      <Dashboard.WrappedComponent
-        isLoadingData={false}
-        gamesData={{
+    const store = mockStore({
+      games: {
+        isLoadingDashboard: false,
+        gamesData: {
           total: 2000,
           list: [{ total: 1000, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
-        }}
-        favsData={{
+        },
+        favsData: {
           total: 1500,
           list: [{ total: 500, platform: 'SNES' }, { total: 1000, platform: 'PSX' }],
-        }}
-        requestDashboardData={() => {}}
-      />,
+        },
+      },
+    });
+
+    const wrapper = mount(
+      <MemoryRouter>
+        <Provider store={store}>
+          <Dashboard />
+        </Provider>
+      </MemoryRouter>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('Dashboard')).toMatchSnapshot();
   });
 });

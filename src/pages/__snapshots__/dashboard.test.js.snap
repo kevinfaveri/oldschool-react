@@ -1,13 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard page component renders correctly if game list is loading 1`] = `
-<LayoutAuth>
-  <Row
-    gutter={24}
+Array [
+  <div
+    className="ant-row"
+    style={
+      Object {
+        "marginLeft": -12,
+        "marginRight": -12,
+      }
+    }
   >
-    <Col
-      offset={1}
-      span={22}
+    <div
+      className="ant-col ant-col-22 ant-col-offset-1"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -19,24 +30,47 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
       >
         Welcome to the Old School Game Library
       </h1>
-      <Carousel
-        imageArray={
-          Array [
-            "super-mario-kart.png",
-            "super-mario-world.jpg",
-            "top-gear.jpg",
-          ]
-        }
-        intervalSeconds={5}
-      />
-    </Col>
-  </Row>
-  <Row
-    gutter={24}
+      <div
+        id="animated-carousel"
+      >
+        <img
+          alt="Random Game"
+          data-index={0}
+          id="previous-image"
+          src="/image/super-mario-kart.png"
+        />
+        <img
+          alt="Random Game"
+          data-index={1}
+          id="current-image"
+          src="/image/super-mario-world.jpg"
+        />
+        <img
+          alt="Random Game"
+          data-index={2}
+          id="next-image"
+          src="/image/top-gear.jpg"
+        />
+      </div>
+    </div>
+  </div>,
+  <div
+    className="ant-row"
+    style={
+      Object {
+        "marginLeft": -12,
+        "marginRight": -12,
+      }
+    }
   >
-    <Col
-      offset={2}
-      span={8}
+    <div
+      className="ant-col ant-col-8 ant-col-offset-2"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -46,11 +80,12 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
           }
         }
       >
-        <Link
-          to="/library"
+        <a
+          href="/library"
+          onClick={[Function]}
         >
           Library
-        </Link>
+        </a>
       </h1>
       <div
         className="clean-card"
@@ -63,23 +98,47 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
         <h1
           className="text-center"
         >
-          <Spin
-            size="large"
-            spinning={true}
+          <div
+            className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
             style={
               Object {
                 "marginTop": "2vh",
               }
             }
-            tip="Loading, please wait..."
-            wrapperClassName=""
-          />
+          >
+            <span
+              className="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              className="ant-spin-text"
+            >
+              Loading, please wait...
+            </div>
+          </div>
         </h1>
       </div>
-    </Col>
-    <Col
-      offset={2}
-      span={8}
+    </div>
+    <div
+      className="ant-col ant-col-8 ant-col-offset-2"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -89,11 +148,12 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
           }
         }
       >
-        <Link
-          to="/favs"
+        <a
+          href="/favs"
+          onClick={[Function]}
         >
           Your Favs
-        </Link>
+        </a>
       </h1>
       <div
         className="clean-card"
@@ -106,32 +166,62 @@ exports[`Dashboard page component renders correctly if game list is loading 1`] 
         <h1
           className="text-center"
         >
-          <Spin
-            size="large"
-            spinning={true}
+          <div
+            className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
             style={
               Object {
                 "marginTop": "2vh",
               }
             }
-            tip="Loading, please wait..."
-            wrapperClassName=""
-          />
+          >
+            <span
+              className="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              className="ant-spin-text"
+            >
+              Loading, please wait...
+            </div>
+          </div>
         </h1>
       </div>
-    </Col>
-  </Row>
-</LayoutAuth>
+    </div>
+  </div>,
+]
 `;
 
 exports[`Dashboard page component renders correctly if has finished loading 1`] = `
-<LayoutAuth>
-  <Row
-    gutter={24}
+Array [
+  <div
+    className="ant-row"
+    style={
+      Object {
+        "marginLeft": -12,
+        "marginRight": -12,
+      }
+    }
   >
-    <Col
-      offset={1}
-      span={22}
+    <div
+      className="ant-col ant-col-22 ant-col-offset-1"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -143,24 +233,47 @@ exports[`Dashboard page component renders correctly if has finished loading 1`] 
       >
         Welcome to the Old School Game Library
       </h1>
-      <Carousel
-        imageArray={
-          Array [
-            "super-mario-kart.png",
-            "super-mario-world.jpg",
-            "top-gear.jpg",
-          ]
-        }
-        intervalSeconds={5}
-      />
-    </Col>
-  </Row>
-  <Row
-    gutter={24}
+      <div
+        id="animated-carousel"
+      >
+        <img
+          alt="Random Game"
+          data-index={0}
+          id="previous-image"
+          src="/image/super-mario-kart.png"
+        />
+        <img
+          alt="Random Game"
+          data-index={1}
+          id="current-image"
+          src="/image/super-mario-world.jpg"
+        />
+        <img
+          alt="Random Game"
+          data-index={2}
+          id="next-image"
+          src="/image/top-gear.jpg"
+        />
+      </div>
+    </div>
+  </div>,
+  <div
+    className="ant-row"
+    style={
+      Object {
+        "marginLeft": -12,
+        "marginRight": -12,
+      }
+    }
   >
-    <Col
-      offset={2}
-      span={8}
+    <div
+      className="ant-col ant-col-8 ant-col-offset-2"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -170,11 +283,12 @@ exports[`Dashboard page component renders correctly if has finished loading 1`] 
           }
         }
       >
-        <Link
-          to="/library"
+        <a
+          href="/library"
+          onClick={[Function]}
         >
           Library
-        </Link>
+        </a>
       </h1>
       <div
         className="clean-card"
@@ -207,10 +321,15 @@ exports[`Dashboard page component renders correctly if has finished loading 1`] 
           1000
         </h3>
       </div>
-    </Col>
-    <Col
-      offset={2}
-      span={8}
+    </div>
+    <div
+      className="ant-col ant-col-8 ant-col-offset-2"
+      style={
+        Object {
+          "paddingLeft": 12,
+          "paddingRight": 12,
+        }
+      }
     >
       <h1
         className="text-center text-primary text-big"
@@ -220,11 +339,12 @@ exports[`Dashboard page component renders correctly if has finished loading 1`] 
           }
         }
       >
-        <Link
-          to="/favs"
+        <a
+          href="/favs"
+          onClick={[Function]}
         >
           Your Favs
-        </Link>
+        </a>
       </h1>
       <div
         className="clean-card"
@@ -257,7 +377,7 @@ exports[`Dashboard page component renders correctly if has finished loading 1`] 
           1000
         </h3>
       </div>
-    </Col>
-  </Row>
-</LayoutAuth>
+    </div>
+  </div>,
+]
 `;
