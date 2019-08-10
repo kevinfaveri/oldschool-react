@@ -1,4 +1,4 @@
-This project will be a fully featured React ecossystem boilerplate with the theme: Old Scholl Game Library.
+This project will be a fully featured React boilerplate with the theme: Old Scholl Game Library.
 
 ## Branchs
 
@@ -10,6 +10,14 @@ This project will be a fully featured React ecossystem boilerplate with the them
 
 - redux-saga branch: basic-redux branch + Redux Saga added to manage side effects.
 
-- hooks branch: redux-saga branch + connected-react-router (the "new react-router-redux") + code refactoring using Hooks for everything!
+- hooks branch: redux-saga branch + connected-router-redux + HOOKS FOR EVERY COMPONENT (bye React Classes, hello fully functional SPA) [all tests rewritten]. This version updated React from version 16.8.6 to 16.9.0.
 
 - styled-components branch: hooks branch + code refactoring using styled-components for the styling!
+
+- storybook: styled-components branch + Storybook added for components UI testing
+
+- majestic: storybook branch + majestic added for as UI for Jest
+
+- worker branch: majestic branch + web worker for keeping big scrips off the main thread
+
+- react-testing-library branch: worker branch + react-testing-library replacing enzyme + sinon
