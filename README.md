@@ -1,4 +1,4 @@
-This project will be a fully featured React boilerplate with the theme: Old Scholl Game Library.
+Boilerplate project for learning and testing new React (& aux Tools) with the theme: Old Scholl Game Library.
 
 ## Branchs
 
