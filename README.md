@@ -2,22 +2,24 @@ Boilerplate project for learning and testing new React (& aux Tools) with the th
 
 ## Branchs
 
-- master branch: a react-create-app with Eslint (AirBNB codestyle) and Prettier support. Also has .editorconfig and .gitignore files. Contains this README which explains all branchs.
+The branchs are organized in cronological order.
 
-- basic-js branch: this branch is a react-create-app boilerplate from master branch + project structure, layouts, components and routing. Ant Design + Ant Motion for layouting and Enzyme + Sinon for tests are added to the app.
+- ***master branch***: a react-create-app with Eslint (AirBNB codestyle) and Prettier support. Also has .editorconfig and .gitignore files. Contains this README which explains all branchs.
 
-- basic-redux branch: basic-js branch + React Redux added to manage the app state.
+- ***basic-js branch***: this branch is a react-create-app boilerplate from master branch + project structure, layouts, components and routing. Ant Design + Ant Motion for layouting and Enzyme + Sinon for tests are added to the app.
 
-- redux-saga branch: basic-redux branch + Redux Saga added to manage side effects.
+- ***basic-redux branch***: basic-js branch + React Redux added to manage the app state.
 
-- hooks branch: redux-saga branch + connected-router-redux + HOOKS FOR EVERY COMPONENT (bye React Classes, hello fully functional SPA) [all tests rewritten]. This version updated React from version 16.8.6 to 16.9.0.
+- ***redux-saga branch***: basic-redux branch + Redux Saga added to manage side effects.
 
-- styled-components branch: hooks branch + code refactoring using styled-components for the styling!
+- ***hooks branch***: redux-saga branch + connected-router-redux + ***HOOKS FOR EVERY COMPONENT*** (bye React Classes, hello fully functional SPA) [all tests rewritten + tests for Reducers and Sagas]. This version updated React from version 16.8.6 to 16.9.0.
 
-- storybook: styled-components branch + Storybook added for components UI testing
+- ***styled-components branch***: hooks branch + code refactoring using styled-components for the styling!
 
-- majestic: storybook branch + majestic added for as UI for Jest
+- ***storybook branch***: styled-components branch + Storybook added for components UI testing
 
-- worker branch: majestic branch + web worker for keeping big scrips off the main thread
+- ***majestic branch***: storybook branch + majestic added for as UI for Jest
 
-- react-testing-library branch: worker branch + react-testing-library replacing enzyme + sinon
+- ***worker branch***: majestic branch + web worker for keeping big scrips off the main thread
+
+- ***react-testing-library branch***: worker branch + react-testing-library replacing enzyme + sinon
