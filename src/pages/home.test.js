@@ -1,8 +1,13 @@
 import Home from './home';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('Home page component', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<Home />);
-    expect(wrapper).toMatchSnapshot();
+    const snapshot = snapRender(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>,
+    );
+    expect(snapshot).toMatchSnapshot();
   });
 });

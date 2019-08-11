@@ -29,14 +29,14 @@ describe('LoginForm component', () => {
       getFieldDecorator: jest.fn((opts) => (c) => c),
       validateFields: jest.fn(),
     };
-    let wrapper = mount(
+    let snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
-          <LoginForm form={testForm} id="loginform-component" />
+          <LoginForm form={testForm} />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('#loginform-component')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   }
 
   it('renders correctly when user not logged', () => {
@@ -47,7 +47,8 @@ describe('LoginForm component', () => {
     rendersCorrectly();
   });
 
-  it('should handleSubmit and simulate success on login, redirect to dashboard', async (done) => {
+  // Real Async Example
+  it('should handleSubmit and simulate success on login, then redirect to dashboard', async (done) => {
     const spy = sinon.spy((action) => action);
     store.dispatch = spy;
 
@@ -56,7 +57,7 @@ describe('LoginForm component', () => {
       validateFields: jest.fn((callback) => callback(false, [])),
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <MemoryRouter>
         <Provider store={store}>
           <LoginForm form={testForm} />
@@ -64,13 +65,11 @@ describe('LoginForm component', () => {
       </MemoryRouter>,
     );
 
-    await act(async () => {
-      await wrapper
-        .find('#login-form')
-        .at(0)
-        .props()
-        .onSubmit(new Event('submit'));
-    });
+    fireEvent.click(wrapper.container.querySelector('#submit-login'));
+
+    await waitForElement(() =>
+      wrapper.container.querySelector('#submit-login[data-loading="resolved"'),
+    );
 
     expect(spy.calledOnce).toBe(true);
     expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
@@ -83,7 +82,7 @@ describe('LoginForm component', () => {
       validateFields: jest.fn((callback) => callback(false, [])),
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <MemoryRouter>
         <Provider store={store}>
           <LoginForm form={testForm} />
@@ -91,13 +90,11 @@ describe('LoginForm component', () => {
       </MemoryRouter>,
     );
 
-    await act(async () => {
-      await wrapper
-        .find('#login-form')
-        .at(0)
-        .props()
-        .onSubmit(new Event('submit'));
-    });
+    fireEvent.click(wrapper.container.querySelector('#submit-login'));
+
+    await waitForElement(() =>
+      wrapper.container.querySelector('#submit-login[data-loading="resolved"'),
+    );
 
     expect(Modal.error).toHaveBeenCalled();
     done();

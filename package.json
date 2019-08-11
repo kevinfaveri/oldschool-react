@@ -47,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.0.0",
+    "@testing-library/react": "^9.1.0",
     "axios-mock-adapter": "^1.17.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",

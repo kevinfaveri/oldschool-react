@@ -16,27 +16,27 @@ describe('Login page component', () => {
     const store = mockStore({
       router: { location: { search: '?loginExpired=false' } },
     });
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <Login />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('Login')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('renders correctly login expired', () => {
     const store = mockStore({
       router: { location: { search: '?loginExpired=true' } },
     });
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <Login />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('Login')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 });

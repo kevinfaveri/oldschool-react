@@ -14,7 +14,7 @@ exports[`GameList component renders correctly when don't has games 1`] = `
 `;
 
 exports[`GameList component renders correctly when has games 1`] = `
-<Fragment>
+Array [
   <h1
     className="text-primary"
     style={
@@ -26,120 +26,44 @@ exports[`GameList component renders correctly when has games 1`] = `
     Showing a maximum of 
     24
      games...
-  </h1>
-  <QueueAnim
-    animConfig={null}
-    animatingClassName={
-      Array [
-        "queue-anim-entering",
-        "queue-anim-leaving",
-      ]
-    }
-    appear={true}
-    component="div"
-    componentProps={Object {}}
-    delay={0}
-    duration={700}
-    ease="easeOutQuart"
-    forcedReplay={false}
-    interval={100}
-    leaveReverse={false}
-    onEnd={[Function]}
-    type="bottom"
-  >
-    <Col
-      key="id1"
-      span={6}
-      style={
-        Object {
-          "height": "470px",
-          "marginBottom": "20px",
-          "marginTop": "20px",
-          "maxHeight": "470px",
-          "minHeight": "470px",
-        }
-      }
-    >
-      <Memo(GameCard)
-        game={
-          Object {
-            "Name": "Super Mario Kart",
-            "Overview": "The best kart game in the world, y' now",
-            "Platform": "Super Nintendo Entertainment System",
-            "VideoURL": null,
-          }
-        }
-        onClick={[Function]}
-      />
-    </Col>
-    <Col
-      key="id2"
-      span={6}
-      style={
-        Object {
-          "height": "470px",
-          "marginBottom": "20px",
-          "marginTop": "20px",
-          "maxHeight": "470px",
-          "minHeight": "470px",
-        }
-      }
-    >
-      <Memo(GameCard)
-        game={
-          Object {
-            "Name": "Super Mario Kart",
-            "Overview": "The best kart game in the world, y' now",
-            "Platform": "Super Nintendo Entertainment System",
-            "VideoURL": null,
-          }
-        }
-        onClick={[Function]}
-      />
-    </Col>
-    <Col
-      key="id3"
-      span={6}
-      style={
-        Object {
-          "height": "470px",
-          "marginBottom": "20px",
-          "marginTop": "20px",
-          "maxHeight": "470px",
-          "minHeight": "470px",
-        }
-      }
-    >
-      <Memo(GameCard)
-        game={
-          Object {
-            "Name": "Super Mario Kart",
-            "Overview": "The best kart game in the world, y' now",
-            "Platform": "Super Nintendo Entertainment System",
-            "VideoURL": null,
-          }
-        }
-        onClick={[Function]}
-      />
-    </Col>
-  </QueueAnim>
-</Fragment>
+  </h1>,
+  <div />,
+]
 `;
 
 exports[`GameList component renders correctly when isLoading 1`] = `
 <h1
   className="text-center"
 >
-  <Spin
-    size="large"
-    spinning={true}
+  <div
+    className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
     style={
       Object {
         "marginTop": "25px",
       }
     }
-    tip="Loading games..."
-    wrapperClassName=""
-  />
+  >
+    <span
+      className="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        className="ant-spin-dot-item"
+      />
+      <i
+        className="ant-spin-dot-item"
+      />
+      <i
+        className="ant-spin-dot-item"
+      />
+      <i
+        className="ant-spin-dot-item"
+      />
+    </span>
+    <div
+      className="ant-spin-text"
+    >
+      Loading games...
+    </div>
+  </div>
 </h1>
 `;

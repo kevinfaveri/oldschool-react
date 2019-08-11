@@ -43,19 +43,19 @@ export default function LayoutSider() {
         onClick={handleClick}
         id="sider-menu"
       >
-        <Menu.Item key="1">
+        <Menu.Item key="1" id="menu-item-1">
           <Icon type="home" theme="filled" />
           <span>Home</span>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="2" id="menu-item-2">
           <Icon type="file-search" theme="outlined" />
           <span>Library</span>
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="3" id="menu-item-3">
           <Icon type="star" theme="filled" />
           <span>Your List</span>
         </Menu.Item>
-        <Menu.Item key="4">
+        <Menu.Item key="4" id="menu-item-4">
           <Icon type="info-circle" theme="filled" />
           <span>About</span>
         </Menu.Item>

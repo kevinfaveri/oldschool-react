@@ -11,7 +11,7 @@ jest.mock('shortid', () => ({
 
 describe('GameList component', () => {
   it('renders correctly when isLoading', () => {
-    const wrapper = shallow(
+    const snapshot = snapRender(
       <GameList
         isLoading
         gamesArray={[]}
@@ -19,10 +19,10 @@ describe('GameList component', () => {
         gameOnClick={() => {}}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
   it('renders correctly when has games', () => {
-    const wrapper = shallow(
+    const snapshot = snapRender(
       <GameList
         isLoading={false}
         gamesArray={[
@@ -49,11 +49,11 @@ describe('GameList component', () => {
         gameOnClick={() => {}}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
   it("renders correctly when don't has games", () => {
-    const wrapper = shallow(
+    const snapshot = snapRender(
       <GameList
         isLoading={false}
         gamesArray={[]}
@@ -61,6 +61,6 @@ describe('GameList component', () => {
         gameOnClick={() => {}}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 });

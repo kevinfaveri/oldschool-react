@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LayoutFooter component renders correctly 1`] = `
-<Adapter
+<footer
+  className="ant-layout-footer"
   style={
     Object {
       "textAlign": "center",
@@ -16,5 +17,5 @@ exports[`LayoutFooter component renders correctly 1`] = `
       Github
     </a>
   </span>
-</Adapter>
+</footer>
 `;

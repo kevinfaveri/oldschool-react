@@ -22,102 +22,13 @@ exports[`GameCard component renders correctly 1`] = `
       }
     }
   >
-    <ReactPlayer
-      config={
+    <div
+      style={
         Object {
-          "dailymotion": Object {
-            "params": Object {
-              "api": 1,
-              "endscreen-enable": false,
-            },
-            "preload": false,
-          },
-          "facebook": Object {
-            "appId": "1309697205772819",
-          },
-          "file": Object {
-            "attributes": Object {},
-            "dashVersion": "2.9.2",
-            "forceAudio": false,
-            "forceDASH": false,
-            "forceHLS": false,
-            "forceVideo": false,
-            "hlsOptions": Object {},
-            "hlsVersion": "0.10.1",
-            "tracks": Array [],
-          },
-          "mixcloud": Object {
-            "options": Object {
-              "hide_cover": 1,
-            },
-          },
-          "soundcloud": Object {
-            "options": Object {
-              "buying": false,
-              "download": false,
-              "liking": false,
-              "sharing": false,
-              "show_comments": false,
-              "show_playcount": false,
-              "visual": true,
-            },
-          },
-          "twitch": Object {
-            "options": Object {},
-          },
-          "vimeo": Object {
-            "playerOptions": Object {
-              "autopause": false,
-              "byline": false,
-              "portrait": false,
-              "title": false,
-            },
-            "preload": false,
-          },
-          "wistia": Object {
-            "options": Object {},
-          },
-          "youtube": Object {
-            "embedOptions": Object {},
-            "playerVars": Object {
-              "iv_load_policy": 3,
-              "modestbranding": 1,
-              "playsinline": 1,
-              "rel": 0,
-              "showinfo": 0,
-            },
-            "preload": false,
-          },
+          "height": "250px",
+          "width": "inherit",
         }
       }
-      controls={false}
-      height="250px"
-      light={false}
-      loop={false}
-      muted={false}
-      onBuffer={[Function]}
-      onBufferEnd={[Function]}
-      onDisablePIP={[Function]}
-      onDuration={[Function]}
-      onEnablePIP={[Function]}
-      onEnded={[Function]}
-      onError={[Function]}
-      onPause={[Function]}
-      onPlay={[Function]}
-      onProgress={[Function]}
-      onReady={[Function]}
-      onSeek={[Function]}
-      onStart={[Function]}
-      pip={false}
-      playbackRate={1}
-      playing={false}
-      playsinline={false}
-      progressInterval={1000}
-      style={Object {}}
-      url={null}
-      volume={null}
-      width="inherit"
-      wrapper="div"
     />
   </div>
   <div

@@ -4,9 +4,8 @@ exports[`Home page component renders correctly 1`] = `
 <div
   className="splash-screen"
 >
-  <Row
-    className="text-center"
-    gutter={0}
+  <div
+    className="ant-row text-center"
   >
     <div
       className="header-logo"
@@ -21,68 +20,135 @@ exports[`Home page component renders correctly 1`] = `
     >
       The best game library app!
     </div>
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
+  </div>
+  <div
+    className="ant-row text-center"
   >
-    <Memo(Carousel) />
-  </Row>
-  <Row
-    className="text-center"
-    gutter={0}
-  >
-    <Link
-      to="/login"
+    <div
+      id="animated-carousel"
     >
-      <Button
-        block={false}
-        className="br"
-        ghost={false}
-        htmlType="button"
-        loading={false}
-        size="large"
+      <img
+        alt="Random Game"
+        data-index={0}
+        id="previous-image"
+        src="/image/super-mario-kart.png"
+      />
+      <img
+        alt="Random Game"
+        data-index={1}
+        id="current-image"
+        src="/image/super-mario-world.jpg"
+      />
+      <img
+        alt="Random Game"
+        data-index={2}
+        id="next-image"
+        src="/image/top-gear.jpg"
+      />
+    </div>
+  </div>
+  <div
+    className="ant-row text-center"
+  >
+    <a
+      href="/login"
+      onClick={[Function]}
+    >
+      <button
+        className="ant-btn br ant-btn-primary ant-btn-lg"
+        onClick={[Function]}
         style={
           Object {
             "marginRight": "15px",
           }
         }
-        type="primary"
+        type="button"
       >
-        <Icon
-          type="login"
-        />
-        Login
-      </Button>
-    </Link>
-    <Divider
-      className="divider-primary"
-      type="vertical"
+        <i
+          aria-label="icon: login"
+          className="anticon anticon-login"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="login"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M521.7 82c-152.5-.4-286.7 78.5-363.4 197.7-3.4 5.3.4 12.3 6.7 12.3h70.3c4.8 0 9.3-2.1 12.3-5.8 7-8.5 14.5-16.7 22.4-24.5 32.6-32.5 70.5-58.1 112.7-75.9 43.6-18.4 90-27.8 137.9-27.8 47.9 0 94.3 9.3 137.9 27.8 42.2 17.8 80.1 43.4 112.7 75.9 32.6 32.5 58.1 70.4 76 112.5C865.7 417.8 875 464.1 875 512c0 47.9-9.4 94.2-27.8 137.8-17.8 42.1-43.4 80-76 112.5s-70.5 58.1-112.7 75.9A352.8 352.8 0 0 1 520.6 866c-47.9 0-94.3-9.4-137.9-27.8A353.84 353.84 0 0 1 270 762.3c-7.9-7.9-15.3-16.1-22.4-24.5-3-3.7-7.6-5.8-12.3-5.8H165c-6.3 0-10.2 7-6.7 12.3C234.9 863.2 368.5 942 520.6 942c236.2 0 428-190.1 430.4-425.6C953.4 277.1 761.3 82.6 521.7 82zM395.02 624v-76h-314c-4.4 0-8-3.6-8-8v-56c0-4.4 3.6-8 8-8h314v-76c0-6.7 7.8-10.5 13-6.3l141.9 112a8 8 0 0 1 0 12.6l-141.9 112c-5.2 4.1-13 .4-13-6.3z"
+            />
+          </svg>
+        </i>
+        <span>
+          Login
+        </span>
+      </button>
+    </a>
+    <div
+      className="divider-primary ant-divider ant-divider-vertical"
+      role="separator"
     />
-    <Link
-      to="/register"
+    <a
+      href="/register"
+      onClick={[Function]}
     >
-      <Button
-        block={false}
-        ghost={false}
-        htmlType="button"
-        icon="edit"
-        loading={false}
-        size="large"
+      <button
+        className="ant-btn ant-btn-primary ant-btn-lg"
+        onClick={[Function]}
         style={
           Object {
             "marginLeft": "15px",
           }
         }
-        type="primary"
+        type="button"
       >
-        Register
-        <Icon
-          theme="filled"
-          type="edit"
-        />
-      </Button>
-    </Link>
-  </Row>
+        <i
+          aria-label="icon: edit"
+          className="anticon anticon-edit"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </i>
+        <span>
+          Register
+        </span>
+        <i
+          aria-label="icon: edit"
+          className="anticon anticon-edit"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zm-622.3-84c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 0 0 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9z"
+            />
+          </svg>
+        </i>
+      </button>
+    </a>
+  </div>
 </div>
 `;

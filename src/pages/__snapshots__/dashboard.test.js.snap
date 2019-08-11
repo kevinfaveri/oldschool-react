@@ -306,7 +306,6 @@ Array [
         </h3>
         <h3
           className="text-primary"
-          key="id1"
         >
           SNES
           : 
@@ -314,7 +313,6 @@ Array [
         </h3>
         <h3
           className="text-primary"
-          key="id2"
         >
           PSX
           : 
@@ -362,7 +360,6 @@ Array [
         </h3>
         <h3
           className="text-primary"
-          key="id3"
         >
           SNES
           : 
@@ -370,7 +367,6 @@ Array [
         </h3>
         <h3
           className="text-primary"
-          key="id4"
         >
           PSX
           : 

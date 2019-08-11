@@ -16,12 +16,12 @@ describe('RegisterForm component', () => {
       getFieldDecorator: jest.fn((opts) => (c) => c),
       validateFields: jest.fn(),
     };
-    const wrapper = mount(
+    const snapshot = snapRender(
       <Provider store={store}>
         <RegisterForm form={testForm} />
       </Provider>,
     );
-    expect(wrapper.find('RegisterForm')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('should handleSubmit and simulate failure on register', async (done) => {
@@ -34,19 +34,17 @@ describe('RegisterForm component', () => {
       validateFields: jest.fn((callback) => callback(true, [])),
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={store}>
         <RegisterForm form={testForm} />
       </Provider>,
     );
 
-    await act(async () => {
-      await wrapper
-        .find('#register-form')
-        .at(0)
-        .props()
-        .onSubmit(new Event('submit'));
-    });
+    fireEvent.click(wrapper.container.querySelector('#submit-register'));
+
+    await waitForElement(() =>
+      wrapper.container.querySelector('#submit-register[data-loading="resolved"'),
+    );
 
     expect(spy.callCount).toBe(0);
     done();
@@ -62,19 +60,17 @@ describe('RegisterForm component', () => {
       validateFields: jest.fn((callback) => callback(false, [])),
     };
 
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={store}>
         <RegisterForm form={testForm} />
       </Provider>,
     );
 
-    await act(async () => {
-      await wrapper
-        .find('#register-form')
-        .at(0)
-        .props()
-        .onSubmit(new Event('submit'));
-    });
+    fireEvent.click(wrapper.container.querySelector('#submit-register'));
+
+    await waitForElement(() =>
+      wrapper.container.querySelector('#submit-register[data-loading="resolved"'),
+    );
 
     expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
     expect(spy.callCount).toBe(1);

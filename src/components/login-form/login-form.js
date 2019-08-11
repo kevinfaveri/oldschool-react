@@ -15,10 +15,14 @@ const { error } = Modal;
 const LoginForm = ({ form }) => {
   const dispatch = useDispatch();
 
-  const [{ isLoading, userLogged, rememberMe }, setState] = useState({
+  const [
+    { isLoading, isResolved, userLogged, rememberMe },
+    setState,
+  ] = useState({
     isLoading: false,
     userLogged: isUserLogged(),
     rememberMe: getRememberMe(),
+    isResolved: false,
   });
 
   const goToDashboard = () => {
@@ -43,6 +47,7 @@ const LoginForm = ({ form }) => {
       } else {
         goToDashboard();
       }
+      setState((prevState) => ({ ...prevState, isResolved: true }));
     }
   };
 
@@ -124,6 +129,8 @@ const LoginForm = ({ form }) => {
           htmlType="submit"
           style={{ width: '100%' }}
           loading={isLoading}
+          id="submit-login"
+          data-loading={isResolved ? 'resolved' : 'loading'}
         >
           Log in
         </Button>

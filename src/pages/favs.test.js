@@ -12,13 +12,16 @@ describe('Favs page component', () => {
         favList: [],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Favs />
       </Provider>,
     );
-    expect(wrapper.find('Favs')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
+
   it('renders correctly when not loading and has games', () => {
     const store = mockStore({
       games: {
@@ -33,13 +36,16 @@ describe('Favs page component', () => {
         ],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Favs />
       </Provider>,
     );
-    expect(wrapper.find('Favs')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
+
   it('renders correctly when not loading and not has games', () => {
     const store = mockStore({
       games: {
@@ -47,11 +53,13 @@ describe('Favs page component', () => {
         favList: [],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Favs />
       </Provider>,
     );
-    expect(wrapper.find('Favs')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
 });

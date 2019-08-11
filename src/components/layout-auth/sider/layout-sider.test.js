@@ -10,12 +10,14 @@ describe('LayoutSider component', () => {
       router: { location: { pathname: '/dashboard' } },
       sider: { isCollapsed: true },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <LayoutSider />
       </Provider>,
     );
-    expect(wrapper.find('LayoutSider')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('renders correctly uncollapsed', () => {
@@ -23,12 +25,14 @@ describe('LayoutSider component', () => {
       router: { location: { pathname: '/dashboard' } },
       sider: { isCollapsed: false },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <LayoutSider />
       </Provider>,
     );
-    expect(wrapper.find('LayoutSider')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('should redirect when click on menu item', () => {
@@ -41,17 +45,14 @@ describe('LayoutSider component', () => {
 
     store.dispatch = spy;
 
-    const wrapper = mount(
+    const wrapper = render(
       <Provider store={store}>
         <LayoutSider />
       </Provider>,
     );
 
-    wrapper
-      .find('#sider-menu')
-      .at(0)
-      .props()
-      .onClick({ key: 1 });
+    fireEvent.click(wrapper.container.querySelector('#menu-item-1'));
+
     expect(spy.args[0][0].payload.args[0]).toBe('/dashboard');
     expect(spy.callCount).toBe(1);
   });

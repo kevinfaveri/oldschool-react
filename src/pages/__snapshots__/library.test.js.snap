@@ -48,13 +48,11 @@ Array [
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                key="svg-search"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
                   d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  key="svg-search-svg-0"
                 />
               </svg>
             </i>
@@ -82,47 +80,40 @@ Array [
         }
       }
     >
-      <Memo(GameList)
-        gameOnClick={[Function]}
-        gamesArray={Array []}
-        isLoading={true}
-        maxTotalGames={12}
+      <h1
+        className="text-center"
       >
-        <h1
-          className="text-center"
-        >
-          <div
-            className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
-            style={
-              Object {
-                "marginTop": "25px",
-              }
+        <div
+          className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
+          style={
+            Object {
+              "marginTop": "25px",
             }
+          }
+        >
+          <span
+            className="ant-spin-dot ant-spin-dot-spin"
           >
-            <span
-              className="ant-spin-dot ant-spin-dot-spin"
-            >
-              <i
-                className="ant-spin-dot-item"
-              />
-              <i
-                className="ant-spin-dot-item"
-              />
-              <i
-                className="ant-spin-dot-item"
-              />
-              <i
-                className="ant-spin-dot-item"
-              />
-            </span>
-            <div
-              className="ant-spin-text"
-            >
-              Loading games...
-            </div>
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+            <i
+              className="ant-spin-dot-item"
+            />
+          </span>
+          <div
+            className="ant-spin-text"
+          >
+            Loading games...
           </div>
-        </h1>
-      </Memo(GameList)>
+        </div>
+      </h1>
     </div>
   </div>,
   "",
@@ -177,13 +168,11 @@ Array [
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                key="svg-search"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
                   d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  key="svg-search-svg-0"
                 />
               </svg>
             </i>
@@ -211,35 +200,19 @@ Array [
         }
       }
     >
-      <Memo(GameList)
-        gameOnClick={[Function]}
-        gamesArray={
-          Array [
-            Object {
-              "Name": "Game",
-              "Overview": "Overview",
-              "Platform": "Game",
-              "VideoURL": undefined,
-            },
-          ]
-        }
-        isLoading={false}
-        maxTotalGames={12}
-      >
-        <h1
-          className="text-primary"
-          style={
-            Object {
-              "margin": "15px",
-            }
+      <h1
+        className="text-primary"
+        style={
+          Object {
+            "margin": "15px",
           }
-        >
-          Showing a maximum of 
-          12
-           games...
-        </h1>
-        <div />
-      </Memo(GameList)>
+        }
+      >
+        Showing a maximum of 
+        12
+         games...
+      </h1>
+      <div />
     </div>
   </div>,
   "",
@@ -294,13 +267,11 @@ Array [
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                key="svg-search"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
                   d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                  key="svg-search-svg-0"
                 />
               </svg>
             </i>
@@ -328,23 +299,16 @@ Array [
         }
       }
     >
-      <Memo(GameList)
-        gameOnClick={[Function]}
-        gamesArray={Array []}
-        isLoading={false}
-        maxTotalGames={12}
-      >
-        <h1
-          className="text-center text-primary"
-          style={
-            Object {
-              "margin": "15px",
-            }
+      <h1
+        className="text-center text-primary"
+        style={
+          Object {
+            "margin": "15px",
           }
-        >
-          There are no games available, please try again later...
-        </h1>
-      </Memo(GameList)>
+        }
+      >
+        There are no games available, please try again later...
+      </h1>
     </div>
   </div>,
   "",

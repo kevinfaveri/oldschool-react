@@ -6,4 +6,4 @@ exports[`PrivateRoute component renders correctly if user is logged 1`] = `
 </div>
 `;
 
-exports[`PrivateRoute component renders correctly if user is not logged 1`] = `""`;
+exports[`PrivateRoute component renders correctly if user is not logged 1`] = `null`;

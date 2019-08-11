@@ -1,8 +1,13 @@
 import HomeCard from './home-card';
+import { MemoryRouter } from 'react-router-dom';
 
 describe('HomeCard component', () => {
   it('renders correctly', () => {
-    const wrapper = shallow(<HomeCard>Test</HomeCard>);
-    expect(wrapper).toMatchSnapshot();
+    const snapshot = snapRender(
+      <MemoryRouter>
+        <HomeCard>Test</HomeCard>
+      </MemoryRouter>,
+    );
+    expect(snapshot).toMatchSnapshot();
   });
 });

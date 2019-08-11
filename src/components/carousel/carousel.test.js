@@ -1,46 +1,60 @@
 import Carousel from './carousel';
 
 describe('Carousel component', () => {
-  it('renders and unmount correctly', () => {
-    const wrapper = shallow(<Carousel />);
-    expect(wrapper).toMatchSnapshot();
-    wrapper.unmount();
+  it('renders correctly', () => {
+    const snapshot = snapRender(<Carousel />);
+    expect(snapshot).toMatchSnapshot();
   });
 
-  it('the imageArray should be an array', () => {
-    const wrapper = mount(<Carousel />);
-    expect(Array.isArray(wrapper.getElement().props.imageArray)).toBe(true);
-  });
+  it('should have a default image when there is no prop', () => {
+    const wrapper = render(<Carousel />);
 
-  it('should have at least three images', () => {
-    const wrapper = mount(<Carousel />);
-    expect(wrapper.getElement().props.imageArray.length).toBeGreaterThanOrEqual(
-      3,
-    );
-  });
+    expect(
+      wrapper.container.querySelector(
+        `img[id="previous-image"][src="${process.env.PUBLIC_URL}/image/super-mario-kart.png"]`,
+      ),
+    ).toBeTruthy();
 
-  it('the images should exists in public folder', () => {
-    const wrapper = shallow(<Carousel />);
-    const publicImagePath = '@public/image/';
-    const images = wrapper.getElement().props.imageArray;
-    for (const index in images) {
-      require(publicImagePath + images[index]);
-    }
+    expect(
+      wrapper.container.querySelector(
+        `img[id="current-image"][src="${process.env.PUBLIC_URL}/image/super-mario-world.jpg"]`,
+      ),
+    ).toBeTruthy();
+
+    expect(
+      wrapper.container.querySelector(
+        `img[id="next-image"][src="${process.env.PUBLIC_URL}/image/top-gear.jpg"]`,
+      ),
+    ).toBeTruthy();
   });
 
   it('should call rollCarousel() every 1 second', () => {
     const clock = sinon.useFakeTimers();
-    const wrapper = mount(<Carousel intervalSeconds={1} />);
-    expect(wrapper.find('#previous-image').prop('data-index')).toBe(0);
+    const wrapper = render(<Carousel intervalSeconds={1} />);
+    expect(
+      wrapper.container.querySelector(
+        'img[id="previous-image"][data-index="0"]',
+      ),
+    ).toBeTruthy();
+
     act(() => {
-      clock.tick(1001);
+      clock.tick(1000);
     });
-    wrapper.update();
-    expect(wrapper.find('#previous-image').prop('data-index')).toBe(1);
+
+    expect(
+      wrapper.container.querySelector(
+        'img[id="previous-image"][data-index="1"]',
+      ),
+    ).toBeTruthy();
+
     act(() => {
-      clock.tick(1001);
+      clock.tick(1000);
     });
-    wrapper.update();
-    expect(wrapper.find('#previous-image').prop('data-index')).toBe(2);
+
+    expect(
+      wrapper.container.querySelector(
+        'img[id="previous-image"][data-index="2"]',
+      ),
+    ).toBeTruthy();
   });
 });

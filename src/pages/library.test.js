@@ -12,13 +12,16 @@ describe('Library page component', () => {
         gameList: [],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Library />
       </Provider>,
     );
-    expect(wrapper).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
+
   it('renders correctly when not loading and has games', () => {
     const store = mockStore({
       games: {
@@ -33,13 +36,16 @@ describe('Library page component', () => {
         ],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Library />
       </Provider>,
     );
-    expect(wrapper).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
+
   it('renders correctly when not loading and not has games', () => {
     const store = mockStore({
       games: {
@@ -47,11 +53,13 @@ describe('Library page component', () => {
         gameList: [],
       },
     });
-    const wrapper = mount(
+
+    const snapshot = snapRender(
       <Provider store={store}>
         <Library />
       </Provider>,
     );
-    expect(wrapper).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
 });

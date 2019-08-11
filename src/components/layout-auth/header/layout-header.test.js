@@ -12,14 +12,15 @@ describe('LayoutHeader component', () => {
       sider: { isCollapsed: true },
     });
 
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <LayoutHeader />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('LayoutHeader')).toMatchSnapshot();
+
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('renders correctly sider uncollapsed', () => {
@@ -28,18 +29,19 @@ describe('LayoutHeader component', () => {
       sider: { isCollapsed: false },
     });
 
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <LayoutHeader />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('LayoutHeader')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
-  it('should call push method after logout', async (done) => {
+  it('should call push method after logout', () => {
     const spy = sinon.spy((action) => action);
+    const clock = sinon.useFakeTimers();
 
     const store = mockStore({
       auth: { isLoadingLogout: false },
@@ -48,7 +50,7 @@ describe('LayoutHeader component', () => {
 
     store.dispatch = spy;
 
-    const wrapper = mount(
+    const wrapper = render(
       <MemoryRouter>
         <Provider store={store}>
           <LayoutHeader />
@@ -56,15 +58,12 @@ describe('LayoutHeader component', () => {
       </MemoryRouter>,
     );
 
-    await wrapper
-      .find('#logout-btn')
-      .at(1)
-      .props()
-      .onClick();
+    fireEvent.click(wrapper.container.querySelector('#logout-btn'));
+
+    clock.tick(60 * 1000);
 
     expect(spy.args[0][0].type).toBe('INIT_LOGOUT');
     expect(spy.callCount).toBe(1);
-    done();
   });
 
   it('should call toggleSider onClick', () => {
@@ -77,7 +76,7 @@ describe('LayoutHeader component', () => {
 
     store.dispatch = spy;
 
-    const wrapper = mount(
+    const wrapper = render(
       <MemoryRouter>
         <Provider store={store}>
           <LayoutHeader />
@@ -85,11 +84,7 @@ describe('LayoutHeader component', () => {
       </MemoryRouter>,
     );
 
-    wrapper
-      .find('#toggle-sider')
-      .at(1)
-      .props()
-      .onClick();
+    fireEvent.click(wrapper.container.querySelector('#toggle-sider'));
 
     expect(spy.args[0][0].type).toBe('TOGGLE_SIDER');
     expect(spy.callCount).toBe(1);

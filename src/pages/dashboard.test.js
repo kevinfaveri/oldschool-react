@@ -24,14 +24,14 @@ describe('Dashboard page component', () => {
         favsData: { total: 0, list: [] },
       },
     });
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <Dashboard />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('Dashboard')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('renders correctly if has finished loading', () => {
@@ -55,13 +55,13 @@ describe('Dashboard page component', () => {
       },
     });
 
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <Provider store={store}>
           <Dashboard />
         </Provider>
       </MemoryRouter>,
     );
-    expect(wrapper.find('Dashboard')).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 });

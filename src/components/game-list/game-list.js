@@ -17,6 +17,7 @@ const GameList = ({ isLoading, gamesArray, maxTotalGames, gameOnClick }) => {
       </h1>
     );
   }
+
   if (gamesArray.length !== 0) {
     return (
       <>
@@ -44,9 +45,11 @@ const GameList = ({ isLoading, gamesArray, maxTotalGames, gameOnClick }) => {
     );
   }
   return (
-    <h1 className="text-center text-primary" style={{ margin: '15px' }}>
-      There are no games available, please try again later...
-    </h1>
+    <>
+      <h1 className="text-center text-primary" style={{ margin: '15px' }}>
+        There are no games available, please try again later...
+      </h1>
+    </>
   );
 };
 

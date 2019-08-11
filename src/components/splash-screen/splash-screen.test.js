@@ -1,48 +1,35 @@
 import withSplashScreen from './with-splash-screen';
 
-jest.mock('../../service/auth-service.js', () => ({
-  ...jest.requireActual('../../service/auth-service.js'),
-  registerUser: jest.fn().mockReturnValueOnce(true),
-}));
-
 describe('SplashScreen component', () => {
   it('renders correctly', () => {
+    const SplashScreenComponent = withSplashScreen(() => (<div></div>));
+    const snapshot = snapRender(<SplashScreenComponent />);
+    expect(snapshot).toMatchSnapshot();
+  });
+
+  it('should show continue button after 5 seconds', () => {
     const clock = sinon.useFakeTimers();
-    const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = mount(<SplashScreenComponent />);
-    expect(wrapper).toMatchSnapshot();
+    const SplashScreenComponent = withSplashScreen(() => (<div></div>));
+    const wrapper = render(<SplashScreenComponent />);
+
     act(() => {
-      clock.tick(5001);
+      clock.tick(5000);
     });
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
-    act(() => {
-      wrapper
-        .find('#close-splash')
-        .at(1)
-        .props()
-        .onClick();
-    });
-    wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+
+    expect(wrapper.container.querySelector('#close-splash')).toBeTruthy();
   });
 
   it('should hide splash onClick', () => {
     const clock = sinon.useFakeTimers();
-    const SplashScreenComponent = withSplashScreen(React.Fragment);
-    const wrapper = mount(<SplashScreenComponent />);
+    const SplashScreenComponent = withSplashScreen(() => (<div id="component-test"></div>));
+    const wrapper = render(<SplashScreenComponent />);
+
     act(() => {
-      clock.tick(5001);
+      clock.tick(5000);
     });
-    wrapper.update();
-    act(() => {
-      wrapper
-        .find('#close-splash')
-        .at(1)
-        .props()
-        .onClick();
-    });
-    wrapper.update();
-    expect(wrapper.find('#splash-screen').exists()).toBe(false);
+
+    fireEvent.click(wrapper.container.querySelector('#close-splash'));
+
+    expect(wrapper.container.querySelector('#component-test')).toBeTruthy();
   });
 });

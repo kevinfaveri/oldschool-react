@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Carousel component renders and unmount correctly 1`] = `
+exports[`Carousel component renders correctly 1`] = `
 <div
   id="animated-carousel"
 >

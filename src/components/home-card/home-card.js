@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Logo from '../../assets/logo.png';
 
 const HomeCard = ({ children }) => (
-  <div className="clean-card">
+  <div className="clean-card" id="home-card">
     <Link to="/">
       <Button
         className="btn-secondary"

@@ -11,20 +11,20 @@ jest.mock('../service/auth-service.js', () => ({
 
 describe('PrivateRoute component', () => {
   it('renders correctly if user is logged', () => {
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <PrivateRoute component={() => <div>Teste</div>} />
       </MemoryRouter>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 
   it('renders correctly if user is not logged', () => {
-    const wrapper = mount(
+    const snapshot = snapRender(
       <MemoryRouter>
         <PrivateRoute component={() => <div>Teste</div>} />
       </MemoryRouter>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(snapshot).toMatchSnapshot();
   });
 });

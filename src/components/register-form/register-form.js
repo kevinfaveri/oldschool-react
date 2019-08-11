@@ -8,9 +8,10 @@ import { registerUser } from '../../service/auth-service';
 const RegisterForm = ({ form }) => {
   const dispatch = useDispatch();
 
-  const [{ confirmDirty, isLoading }, setState] = useState({
+  const [{ confirmDirty, isLoading, isResolved }, setState] = useState({
     confirmDirty: false,
     isLoading: false,
+    isResolved: false,
   });
 
   const handleSubmit = async (e) => {
@@ -27,6 +28,7 @@ const RegisterForm = ({ form }) => {
       setState((prevState) => ({ ...prevState, isLoading: false }));
       dispatch(push('/dashboard'));
     }
+    setState((prevState) => ({ ...prevState, isResolved: true }));
   };
 
   const compareToFirstPassword = (rule, value, callback) => {
@@ -142,6 +144,8 @@ const RegisterForm = ({ form }) => {
           htmlType="submit"
           style={{ width: '100%', marginTop: '15px' }}
           loading={isLoading}
+          id="submit-register"
+          data-loading={isResolved ? 'resolved' : 'loading'}
         >
           Register
         </Button>
