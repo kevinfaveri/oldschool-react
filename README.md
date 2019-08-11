@@ -16,7 +16,7 @@ The branchs are organized in cronological order.
 
 - ***majestic branch***: hooks branch + PROCESS ENVS + majestic added for as UI for Jest
 
-- ***react-testing-library branch***: majestic branch + react-testing-library replacing enzyme + sinon
+- ***react-testing-library branch***: majestic branch + react-testing-library replacing enzyme
 
 - ***storybook branch***: react-testing-library branch + Storybook added for components UI testing
 
