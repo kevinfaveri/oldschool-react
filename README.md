@@ -20,6 +20,6 @@ The branchs are organized in cronological order.
 
 - ***storybook branch***: react-testing-library branch + Storybook added for components UI testing
 
-- ***styled-components branch***: storybook branch + code refactoring using styled-components for the styling!
+- ***styled-components branch***: storybook branch + code refactoring using styled-components for the styling
 
 - ***worker branch***: styled-components branch + web worker for keeping big scrips off the main thread
