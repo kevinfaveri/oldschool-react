@@ -26,9 +26,11 @@
     "shortid": "^2.2.14",
     "styled-components": "^4.3.2"
   },
+  "homepage": "https://kevinfaguiar.github.io/oldschool-react",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "deploy": "gh-pages -d build",
     "test": "react-app-rewired test",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "majestic": "majestic",
@@ -36,6 +38,11 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "babelMacros": {
+    "styledComponents": {
+      "pure": true
+    }
   },
   "browserslist": {
     "production": [
@@ -66,6 +73,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gh-pages": "^2.1.1",
     "jest-styled-components": "^6.3.3",
     "majestic": "^1.6.0",
     "prettier": "1.18.2",
