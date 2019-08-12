@@ -5,6 +5,7 @@ import {
   validateStringArray,
   validateNumberInterval,
 } from '../../utils/props-validate';
+import Container from './styles';
 
 function AudioToggle({ audioArray, gradualSpeed, inlineMode }) {
   const randomAudio = audioArray[0];
@@ -96,19 +97,13 @@ function AudioToggle({ audioArray, gradualSpeed, inlineMode }) {
   };
 
   return (
-    <div id="audio-toggle" className="text-center">
-      <h4
-        className="text-primary"
-        style={inlineMode ? { display: 'inline', marginRight: '10px' } : {}}
-      >
-        Playing: {currentlyPlaying}
-      </h4>
+    <Container id="audio-toggle" inlineMode={inlineMode}>
+      <h4>Playing: {currentlyPlaying}</h4>
       <Button
         type="primary"
         shape="circle"
         size="large"
         onClick={previousAudio}
-        style={{ marginRight: '10px' }}
       >
         <Icon type="backward" theme="filled" />
       </Button>
@@ -120,16 +115,10 @@ function AudioToggle({ audioArray, gradualSpeed, inlineMode }) {
         size="large"
         onClick={playing ? pause : play}
       />
-      <Button
-        type="primary"
-        shape="circle"
-        size="large"
-        onClick={nextAudio}
-        style={{ marginLeft: '10px' }}
-      >
+      <Button type="primary" shape="circle" size="large" onClick={nextAudio}>
         <Icon type="forward" theme="filled" />
       </Button>
-    </div>
+    </Container>
   );
 }
 

@@ -3,6 +3,7 @@ import { Form, Input, Icon, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
+import Container from './styles';
 import { registerUser } from '../../service/auth-service';
 
 function RegisterForm({ form }) {
@@ -95,62 +96,58 @@ function RegisterForm({ form }) {
   const { getFieldDecorator } = form;
 
   return (
-    <Form
-      {...formItemLayout}
-      onSubmit={handleSubmit}
-      className="register-form"
-      id="register-form"
-    >
-      <Form.Item label="Name">
-        {getFieldDecorator('name', requiredConfigRules)(
-          <Input prefix={<Icon type="user" />} placeholder="Name" />,
-        )}
-      </Form.Item>
-      <Form.Item label="Username">
-        {getFieldDecorator('username', requiredConfigRules)(
-          <Input
-            prefix={<Icon type="user" />}
-            placeholder="Username"
-            autoComplete="username"
-          />,
-        )}
-      </Form.Item>
-      <Form.Item label="E-mail">
-        {getFieldDecorator('email', emailRules)(
-          <Input prefix={<Icon type="mail" />} placeholder="E-mail" />,
-        )}
-      </Form.Item>
-      <Form.Item label="Password" hasFeedback>
-        {getFieldDecorator('password', passwordRules)(
-          <Input.Password
-            prefix={<Icon type="lock" />}
-            placeholder="Password"
-            autoComplete="new-password"
-          />,
-        )}
-      </Form.Item>
-      <Form.Item label="Confirm Password" hasFeedback>
-        {getFieldDecorator('confirm', confirmRules)(
-          <Input.Password
-            prefix={<Icon type="lock" />}
-            placeholder="Confirm Password"
-            autoComplete="new-password"
-          />,
-        )}
-      </Form.Item>
-      <Form.Item>
-        <Button
-          type="primary"
-          htmlType="submit"
-          style={{ width: '100%', marginTop: '15px' }}
-          loading={isLoading}
-          id="submit-register"
-          data-loading={isResolved ? 'resolved' : 'loading'}
-        >
-          Register
-        </Button>
-      </Form.Item>
-    </Form>
+    <Container>
+      <Form {...formItemLayout} onSubmit={handleSubmit} id="register-form">
+        <Form.Item label="Name">
+          {getFieldDecorator('name', requiredConfigRules)(
+            <Input prefix={<Icon type="user" />} placeholder="Name" />,
+          )}
+        </Form.Item>
+        <Form.Item label="Username">
+          {getFieldDecorator('username', requiredConfigRules)(
+            <Input
+              prefix={<Icon type="user" />}
+              placeholder="Username"
+              autoComplete="username"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item label="E-mail">
+          {getFieldDecorator('email', emailRules)(
+            <Input prefix={<Icon type="mail" />} placeholder="E-mail" />,
+          )}
+        </Form.Item>
+        <Form.Item label="Password" hasFeedback>
+          {getFieldDecorator('password', passwordRules)(
+            <Input.Password
+              prefix={<Icon type="lock" />}
+              placeholder="Password"
+              autoComplete="new-password"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item label="Confirm Password" hasFeedback>
+          {getFieldDecorator('confirm', confirmRules)(
+            <Input.Password
+              prefix={<Icon type="lock" />}
+              placeholder="Confirm Password"
+              autoComplete="new-password"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={isLoading}
+            id="submit-register"
+            data-loading={isResolved ? 'resolved' : 'loading'}
+          >
+            Register
+          </Button>
+        </Form.Item>
+      </Form>
+    </Container>
   );
 }
 

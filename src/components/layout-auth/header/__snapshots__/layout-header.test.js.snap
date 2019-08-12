@@ -1,24 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
+.c0 {
+  text-align: center;
+  padding: 0 5px !important;
+}
+
+.c0 > div:nth-child(1) {
+  float: left;
+}
+
+.c0 > div:nth-child(2) {
+  float: right;
+}
+
+.c0 > div:nth-child(3) {
+  float: right;
+  margin-right: 35px;
+}
+
+.c0 img {
+  width: 120px;
+  margin-left: 15px;
+  margin-right: 30px;
+}
+
+.c1 {
+  text-align: center;
+}
+
+.c1 h4 {
+  color: #ff6347;
+  display: inline;
+  margin-right: 10px;
+}
+
+.c1 button:nth-child(2) {
+  margin-right: 10px;
+}
+
+.c1 button:nth-child(4) {
+  margin-left: 10px;
+}
+
 <header
-  className="ant-layout-header"
-  style={
-    Object {
-      "paddingLeft": "5px",
-      "paddingRight": "5px",
-      "textAlign": "center",
-    }
-  }
+  className="c0 ant-layout-header"
 >
-  <div
-    className="logo"
-    style={
-      Object {
-        "float": "left",
-      }
-    }
-  >
+  <div>
     <button
       className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
       id="toggle-sider"
@@ -52,24 +80,10 @@ exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
       <img
         alt="Logo"
         src="logo.png"
-        style={
-          Object {
-            "marginLeft": "15px",
-            "marginRight": "30px",
-            "width": "120px",
-          }
-        }
       />
     </a>
   </div>
-  <div
-    className="logo"
-    style={
-      Object {
-        "float": "right",
-      }
-    }
-  >
+  <div>
     <button
       className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
       id="logout-btn"
@@ -97,38 +111,18 @@ exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
       </i>
     </button>
   </div>
-  <div
-    style={
-      Object {
-        "float": "right",
-        "marginRight": "35px",
-      }
-    }
-  >
+  <div>
     <div
-      className="text-center"
+      className="c1"
       id="audio-toggle"
     >
-      <h4
-        className="text-primary"
-        style={
-          Object {
-            "display": "inline",
-            "marginRight": "10px",
-          }
-        }
-      >
+      <h4>
         Playing: 
         top-gear.mp3
       </h4>
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginRight": "10px",
-          }
-        }
         type="button"
       >
         <i
@@ -180,11 +174,6 @@ exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginLeft": "10px",
-          }
-        }
         type="button"
       >
         <i
@@ -213,24 +202,52 @@ exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
 `;
 
 exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
+.c0 {
+  text-align: center;
+  padding: 0 5px !important;
+}
+
+.c0 > div:nth-child(1) {
+  float: left;
+}
+
+.c0 > div:nth-child(2) {
+  float: right;
+}
+
+.c0 > div:nth-child(3) {
+  float: right;
+  margin-right: 35px;
+}
+
+.c0 img {
+  width: 120px;
+  margin-left: 15px;
+  margin-right: 30px;
+}
+
+.c1 {
+  text-align: center;
+}
+
+.c1 h4 {
+  color: #ff6347;
+  display: inline;
+  margin-right: 10px;
+}
+
+.c1 button:nth-child(2) {
+  margin-right: 10px;
+}
+
+.c1 button:nth-child(4) {
+  margin-left: 10px;
+}
+
 <header
-  className="ant-layout-header"
-  style={
-    Object {
-      "paddingLeft": "5px",
-      "paddingRight": "5px",
-      "textAlign": "center",
-    }
-  }
+  className="c0 ant-layout-header"
 >
-  <div
-    className="logo"
-    style={
-      Object {
-        "float": "left",
-      }
-    }
-  >
+  <div>
     <button
       className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
       id="toggle-sider"
@@ -264,24 +281,10 @@ exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
       <img
         alt="Logo"
         src="logo.png"
-        style={
-          Object {
-            "marginLeft": "15px",
-            "marginRight": "30px",
-            "width": "120px",
-          }
-        }
       />
     </a>
   </div>
-  <div
-    className="logo"
-    style={
-      Object {
-        "float": "right",
-      }
-    }
-  >
+  <div>
     <button
       className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
       id="logout-btn"
@@ -309,38 +312,18 @@ exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
       </i>
     </button>
   </div>
-  <div
-    style={
-      Object {
-        "float": "right",
-        "marginRight": "35px",
-      }
-    }
-  >
+  <div>
     <div
-      className="text-center"
+      className="c1"
       id="audio-toggle"
     >
-      <h4
-        className="text-primary"
-        style={
-          Object {
-            "display": "inline",
-            "marginRight": "10px",
-          }
-        }
-      >
+      <h4>
         Playing: 
         top-gear.mp3
       </h4>
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginRight": "10px",
-          }
-        }
         type="button"
       >
         <i
@@ -392,11 +375,6 @@ exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginLeft": "10px",
-          }
-        }
         type="button"
       >
         <i

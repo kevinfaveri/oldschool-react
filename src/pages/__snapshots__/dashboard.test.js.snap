@@ -2,7 +2,29 @@
 
 exports[`Dashboard page component renders correctly if game list is loading 1`] = `
 Array [
-  <div
+  .c0 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.c0 img {
+  border-radius: 15px;
+}
+
+.c0 #current-image {
+  height: 400px;
+  opacity: 0.7;
+}
+
+.c0 #previous-image,
+.c0 #next-image {
+  opacity: 0.2;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+<div
     className="ant-row"
     style={
       Object {
@@ -31,6 +53,7 @@ Array [
         Welcome to the Old School Game Library
       </h1>
       <div
+        className="c0"
         id="animated-carousel"
       >
         <img
@@ -205,7 +228,29 @@ Array [
 
 exports[`Dashboard page component renders correctly if has finished loading 1`] = `
 Array [
-  <div
+  .c0 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.c0 img {
+  border-radius: 15px;
+}
+
+.c0 #current-image {
+  height: 400px;
+  opacity: 0.7;
+}
+
+.c0 #previous-image,
+.c0 #next-image {
+  opacity: 0.2;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+<div
     className="ant-row"
     style={
       Object {
@@ -234,6 +279,7 @@ Array [
         Welcome to the Old School Game Library
       </h1>
       <div
+        className="c0"
         id="animated-carousel"
       >
         <img

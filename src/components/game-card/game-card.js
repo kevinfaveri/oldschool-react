@@ -1,40 +1,38 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
-import './game-card.css';
+import Container from './styles';
 
 function GameCard({ game, onClick }) {
   return (
-    <div
-      className="game-card"
-      style={{ padding: '10px', height: '100%' }}
-      onClick={onClick}
+    <Container
       role="button"
       tabIndex={0}
+      onClick={onClick}
       onKeyPress={onClick}
     >
-      <div className="text-center" style={{ padding: '15px' }}>
+      <div>
         {game.VideoURL !== undefined ? (
-          <ReactPlayer url={game.VideoURL} width="inherit" height="250px" />
+          <ReactPlayer url={game.VideoURL} />
         ) : (
-          <div style={{ height: '250px' }} className="text-center">
+          <div>
             <strong>No video available for this game.</strong>
           </div>
         )}
       </div>
-      <div className="text-center">
+      <div>
         <strong>Title: </strong>
-        <span className="text-max-size-1">{game.Name}</span>
+        <span>{game.Name}</span>
       </div>
-      <div className="text-center">
+      <div>
         <strong>Platform: </strong>
-        <span className="text-max-size-1">{game.Platform}</span>
+        <span>{game.Platform}</span>
       </div>
-      <div className="text-center">
+      <div>
         <strong>Overview: </strong>
-        <span className="text-max-size-3">{game.Overview}</span>
+        <span>{game.Overview}</span>
       </div>
-    </div>
+    </Container>
   );
 }
 

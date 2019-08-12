@@ -93,7 +93,7 @@ export default function Library() {
             />
           </Col>
         </Row>
-        <Row style={{ padding: '30px 15px' }} gutter={24}>
+        <Row style={{ padding: '0 15px', paddingBottom: '100px' }} gutter={24}>
           <GameList
             isLoading={isLoadingGameList}
             gamesArray={gameList}

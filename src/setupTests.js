@@ -4,6 +4,7 @@ import { render, fireEvent, waitForElement } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import sinon from 'sinon';
 import { act } from 'react-dom/test-utils';
+import 'jest-styled-components';
 
 // Define globals to cut down on imports in test files
 global.React = React;

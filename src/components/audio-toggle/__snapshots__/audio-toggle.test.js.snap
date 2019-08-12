@@ -1,25 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AudioToggle component renders correctly 1`] = `
+.c0 {
+  text-align: center;
+}
+
+.c0 h4 {
+  color: #ff6347;
+}
+
+.c0 button:nth-child(2) {
+  margin-right: 10px;
+}
+
+.c0 button:nth-child(4) {
+  margin-left: 10px;
+}
+
 <div
-  className="text-center"
+  className="c0"
   id="audio-toggle"
 >
-  <h4
-    className="text-primary"
-    style={Object {}}
-  >
+  <h4>
     Playing: 
     top-gear.mp3
   </h4>
   <button
     className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
     onClick={[Function]}
-    style={
-      Object {
-        "marginRight": "10px",
-      }
-    }
     type="button"
   >
     <i
@@ -71,11 +79,6 @@ exports[`AudioToggle component renders correctly 1`] = `
   <button
     className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
     onClick={[Function]}
-    style={
-      Object {
-        "marginLeft": "10px",
-      }
-    }
     type="button"
   >
     <i

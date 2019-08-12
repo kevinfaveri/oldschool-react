@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './splash-screen.css';
-
 // Components
 import { Row, Spin, Button } from 'antd';
+import Container from './styles';
 import Carousel from '../carousel/carousel';
 import AudioToggle from '../audio-toggle/audio-toggle';
 
@@ -27,7 +26,7 @@ const withSplashScreen = (WrappedComponent) => (props) => {
 
   if (isLoading) {
     return (
-      <div className="splash-screen" id="splash-screen">
+      <Container id="splash-screen">
         <Row className="text-center">
           <div className="header-logo">
             <img src={Logo} alt="Logo" /> <Spin size="large" />
@@ -60,7 +59,7 @@ const withSplashScreen = (WrappedComponent) => (props) => {
             ''
           )}
         </Row>
-      </div>
+      </Container>
     );
   }
   return <WrappedComponent {...props} />;

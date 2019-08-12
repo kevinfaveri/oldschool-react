@@ -1,16 +1,14 @@
 import React from 'react';
 // Components
-import { Layout } from 'antd';
-
-const { Footer } = Layout;
+import Container from './styles';
 
 export default function LayoutFooter() {
   return (
-    <Footer style={{ textAlign: 'center' }}>
+    <Container>
       <span>
         2019 - Kevin Aguiar -{' '}
         <a href="https://github.com/kevinfaguiar">Github</a>
       </span>
-    </Footer>
+    </Container>
   );
 }

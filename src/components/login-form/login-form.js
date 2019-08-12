@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { push } from 'connected-react-router';
+import Container from './styles';
 import {
   loginUser,
   getRememberMe,
@@ -73,70 +74,70 @@ function LoginForm({ form }) {
 
   if (userLogged) {
     return (
-      <Row>
-        <Col span={22} offset={2} className="text-center">
-          You are already logged in!
-        </Col>
-        <Col span={20} offset={2}>
-          <Button
-            type="primary"
-            onClick={goToDashboard}
-            style={{ width: '100%' }}
-          >
-            Click here to enter.
-          </Button>
-        </Col>
-      </Row>
+      <Container>
+        <Row id="already-logged">
+          <Col span={22} offset={2}>
+            You are already logged in!
+          </Col>
+          <Col span={20} offset={2}>
+            <Button type="primary" onClick={goToDashboard}>
+              Click here to enter.
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 
   return (
-    <Form
-      {...formItemLayout}
-      onSubmit={handleSubmit}
-      className="login-form"
-      id="login-form"
-    >
-      <Form.Item>
-        {getFieldDecorator('username', {
-          initialValue: rememberMe,
-          ...requiredConfig,
-        })(
-          <Input
-            prefix={<Icon type="user" />}
-            placeholder="Username"
-            autoComplete="username"
-          />,
-        )}
-      </Form.Item>
-      <Form.Item>
-        {getFieldDecorator('password', requiredConfig)(
-          <Input
-            prefix={<Icon type="lock" />}
-            type="password"
-            placeholder="Password"
-            autoComplete="current-password"
-          />,
-        )}
-      </Form.Item>
-      <Form.Item>
-        {getFieldDecorator('remember', {
-          valuePropName: 'checked',
-          initialValue: true,
-        })(<Checkbox className="text-primary">Remember me</Checkbox>)}
-        <Button
-          type="primary"
-          htmlType="submit"
-          style={{ width: '100%' }}
-          loading={isLoading}
-          id="submit-login"
-          data-loading={isResolved ? 'resolved' : 'loading'}
-        >
-          Log in
-        </Button>
-        <Link to="/register">Not registered? Click here!</Link>
-      </Form.Item>
-    </Form>
+    <Container>
+      <Form {...formItemLayout} onSubmit={handleSubmit} id="login-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            initialValue: rememberMe,
+            ...requiredConfig,
+          })(
+            <Input
+              prefix={<Icon type="user" />}
+              placeholder="Username"
+              autoComplete="username"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', requiredConfig)(
+            <Input
+              prefix={<Icon type="lock" />}
+              type="password"
+              placeholder="Password"
+              autoComplete="current-password"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(
+            <Checkbox className="text-primary" id="remember-checkbox">
+              Remember me
+            </Checkbox>,
+          )}
+          <Button
+            type="primary"
+            htmlType="submit"
+            loading={isLoading}
+            id="submit-login"
+            data-loading={isResolved ? 'resolved' : 'loading'}
+          >
+            Log in
+          </Button>
+          <Link to="/register" id="register-link">
+            Not registered? Click here!
+          </Link>
+        </Form.Item>
+      </Form>
+    </Container>
   );
 }
 

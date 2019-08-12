@@ -1,69 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`GameCard component renders correctly 1`] = `
+.c0 {
+  outline: none;
+  background-color: #373e49;
+  border-radius: 15px;
+  height: inherit;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.c0:hover {
+  background-color: #2c313a;
+  cursor: pointer;
+}
+
+.c0 div:nth-child(1) div:nth-child(1) {
+  width: inherit !important;
+  height: 250px !important;
+}
+
+.c0 div:nth-child(2) > span,
+.c0 div:nth-child(3) > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.c0 > div:nth-child(4) > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 <div
-  className="game-card"
+  className="c0"
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
-  style={
-    Object {
-      "height": "100%",
-      "padding": "10px",
-    }
-  }
   tabIndex={0}
 >
-  <div
-    className="text-center"
-    style={
-      Object {
-        "padding": "15px",
-      }
-    }
-  >
+  <div>
     <div
       style={
         Object {
-          "height": "250px",
-          "width": "inherit",
+          "height": "360px",
+          "width": "640px",
         }
       }
     />
   </div>
-  <div
-    className="text-center"
-  >
+  <div>
     <strong>
       Title: 
     </strong>
-    <span
-      className="text-max-size-1"
-    >
+    <span>
       Super Mario Kart
     </span>
   </div>
-  <div
-    className="text-center"
-  >
+  <div>
     <strong>
       Platform: 
     </strong>
-    <span
-      className="text-max-size-1"
-    >
+    <span>
       Super Nintendo Entertainment System
     </span>
   </div>
-  <div
-    className="text-center"
-  >
+  <div>
     <strong>
       Overview: 
     </strong>
-    <span
-      className="text-max-size-3"
-    >
+    <span>
       The best kart game in the world, y' now
     </span>
   </div>

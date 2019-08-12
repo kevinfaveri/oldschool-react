@@ -9,7 +9,7 @@ import Logo from '../assets/logo.png';
 
 export default function Home() {
   return (
-    <div className="splash-screen">
+    <div style={{ marginTop: '5%' }}>
       <Row className="text-center">
         <div className="header-logo">
           <img src={Logo} alt="Logo" />

@@ -1,28 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LayoutAuth component renders correctly 1`] = `
+.c1 {
+  text-align: center;
+  padding: 0 5px !important;
+}
+
+.c1 > div:nth-child(1) {
+  float: left;
+}
+
+.c1 > div:nth-child(2) {
+  float: right;
+}
+
+.c1 > div:nth-child(3) {
+  float: right;
+  margin-right: 35px;
+}
+
+.c1 img {
+  width: 120px;
+  margin-left: 15px;
+  margin-right: 30px;
+}
+
+.c2 {
+  text-align: center;
+}
+
+.c2 h4 {
+  color: #ff6347;
+  display: inline;
+  margin-right: 10px;
+}
+
+.c2 button:nth-child(2) {
+  margin-right: 10px;
+}
+
+.c2 button:nth-child(4) {
+  margin-left: 10px;
+}
+
+.c3 {
+  text-align: center;
+}
+
+.c0 {
+  min-height: 100vh !important;
+}
+
+.c0 > * {
+  color: #ff6347 !important;
+}
+
 <section
-  className="ant-layout"
+  className="c0 ant-layout"
   id="layout-auth"
 >
   <header
-    className="ant-layout-header"
-    style={
-      Object {
-        "paddingLeft": "5px",
-        "paddingRight": "5px",
-        "textAlign": "center",
-      }
-    }
+    className="c1 ant-layout-header"
   >
-    <div
-      className="logo"
-      style={
-        Object {
-          "float": "left",
-        }
-      }
-    >
+    <div>
       <button
         className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
         id="toggle-sider"
@@ -56,24 +96,10 @@ exports[`LayoutAuth component renders correctly 1`] = `
         <img
           alt="Logo"
           src="logo.png"
-          style={
-            Object {
-              "marginLeft": "15px",
-              "marginRight": "30px",
-              "width": "120px",
-            }
-          }
         />
       </a>
     </div>
-    <div
-      className="logo"
-      style={
-        Object {
-          "float": "right",
-        }
-      }
-    >
+    <div>
       <button
         className="ant-btn btn-secondary ant-btn-lg ant-btn-icon-only"
         id="logout-btn"
@@ -101,38 +127,18 @@ exports[`LayoutAuth component renders correctly 1`] = `
         </i>
       </button>
     </div>
-    <div
-      style={
-        Object {
-          "float": "right",
-          "marginRight": "35px",
-        }
-      }
-    >
+    <div>
       <div
-        className="text-center"
+        className="c2"
         id="audio-toggle"
       >
-        <h4
-          className="text-primary"
-          style={
-            Object {
-              "display": "inline",
-              "marginRight": "10px",
-            }
-          }
-        >
+        <h4>
           Playing: 
           top-gear.mp3
         </h4>
         <button
           className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
           onClick={[Function]}
-          style={
-            Object {
-              "marginRight": "10px",
-            }
-          }
           type="button"
         >
           <i
@@ -184,11 +190,6 @@ exports[`LayoutAuth component renders correctly 1`] = `
         <button
           className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
           onClick={[Function]}
-          style={
-            Object {
-              "marginLeft": "10px",
-            }
-          }
           type="button"
         >
           <i
@@ -239,12 +240,7 @@ exports[`LayoutAuth component renders correctly 1`] = `
     </main>
   </section>
   <footer
-    className="ant-layout-footer"
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
+    className="c3 ant-layout-footer"
   >
     <span>
       2019 - Kevin Aguiar -

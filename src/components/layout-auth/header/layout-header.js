@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Layout, Button } from 'antd';
+import { Button } from 'antd';
+import Container from './styles';
 import * as SiderActions from '../../../store/actions/sider';
 import * as AuthActions from '../../../store/actions/auth';
 import AudioToggle from '../../audio-toggle/audio-toggle';
@@ -10,7 +11,6 @@ import AudioToggle from '../../audio-toggle/audio-toggle';
 import Logo from '../../../assets/logo.png';
 
 export default function LayoutHeader() {
-  const { Header } = Layout;
   const dispatch = useDispatch();
 
   const isLoadingLogout = useSelector((state) => state.auth.isLoadingLogout);
@@ -20,10 +20,8 @@ export default function LayoutHeader() {
   const toggleSider = () => dispatch(SiderActions.toggleSider());
 
   return (
-    <Header
-      style={{ paddingLeft: '5px', paddingRight: '5px', textAlign: 'center' }}
-    >
-      <div className="logo" style={{ float: 'left' }}>
+    <Container>
+      <div>
         <Button
           id="toggle-sider"
           className="btn-secondary"
@@ -32,14 +30,10 @@ export default function LayoutHeader() {
           onClick={toggleSider}
         />
         <Link to="/dashboard">
-          <img
-            src={Logo}
-            alt="Logo"
-            style={{ width: '120px', marginLeft: '15px', marginRight: '30px' }}
-          />
+          <img src={Logo} alt="Logo" />
         </Link>
       </div>
-      <div className="logo" style={{ float: 'right' }}>
+      <div>
         <Button
           id="logout-btn"
           className="btn-secondary"
@@ -49,7 +43,7 @@ export default function LayoutHeader() {
           onClick={initLogout}
         />
       </div>
-      <div style={{ float: 'right', marginRight: '35px' }}>
+      <div>
         <AudioToggle
           inlineMode
           audioArray={[
@@ -59,6 +53,6 @@ export default function LayoutHeader() {
           ]}
         />
       </div>
-    </Header>
+    </Container>
   );
 }

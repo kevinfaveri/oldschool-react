@@ -4,52 +4,37 @@ import { Col, Spin } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import Shortid from 'shortid';
 import GameCard from '../game-card/game-card';
+import Container from './styles';
 
 function GameList({ isLoading, gamesArray, maxTotalGames, gameOnClick }) {
   if (isLoading) {
     return (
-      <h1 className="text-center">
-        <Spin
-          tip="Loading games..."
-          size="large"
-          style={{ marginTop: '25px' }}
-        />
-      </h1>
+      <Container>
+        <h1>
+          <Spin tip="Loading games..." size="large" />
+        </h1>
+      </Container>
     );
   }
 
   if (gamesArray.length !== 0) {
     return (
-      <>
-        <h1 className="text-primary" style={{ margin: '15px' }}>
-          Showing a maximum of {maxTotalGames} games...
-        </h1>
+      <Container>
+        <h1>Showing a maximum of {maxTotalGames} games...</h1>
         <QueueAnim type="bottom" duration={700}>
           {gamesArray.map((item) => (
-            <Col
-              span={6}
-              style={{
-                marginTop: '20px',
-                marginBottom: '20px',
-                height: '470px',
-                minHeight: '470px',
-                maxHeight: '470px',
-              }}
-              key={Shortid.generate()}
-            >
+            <Col span={6} key={Shortid.generate()}>
               <GameCard game={item} onClick={() => gameOnClick(item)} />
             </Col>
           ))}
         </QueueAnim>
-      </>
+      </Container>
     );
   }
   return (
-    <>
-      <h1 className="text-center text-primary" style={{ margin: '15px' }}>
-        There are no games available, please try again later...
-      </h1>
-    </>
+    <Container>
+      <h1>There are no games available, please try again later...</h1>
+    </Container>
   );
 }
 

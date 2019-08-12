@@ -1,8 +1,60 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SplashScreen component renders correctly 1`] = `
+.c0 {
+  margin-top: 5%;
+}
+
+.c0 > * > .header-logo {
+  font-size: 70px;
+  color: #ff6347 !important;
+}
+
+.c0 > * > .header-description {
+  font-size: 40px;
+  color: #ff6347 !important;
+}
+
+.c1 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.c1 img {
+  border-radius: 15px;
+}
+
+.c1 #current-image {
+  height: 400px;
+  opacity: 0.7;
+}
+
+.c1 #previous-image,
+.c1 #next-image {
+  opacity: 0.2;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.c2 {
+  text-align: center;
+}
+
+.c2 h4 {
+  color: #ff6347;
+}
+
+.c2 button:nth-child(2) {
+  margin-right: 10px;
+}
+
+.c2 button:nth-child(4) {
+  margin-left: 10px;
+}
+
 <div
-  className="splash-screen"
+  className="c0"
   id="splash-screen"
 >
   <div
@@ -47,6 +99,7 @@ exports[`SplashScreen component renders correctly 1`] = `
     className="ant-row text-center"
   >
     <div
+      className="c1"
       id="animated-carousel"
     >
       <img
@@ -73,24 +126,16 @@ exports[`SplashScreen component renders correctly 1`] = `
     className="ant-row text-center"
   >
     <div
-      className="text-center"
+      className="c2"
       id="audio-toggle"
     >
-      <h4
-        className="text-primary"
-        style={Object {}}
-      >
+      <h4>
         Playing: 
         top-gear.mp3
       </h4>
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginRight": "10px",
-          }
-        }
         type="button"
       >
         <i
@@ -142,11 +187,6 @@ exports[`SplashScreen component renders correctly 1`] = `
       <button
         className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
         onClick={[Function]}
-        style={
-          Object {
-            "marginLeft": "10px",
-          }
-        }
         type="button"
       >
         <i

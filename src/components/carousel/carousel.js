@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useState, useCallback } from 'react';
-import './carousel.css';
 import { getNextFile } from '../../utils/files';
 import {
   validateStringArray,
   validateNumberInterval,
 } from '../../utils/props-validate';
+import Container from './styles';
 
 function Carousel({ imageArray, intervalSeconds }) {
   const [
@@ -52,7 +52,7 @@ function Carousel({ imageArray, intervalSeconds }) {
   }, [intervalSeconds, rollCarousel]);
 
   return (
-    <div id="animated-carousel">
+    <Container id="animated-carousel">
       <img
         id="previous-image"
         src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
@@ -71,7 +71,7 @@ function Carousel({ imageArray, intervalSeconds }) {
         alt="Random Game"
         data-index={nextImgIndex}
       />
-    </div>
+    </Container>
   );
 }
 

@@ -7,43 +7,19 @@ exports[`ModalGame component renders correctly 1`] = `
   <button
     className="ant-btn ant-btn-primary"
     onClick={[Function]}
-    style={
-      Object {
-        "float": "right",
-        "marginRight": "15px",
-      }
-    }
     type="button"
   />
-  <h1
-    className="text-center text-primary"
-  >
+  <h1>
     
   </h1>
-  <div
-    className="text-center"
-    style={
-      Object {
-        "padding": "15px",
-      }
-    }
-  >
-    <div
-      className="text-center"
-      style={
-        Object {
-          "height": "inherit",
-        }
-      }
-    >
+  <div>
+    <div>
       <strong>
         No video available for this game.
       </strong>
     </div>
   </div>
-  <div
-    className="text-center"
-  >
+  <div>
     <strong>
       Platform: 
     </strong>
@@ -51,9 +27,7 @@ exports[`ModalGame component renders correctly 1`] = `
       
     </span>
   </div>
-  <div
-    className="text-center"
-  >
+  <div>
     <strong>
       Overview: 
     </strong>

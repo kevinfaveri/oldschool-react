@@ -2,7 +2,21 @@
 
 exports[`Favs page component renders correctly when loading 1`] = `
 Array [
-  <div
+  .c0 h1 {
+  margin-top: 25px;
+  text-align: center;
+  color: #ff6347;
+}
+
+.c0 .ant-col {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 470px;
+  min-height: 470px;
+  max-height: 470px;
+}
+
+<div
     style={
       Object {
         "height": "100vh",
@@ -76,44 +90,42 @@ Array [
         Object {
           "marginLeft": -12,
           "marginRight": -12,
-          "padding": "30px 15px",
+          "padding": "0 15px",
+          "paddingBottom": "100px",
         }
       }
     >
-      <h1
-        className="text-center"
+      <div
+        className="c0"
       >
-        <div
-          className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
-          style={
-            Object {
-              "marginTop": "25px",
-            }
-          }
-        >
-          <span
-            className="ant-spin-dot ant-spin-dot-spin"
-          >
-            <i
-              className="ant-spin-dot-item"
-            />
-            <i
-              className="ant-spin-dot-item"
-            />
-            <i
-              className="ant-spin-dot-item"
-            />
-            <i
-              className="ant-spin-dot-item"
-            />
-          </span>
+        <h1>
           <div
-            className="ant-spin-text"
+            className="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
           >
-            Loading games...
+            <span
+              className="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+              <i
+                className="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              className="ant-spin-text"
+            >
+              Loading games...
+            </div>
           </div>
-        </div>
-      </h1>
+        </h1>
+      </div>
     </div>
   </div>,
   "",
@@ -122,7 +134,21 @@ Array [
 
 exports[`Favs page component renders correctly when not loading and has games 1`] = `
 Array [
-  <div
+  .c0 h1 {
+  margin-top: 25px;
+  text-align: center;
+  color: #ff6347;
+}
+
+.c0 .ant-col {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 470px;
+  min-height: 470px;
+  max-height: 470px;
+}
+
+<div
     style={
       Object {
         "height": "100vh",
@@ -196,23 +222,21 @@ Array [
         Object {
           "marginLeft": -12,
           "marginRight": -12,
-          "padding": "30px 15px",
+          "padding": "0 15px",
+          "paddingBottom": "100px",
         }
       }
     >
-      <h1
-        className="text-primary"
-        style={
-          Object {
-            "margin": "15px",
-          }
-        }
+      <div
+        className="c0"
       >
-        Showing a maximum of 
-        12
-         games...
-      </h1>
-      <div />
+        <h1>
+          Showing a maximum of 
+          12
+           games...
+        </h1>
+        <div />
+      </div>
     </div>
   </div>,
   "",
@@ -221,7 +245,21 @@ Array [
 
 exports[`Favs page component renders correctly when not loading and not has games 1`] = `
 Array [
-  <div
+  .c0 h1 {
+  margin-top: 25px;
+  text-align: center;
+  color: #ff6347;
+}
+
+.c0 .ant-col {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 470px;
+  min-height: 470px;
+  max-height: 470px;
+}
+
+<div
     style={
       Object {
         "height": "100vh",
@@ -295,20 +333,18 @@ Array [
         Object {
           "marginLeft": -12,
           "marginRight": -12,
-          "padding": "30px 15px",
+          "padding": "0 15px",
+          "paddingBottom": "100px",
         }
       }
     >
-      <h1
-        className="text-center text-primary"
-        style={
-          Object {
-            "margin": "15px",
-          }
-        }
+      <div
+        className="c0"
       >
-        There are no games available, please try again later...
-      </h1>
+        <h1>
+          There are no games available, please try again later...
+        </h1>
+      </div>
     </div>
   </div>,
   "",

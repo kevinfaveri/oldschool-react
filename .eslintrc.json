@@ -32,6 +32,18 @@
     "implicit-arrow-linebreak": "warn",
     "no-confusing-arrow": "warn",
     "react/jsx-curly-newline": "warn",
-    "no-async-promise-executor": "warn"
+    "no-async-promise-executor": "warn",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [{
+          "name": "styled-components",
+          "message": "Please import from styled-components/macro."
+        }],
+        "patterns": [
+          "!styled-components/macro"
+        ]
+      }
+    ]
   }
 }

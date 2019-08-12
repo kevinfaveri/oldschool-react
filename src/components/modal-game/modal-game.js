@@ -1,7 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
-import { Modal, Button } from 'antd';
+import { Button } from 'antd';
 import PropTypes from 'prop-types';
 import ReactPlayer from 'react-player';
+import Container from './styles';
 import {
   isGameFavorited,
   saveToFavs,
@@ -34,7 +35,7 @@ function ModalGame({ game, visible, onCancel, onOk }) {
   };
 
   return (
-    <Modal
+    <Container
       title={game.Name}
       visible={visible}
       onOk={onOk}
@@ -43,32 +44,31 @@ function ModalGame({ game, visible, onCancel, onOk }) {
     >
       <Button
         type="primary"
-        style={{ float: 'right', marginRight: '15px' }}
         onClick={
           favLabel === 'UNFAV' ? () => removeFav(game) : () => saveFav(game)
         }
       >
         {favLabel}
       </Button>
-      <h1 className="text-center text-primary">{game.Name}</h1>
-      <div className="text-center" style={{ padding: '15px' }}>
+      <h1>{game.Name}</h1>
+      <div>
         {game.VideoURL !== undefined ? (
-          <ReactPlayer url={game.VideoURL} width="inherit" height="inherit" />
+          <ReactPlayer url={game.VideoURL} />
         ) : (
-          <div style={{ height: 'inherit' }} className="text-center">
+          <div>
             <strong>No video available for this game.</strong>
           </div>
         )}
       </div>
-      <div className="text-center">
+      <div>
         <strong>Platform: </strong>
         <span>{game.Platform}</span>
       </div>
-      <div className="text-center">
+      <div>
         <strong>Overview: </strong>
         <span>{game.Overview}</span>
       </div>
-    </Modal>
+    </Container>
   );
 }
 

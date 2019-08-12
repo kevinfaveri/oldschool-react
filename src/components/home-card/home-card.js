@@ -2,35 +2,20 @@ import React from 'react';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Container from './styles';
 import Logo from '../../assets/logo.png';
 
 function HomeCard({ children }) {
   return (
-    <div className="clean-card" id="home-card">
+    <Container id="home-card">
       <Link to="/">
-        <Button
-          className="btn-secondary"
-          size="large"
-          icon="rollback"
-          style={{ float: 'left', marginLeft: '5px', marginTop: '5px' }}
-        >
+        <Button className="btn-secondary" size="large" icon="rollback">
           Back
         </Button>
       </Link>
-      <img
-        src={Logo}
-        alt="Logo"
-        style={{
-          float: 'right',
-          marginRight: '15px',
-          marginTop: '15px',
-          height: '25px',
-        }}
-      />
-      <div style={{ paddingTop: '50px', paddingBottom: '50px' }}>
-        {children}
-      </div>
-    </div>
+      <img src={Logo} alt="Logo" />
+      <div>{children}</div>
+    </Container>
   );
 }
 

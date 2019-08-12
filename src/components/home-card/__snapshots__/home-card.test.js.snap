@@ -1,8 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeCard component renders correctly 1`] = `
+.c0 {
+  padding: 20px;
+  background-color: #373e49;
+  border-radius: 15px;
+}
+
+.c0 button {
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.c0 img {
+  float: right;
+  margin-right: 15px;
+  margin-top: 15px;
+  height: 25px;
+}
+
+.c0 > div:nth-child(3) {
+  padding: 60px 0;
+}
+
 <div
-  className="clean-card"
+  className="c0"
   id="home-card"
 >
   <a
@@ -12,13 +35,6 @@ exports[`HomeCard component renders correctly 1`] = `
     <button
       className="ant-btn btn-secondary ant-btn-lg"
       onClick={[Function]}
-      style={
-        Object {
-          "float": "left",
-          "marginLeft": "5px",
-          "marginTop": "5px",
-        }
-      }
       type="button"
     >
       <i
@@ -48,23 +64,8 @@ exports[`HomeCard component renders correctly 1`] = `
   <img
     alt="Logo"
     src="logo.png"
-    style={
-      Object {
-        "float": "right",
-        "height": "25px",
-        "marginRight": "15px",
-        "marginTop": "15px",
-      }
-    }
   />
-  <div
-    style={
-      Object {
-        "paddingBottom": "50px",
-        "paddingTop": "50px",
-      }
-    }
-  >
+  <div>
     Test
   </div>
 </div>
