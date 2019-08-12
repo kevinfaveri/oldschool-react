@@ -1,3 +1,3 @@
-# React Testing Library Branch
+# Storybook Branch
 
-This branch is a react-create-app boilerplate from majestic branch + react-testing-library replacing enzyme. Most of the tests have been rewritten to better fit the RTL testing concept.
+This branch is a react-create-app boilerplate from react-testing-library branch + Storybook for UX testing components.
