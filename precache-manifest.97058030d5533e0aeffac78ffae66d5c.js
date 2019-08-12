@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51f24ea9d8dcaddab7cf663fcb9da70a",
+    "revision": "b9343443af9889099f16a6e0ef2294cf",
     "url": "/oldschool-react/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/oldschool-react/static/js/2.b7eef0fe.chunk.js"
   },
   {
-    "revision": "9f999cf5873720b0380e",
-    "url": "/oldschool-react/static/js/main.9a0f7aa1.chunk.js"
+    "revision": "eeeef1b24b5fe7ef7fa2",
+    "url": "/oldschool-react/static/js/main.3ba75713.chunk.js"
   },
   {
     "revision": "eb562c66388fa3e1a834",
