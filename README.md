@@ -18,7 +18,7 @@ The branchs are organized in cronological order.
 
 - ***react-testing-library branch***: majestic branch + react-testing-library replacing enzyme
 
-- ***storybook branch***: react-testing-library branch + Storybook added for components UI testing
+- ***storybook branch***: react-testing-library branch + Storybook added for UX testing components
 
 - ***styled-components branch***: storybook branch + code refactoring using styled-components for the styling
 
