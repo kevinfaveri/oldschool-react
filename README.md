@@ -2,7 +2,7 @@
 
 ![https://i.imgur.com/Vf1Tydi.png](https://i.imgur.com/Vf1Tydi.png)
 
-Boilerplate project for learning React (& its main libraries commonly used) with the theme: Old School Game Library.
+Boilerplate project for learning React (& its main libraries commonly used) with the theme: Old School Game Library. Currently Desktop only (Ant Design limitation).
 
 ## Branchs
 
