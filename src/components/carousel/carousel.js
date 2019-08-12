@@ -6,7 +6,7 @@ import {
   validateNumberInterval,
 } from '../../utils/props-validate';
 
-const Carousel = ({ imageArray, intervalSeconds }) => {
+function Carousel({ imageArray, intervalSeconds }) {
   const [
     {
       previousImg,
@@ -73,7 +73,7 @@ const Carousel = ({ imageArray, intervalSeconds }) => {
       />
     </div>
   );
-};
+}
 
 Carousel.defaultProps = {
   imageArray: ['super-mario-kart.png', 'super-mario-world.jpg', 'top-gear.jpg'],

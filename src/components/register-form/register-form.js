@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';
 import { registerUser } from '../../service/auth-service';
 
-const RegisterForm = ({ form }) => {
+function RegisterForm({ form }) {
   const dispatch = useDispatch();
 
   const [{ confirmDirty, isLoading, isResolved }, setState] = useState({
@@ -152,7 +152,7 @@ const RegisterForm = ({ form }) => {
       </Form.Item>
     </Form>
   );
-};
+}
 
 RegisterForm.defaultProps = {
   form: {},

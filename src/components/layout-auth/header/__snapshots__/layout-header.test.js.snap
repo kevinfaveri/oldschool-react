@@ -106,10 +106,11 @@ exports[`LayoutHeader component renders correctly sider collapsed 1`] = `
     }
   >
     <div
+      className="text-center"
       id="audio-toggle"
     >
       <h4
-        className="text-center text-primary"
+        className="text-primary"
         style={
           Object {
             "display": "inline",
@@ -317,10 +318,11 @@ exports[`LayoutHeader component renders correctly sider uncollapsed 1`] = `
     }
   >
     <div
+      className="text-center"
       id="audio-toggle"
     >
       <h4
-        className="text-center text-primary"
+        className="text-primary"
         style={
           Object {
             "display": "inline",

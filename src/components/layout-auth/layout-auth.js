@@ -11,16 +11,18 @@ import LayoutFooter from './footer/layout-footer';
 
 const { Content } = Layout;
 
-const LayoutAuth = ({ children }) => (
-  <Layout id="layout-auth">
-    <LayoutHeader />
-    <Layout>
-      <LayoutSider />
-      <Content>{children}</Content>
+function LayoutAuth({ children }) {
+  return (
+    <Layout id="layout-auth">
+      <LayoutHeader />
+      <Layout>
+        <LayoutSider />
+        <Content>{children}</Content>
+      </Layout>
+      <LayoutFooter />
     </Layout>
-    <LayoutFooter />
-  </Layout>
-);
+  );
+}
 
 LayoutAuth.propTypes = {
   children: PropTypes.node.isRequired,

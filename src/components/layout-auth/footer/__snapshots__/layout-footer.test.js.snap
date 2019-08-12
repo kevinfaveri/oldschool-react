@@ -10,7 +10,8 @@ exports[`LayoutFooter component renders correctly 1`] = `
   }
 >
   <span>
-    2019 - Kevin Aguiar - 
+    2019 - Kevin Aguiar -
+     
     <a
       href="https://github.com/kevinfaguiar"
     >

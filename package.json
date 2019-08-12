@@ -29,7 +29,9 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "majestic": "majestic",
+    "storybook": "start-storybook -s ./public -p 9001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,9 +49,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@storybook/react": "^5.1.10",
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^9.1.0",
     "axios-mock-adapter": "^1.17.0",
+    "babel-loader": "^8.0.6",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.4.0",

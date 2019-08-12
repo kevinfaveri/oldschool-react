@@ -8,7 +8,7 @@ import {
   removeFromFavs,
 } from '../../service/games-service';
 
-const ModalGame = ({ game, visible, onCancel, onOk }) => {
+function ModalGame({ game, visible, onCancel, onOk }) {
   const [{ favLabel }, setState] = useState({ favLabel: '' });
 
   const revalidateGame = () => {
@@ -70,7 +70,7 @@ const ModalGame = ({ game, visible, onCancel, onOk }) => {
       </div>
     </Modal>
   );
-};
+}
 
 ModalGame.defaultProps = {
   onOk: () => {},

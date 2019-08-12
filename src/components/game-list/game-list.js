@@ -5,7 +5,7 @@ import QueueAnim from 'rc-queue-anim';
 import Shortid from 'shortid';
 import GameCard from '../game-card/game-card';
 
-const GameList = ({ isLoading, gamesArray, maxTotalGames, gameOnClick }) => {
+function GameList({ isLoading, gamesArray, maxTotalGames, gameOnClick }) {
   if (isLoading) {
     return (
       <h1 className="text-center">
@@ -51,7 +51,7 @@ const GameList = ({ isLoading, gamesArray, maxTotalGames, gameOnClick }) => {
       </h1>
     </>
   );
-};
+}
 
 GameList.propTypes = {
   gamesArray: PropTypes.array.isRequired,

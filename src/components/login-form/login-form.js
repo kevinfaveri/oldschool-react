@@ -12,7 +12,7 @@ import {
 
 const { error } = Modal;
 
-const LoginForm = ({ form }) => {
+function LoginForm({ form }) {
   const dispatch = useDispatch();
 
   const [
@@ -138,7 +138,7 @@ const LoginForm = ({ form }) => {
       </Form.Item>
     </Form>
   );
-};
+}
 
 LoginForm.defaultProps = {
   form: {},

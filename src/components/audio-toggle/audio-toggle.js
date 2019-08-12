@@ -6,7 +6,7 @@ import {
   validateNumberInterval,
 } from '../../utils/props-validate';
 
-const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
+function AudioToggle({ audioArray, gradualSpeed, inlineMode }) {
   const randomAudio = audioArray[0];
 
   const [{ playing, currentlyPlaying, currentIndex }, setState] = useState({
@@ -69,6 +69,7 @@ const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
     audio.play();
     setState((prevState) => ({
       ...prevState,
+      playing: true,
       currentlyPlaying: newAudio,
       currentIndex: newIndex,
     }));
@@ -95,9 +96,9 @@ const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
   };
 
   return (
-    <div id="audio-toggle">
+    <div id="audio-toggle" className="text-center">
       <h4
-        className="text-center text-primary"
+        className="text-primary"
         style={inlineMode ? { display: 'inline', marginRight: '10px' } : {}}
       >
         Playing: {currentlyPlaying}
@@ -130,7 +131,7 @@ const AudioToggle = ({ audioArray, gradualSpeed, inlineMode }) => {
       </Button>
     </div>
   );
-};
+}
 
 AudioToggle.defaultProps = {
   audioArray: ['top-gear.mp3'],
