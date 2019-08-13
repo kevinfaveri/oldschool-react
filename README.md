@@ -18,7 +18,7 @@ The branchs are organized in cronological order.
 
 - 🎣 ***hooks branch***: redux-saga branch + connected-router-redux + ***HOOKS FOR EVERY COMPONENT*** (bye React Classes, hello fully functional SPA) [all tests rewritten + tests for Reducers and Sagas]. This version updated React from version 16.8.6 to 16.9.0.
 
-- ⚡ ***majestic branch***: hooks branch + PROCESS ENVS + majestic added for as UI for Jest
+- ⚡ ***majestic branch***: hooks branch + PROCESS ENVS + majestic added as a UI for Jest
 
 - 🦑 ***react-testing-library branch***: majestic branch + react-testing-library replacing enzyme
 
