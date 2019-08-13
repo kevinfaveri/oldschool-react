@@ -26,7 +26,7 @@ The branchs are organized in cronological order.
 
 - 💅 ***styled-components branch***: storybook branch + code refactoring using styled-components for the styling
 
-- 👷 ***worker branch***: styled-components branch + web worker for keeping big scrips off the main thread
+- 👷 ***worker branch***: styled-components branch + web worker for keeping the big scripts off the main thread
 
 ## DEMO
 
