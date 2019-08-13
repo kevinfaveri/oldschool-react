@@ -28,8 +28,10 @@ The branchs are organized in cronological order.
 
 - 👷 ***worker branch***: styled-components branch + web worker for keeping the big scripts off the main thread
 
+- 📱 ***mobile branch***: worker branch + partial mobile support and some tests fixes
+
 ## DEMO
 
-The demo (based in the worker branch) is available here: https://kevinfaguiar.github.io/oldschool-react/
+The demo (***which is based in the mobile branch***) is available here: https://kevinfaguiar.github.io/oldschool-react/
 
 #### All games appearing in this app have their rights reserved to their respective companies. This app is just a concept aimed at applying React and its main libraries commonly used in a real project.
