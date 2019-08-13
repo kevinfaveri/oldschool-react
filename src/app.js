@@ -11,7 +11,7 @@ export default function App() {
   const worker = new WebWorker(AppWorker);
   worker.addEventListener('message', (event) => {
     const resultCalc = event.data;
-    console.log('resultCalc', resultCalc);
+    console.log('RESULT WEB WORKER:', resultCalc);
   });
   worker.postMessage(14);
   return (

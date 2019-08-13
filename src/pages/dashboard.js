@@ -44,7 +44,13 @@ export default function Dashboard() {
   };
 
   return (
-    <>
+    <div
+      style={{
+        height: '100vh',
+        overflow: 'auto',
+        paddingBottom: '20%'
+      }}
+    >
       <Row gutter={24}>
         <Col span={22} offset={1}>
           <h1
@@ -56,8 +62,13 @@ export default function Dashboard() {
           <Carousel />
         </Col>
       </Row>
-      <Row gutter={24}>
-        <Col span={8} offset={2}>
+      <Row>
+        <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 22, offset: 1 }}
+          md={{ span: 10, offset: 1 }}
+          lg={{ span: 9, offset: 1 }}
+        >
           <h1
             className="text-center text-primary text-big"
             style={{ marginTop: '2vh' }}
@@ -68,7 +79,12 @@ export default function Dashboard() {
             {renderGamesData(gamesData)}
           </div>
         </Col>
-        <Col span={8} offset={2}>
+        <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 22, offset: 1 }}
+          md={{ span: 10, offset: 1 }}
+          lg={{ span: 9, offset: 1 }}
+        >
           <h1
             className="text-center text-primary text-big"
             style={{ marginTop: '2vh' }}
@@ -80,6 +96,6 @@ export default function Dashboard() {
           </div>
         </Col>
       </Row>
-    </>
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 // Components
 import { Row, Spin, Button } from 'antd';
 import Container from './styles';
@@ -29,7 +30,7 @@ const withSplashScreen = (WrappedComponent) => (props) => {
       <Container id="splash-screen">
         <Row className="text-center">
           <div className="header-logo">
-            <img src={Logo} alt="Logo" /> <Spin size="large" />
+            <img src={Logo} alt="Logo" />
           </div>
           <div className="header-description">The best game library app!</div>
         </Row>
@@ -46,17 +47,12 @@ const withSplashScreen = (WrappedComponent) => (props) => {
           />
         </Row>
         <Row className="text-center">
-          <div className="header-description">
-            Meanwhile, please enjoy some nostalgia (turn on sound)!
-          </div>
-        </Row>
-        <Row className="text-center">
           {showClose ? (
             <Button id="close-splash" type="primary" onClick={disableSplash}>
               Click to Continue
             </Button>
           ) : (
-            ''
+            <Spin size="large" id="spin" />
           )}
         </Row>
       </Container>

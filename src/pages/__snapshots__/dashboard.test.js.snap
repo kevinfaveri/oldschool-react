@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dashboard page component renders correctly if game list is loading 1`] = `
-Array [
-  .c0 {
+.c0 {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -13,18 +12,47 @@ Array [
 }
 
 .c0 #current-image {
-  height: 400px;
+  width: 100%;
   opacity: 0.7;
 }
 
 .c0 #previous-image,
 .c0 #next-image {
+  width: 90%;
   opacity: 0.2;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 50px 0;
+  display: visible;
+}
+
+@media (max-width:1360px) {
+  .c0 #current-image {
+    height: 280px;
+  }
+}
+
+@media (max-width:1130px) {
+  .c0 #current-image {
+    height: 260px;
+  }
+}
+
+@media (max-width:900px) {
+  .c0 #previous-image,
+  .c0 #next-image {
+    display: none;
+  }
 }
 
 <div
+  style={
+    Object {
+      "height": "100vh",
+      "overflow": "auto",
+      "paddingBottom": "20%",
+    }
+  }
+>
+  <div
     className="ant-row"
     style={
       Object {
@@ -56,44 +84,48 @@ Array [
         className="c0"
         id="animated-carousel"
       >
-        <img
-          alt="Random Game"
-          data-index={0}
-          id="previous-image"
-          src="/image/super-mario-kart.png"
-        />
-        <img
-          alt="Random Game"
-          data-index={1}
-          id="current-image"
-          src="/image/super-mario-world.jpg"
-        />
-        <img
-          alt="Random Game"
-          data-index={2}
-          id="next-image"
-          src="/image/top-gear.jpg"
-        />
+        <div
+          className="ant-row"
+        >
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={0}
+              id="previous-image"
+              src="/image/super-mario-kart.png"
+            />
+          </div>
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-11 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={1}
+              id="current-image"
+              src="/image/super-mario-world.jpg"
+            />
+          </div>
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={2}
+              id="next-image"
+              src="/image/top-gear.jpg"
+            />
+          </div>
+        </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     className="ant-row"
-    style={
-      Object {
-        "marginLeft": -12,
-        "marginRight": -12,
-      }
-    }
   >
     <div
-      className="ant-col ant-col-8 ant-col-offset-2"
-      style={
-        Object {
-          "paddingLeft": 12,
-          "paddingRight": 12,
-        }
-      }
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
     >
       <h1
         className="text-center text-primary text-big"
@@ -155,13 +187,7 @@ Array [
       </div>
     </div>
     <div
-      className="ant-col ant-col-8 ant-col-offset-2"
-      style={
-        Object {
-          "paddingLeft": 12,
-          "paddingRight": 12,
-        }
-      }
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
     >
       <h1
         className="text-center text-primary text-big"
@@ -222,13 +248,12 @@ Array [
         </h1>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Dashboard page component renders correctly if has finished loading 1`] = `
-Array [
-  .c0 {
+.c0 {
   text-align: center;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -239,18 +264,47 @@ Array [
 }
 
 .c0 #current-image {
-  height: 400px;
+  width: 100%;
   opacity: 0.7;
 }
 
 .c0 #previous-image,
 .c0 #next-image {
+  width: 90%;
   opacity: 0.2;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 50px 0;
+  display: visible;
+}
+
+@media (max-width:1360px) {
+  .c0 #current-image {
+    height: 280px;
+  }
+}
+
+@media (max-width:1130px) {
+  .c0 #current-image {
+    height: 260px;
+  }
+}
+
+@media (max-width:900px) {
+  .c0 #previous-image,
+  .c0 #next-image {
+    display: none;
+  }
 }
 
 <div
+  style={
+    Object {
+      "height": "100vh",
+      "overflow": "auto",
+      "paddingBottom": "20%",
+    }
+  }
+>
+  <div
     className="ant-row"
     style={
       Object {
@@ -282,44 +336,48 @@ Array [
         className="c0"
         id="animated-carousel"
       >
-        <img
-          alt="Random Game"
-          data-index={0}
-          id="previous-image"
-          src="/image/super-mario-kart.png"
-        />
-        <img
-          alt="Random Game"
-          data-index={1}
-          id="current-image"
-          src="/image/super-mario-world.jpg"
-        />
-        <img
-          alt="Random Game"
-          data-index={2}
-          id="next-image"
-          src="/image/top-gear.jpg"
-        />
+        <div
+          className="ant-row"
+        >
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={0}
+              id="previous-image"
+              src="/image/super-mario-kart.png"
+            />
+          </div>
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-11 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={1}
+              id="current-image"
+              src="/image/super-mario-world.jpg"
+            />
+          </div>
+          <div
+            className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+          >
+            <img
+              alt="Random Game"
+              data-index={2}
+              id="next-image"
+              src="/image/top-gear.jpg"
+            />
+          </div>
+        </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     className="ant-row"
-    style={
-      Object {
-        "marginLeft": -12,
-        "marginRight": -12,
-      }
-    }
   >
     <div
-      className="ant-col ant-col-8 ant-col-offset-2"
-      style={
-        Object {
-          "paddingLeft": 12,
-          "paddingRight": 12,
-        }
-      }
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
     >
       <h1
         className="text-center text-primary text-big"
@@ -367,13 +425,7 @@ Array [
       </div>
     </div>
     <div
-      className="ant-col ant-col-8 ant-col-offset-2"
-      style={
-        Object {
-          "paddingLeft": 12,
-          "paddingRight": 12,
-        }
-      }
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
     >
       <h1
         className="text-center text-primary text-big"
@@ -420,6 +472,6 @@ Array [
         </h3>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

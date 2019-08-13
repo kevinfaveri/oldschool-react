@@ -86,7 +86,7 @@ exports[`GameList component renders correctly when has games 1`] = `
      games...
   </h1>
   <div
-    className="ant-col ant-col-6"
+    className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
   >
     <div
       className="c1"
@@ -132,7 +132,7 @@ exports[`GameList component renders correctly when has games 1`] = `
     </div>
   </div>
   <div
-    className="ant-col ant-col-6"
+    className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
   >
     <div
       className="c1"
@@ -178,7 +178,7 @@ exports[`GameList component renders correctly when has games 1`] = `
     </div>
   </div>
   <div
-    className="ant-col ant-col-6"
+    className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-22 ant-col-sm-offset-1 ant-col-md-10 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
   >
     <div
       className="c1"

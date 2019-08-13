@@ -4,7 +4,7 @@ import * as SiderActions from '../actions/sider';
 describe('SiderReducer', () => {
   it('should return the initial state', () => {
     expect(SiderReducer(undefined, {})).toEqual({
-      isCollapsed: false,
+      isCollapsed: true,
     });
   });
 

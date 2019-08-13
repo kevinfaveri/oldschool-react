@@ -40,7 +40,13 @@ export default function Login() {
 
   return (
     <Row>
-      <Col span={6} offset={9} style={{ marginTop: '10%' }}>
+      <Col
+        xs={{ span: 22, offset: 1 }}
+        sm={{ span: 16, offset: 4 }}
+        md={{ span: 12, offset: 6 }}
+        lg={{ span: 8, offset: 8 }}
+        style={{ marginTop: '10%' }}
+      >
         {renderAlert()}
         <HomeCard>
           <LoginForm style={{ marginTop: '15px' }} />

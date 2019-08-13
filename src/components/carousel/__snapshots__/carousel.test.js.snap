@@ -12,38 +12,74 @@ exports[`Carousel component renders correctly 1`] = `
 }
 
 .c0 #current-image {
-  height: 400px;
+  width: 100%;
   opacity: 0.7;
 }
 
 .c0 #previous-image,
 .c0 #next-image {
+  width: 90%;
   opacity: 0.2;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 50px 0;
+  display: visible;
+}
+
+@media (max-width:1360px) {
+  .c0 #current-image {
+    height: 280px;
+  }
+}
+
+@media (max-width:1130px) {
+  .c0 #current-image {
+    height: 260px;
+  }
+}
+
+@media (max-width:900px) {
+  .c0 #previous-image,
+  .c0 #next-image {
+    display: none;
+  }
 }
 
 <div
   className="c0"
   id="animated-carousel"
 >
-  <img
-    alt="Random Game"
-    data-index={0}
-    id="previous-image"
-    src="/image/super-mario-kart.png"
-  />
-  <img
-    alt="Random Game"
-    data-index={1}
-    id="current-image"
-    src="/image/super-mario-world.jpg"
-  />
-  <img
-    alt="Random Game"
-    data-index={2}
-    id="next-image"
-    src="/image/top-gear.jpg"
-  />
+  <div
+    className="ant-row"
+  >
+    <div
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+    >
+      <img
+        alt="Random Game"
+        data-index={0}
+        id="previous-image"
+        src="/image/super-mario-kart.png"
+      />
+    </div>
+    <div
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-11 ant-col-md-offset-1 ant-col-lg-9 ant-col-lg-offset-1"
+    >
+      <img
+        alt="Random Game"
+        data-index={1}
+        id="current-image"
+        src="/image/super-mario-world.jpg"
+      />
+    </div>
+    <div
+      className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-5 ant-col-md-offset-1 ant-col-lg-6 ant-col-lg-offset-1"
+    >
+      <img
+        alt="Random Game"
+        data-index={2}
+        id="next-image"
+        src="/image/top-gear.jpg"
+      />
+    </div>
+  </div>
 </div>
 `;

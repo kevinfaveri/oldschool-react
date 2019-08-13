@@ -1,3 +1,5 @@
+import { differenceInMinutes } from 'date-fns';
+
 export const registerUser = (registerForm) =>
   new Promise((resolve) => {
     const userInfo = { ...registerForm, lastAccess: new Date().toString() };
@@ -13,9 +15,7 @@ export const isUserLogged = () => {
   if (
     userInfo
     && userInfo.lastAccess
-    && (new Date().getTime() - new Date(userInfo.lastAccess).getTime()) / 1000
-      < 300
-  ) {
+    && (differenceInMinutes(new Date(), new Date(userInfo.lastAccess)) < 15)) {
     return true;
   }
   return false;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Row, Col, Input, Icon } from 'antd';
+import { Row, Col, Input } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import ModalGame from '../components/modal-game/modal-game';
 import GameList from '../components/game-list/game-list';
@@ -80,14 +80,20 @@ export default function Favs() {
         }}
       >
         <Row style={{ marginTop: '2vh' }}>
-          <Col span={12} offset={6}>
-            <Input
+          <Col
+            xs={{ span: 22, offset: 1 }}
+            sm={{ span: 16, offset: 4 }}
+            md={{ span: 14, offset: 5 }}
+            lg={{ span: 12, offset: 6 }}
+          >
+            <Input.Search
               className="game-search"
               placeholder="Search Games"
-              prefix={<Icon type="search" style={{ color: '#b3b3b3' }} />}
               style={{ width: '100%' }}
               size="large"
+              enterButton
               onPressEnter={searchGame}
+              onSearch={searchGame}
               onChange={onChangeInput}
               value={searchTerm}
             />

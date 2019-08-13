@@ -5,7 +5,6 @@ import { Button } from 'antd';
 import Container from './styles';
 import * as SiderActions from '../../../store/actions/sider';
 import * as AuthActions from '../../../store/actions/auth';
-import AudioToggle from '../../audio-toggle/audio-toggle';
 
 // Assets
 import Logo from '../../../assets/logo.png';
@@ -41,16 +40,6 @@ export default function LayoutHeader() {
           icon="logout"
           loading={isLoadingLogout}
           onClick={initLogout}
-        />
-      </div>
-      <div>
-        <AudioToggle
-          inlineMode
-          audioArray={[
-            'top-gear.mp3',
-            'super-mario-world.mp3',
-            'super-mario-kart.mp3',
-          ]}
         />
       </div>
     </Container>

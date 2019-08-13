@@ -1,4 +1,5 @@
 import React, { memo, useEffect, useState, useCallback } from 'react';
+import { Row, Col } from 'antd';
 import { getNextFile } from '../../utils/files';
 import {
   validateStringArray,
@@ -53,24 +54,47 @@ function Carousel({ imageArray, intervalSeconds }) {
 
   return (
     <Container id="animated-carousel">
-      <img
-        id="previous-image"
-        src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
-        alt="Random Game"
-        data-index={previousImgIndex}
-      />
-      <img
-        id="current-image"
-        src={`${process.env.PUBLIC_URL}/image/${currentImg}`}
-        alt="Random Game"
-        data-index={currentImgIndex}
-      />
-      <img
-        id="next-image"
-        src={`${process.env.PUBLIC_URL}/image/${nextImg}`}
-        alt="Random Game"
-        data-index={nextImgIndex}
-      />
+      <Row>
+        <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 16, offset: 4 }}
+          md={{ span: 5, offset: 1 }}
+          lg={{ span: 6, offset: 1 }}
+        >
+          <img
+            id="previous-image"
+            src={`${process.env.PUBLIC_URL}/image/${previousImg}`}
+            alt="Random Game"
+            data-index={previousImgIndex}
+          />
+        </Col>
+        <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 16, offset: 4 }}
+          md={{ span: 11, offset: 1 }}
+          lg={{ span: 9, offset: 1 }}
+        >
+          <img
+            id="current-image"
+            src={`${process.env.PUBLIC_URL}/image/${currentImg}`}
+            alt="Random Game"
+            data-index={currentImgIndex}
+          />
+        </Col>
+        <Col
+          xs={{ span: 22, offset: 1 }}
+          sm={{ span: 16, offset: 4 }}
+          md={{ span: 5, offset: 1 }}
+          lg={{ span: 6, offset: 1 }}
+        >
+          <img
+            id="next-image"
+            src={`${process.env.PUBLIC_URL}/image/${nextImg}`}
+            alt="Random Game"
+            data-index={nextImgIndex}
+          />
+        </Col>
+      </Row>
     </Container>
   );
 }

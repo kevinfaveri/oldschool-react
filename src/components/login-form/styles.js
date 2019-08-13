@@ -11,12 +11,10 @@ export const LoginFormStyle = styled.div`
     }
   }
 
-  > #login-form {
-    #submit-login,
-    #register-link,
-    .ant-checkbox-wrapper {
-      width: 100%;
-    }
+  #submit-login,
+  #register-link,
+  .ant-checkbox-wrapper {
+    width: 100%;
   }
 `;
 

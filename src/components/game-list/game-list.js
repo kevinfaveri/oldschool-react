@@ -23,7 +23,13 @@ function GameList({ isLoading, gamesArray, maxTotalGames, gameOnClick }) {
         <h1>Showing a maximum of {maxTotalGames} games...</h1>
         <QueueAnim type="bottom" duration={700}>
           {gamesArray.map((item) => (
-            <Col span={6} key={Shortid.generate()}>
+            <Col
+              xs={{ span: 22, offset: 1 }}
+              sm={{ span: 22, offset: 1 }}
+              md={{ span: 10, offset: 1  }}
+              lg={{ span: 6, offset: 1 }}
+              key={Shortid.generate()}
+            >
               <GameCard game={item} onClick={() => gameOnClick(item)} />
             </Col>
           ))}

@@ -29,24 +29,6 @@ exports[`LayoutAuth component renders correctly 1`] = `
   text-align: center;
 }
 
-.c2 h4 {
-  color: #ff6347;
-  display: inline;
-  margin-right: 10px;
-}
-
-.c2 button:nth-child(2) {
-  margin-right: 10px;
-}
-
-.c2 button:nth-child(4) {
-  margin-left: 10px;
-}
-
-.c3 {
-  text-align: center;
-}
-
 .c0 {
   min-height: 100vh !important;
 }
@@ -127,93 +109,6 @@ exports[`LayoutAuth component renders correctly 1`] = `
         </i>
       </button>
     </div>
-    <div>
-      <div
-        className="c2"
-        id="audio-toggle"
-      >
-        <h4>
-          Playing: 
-          top-gear.mp3
-        </h4>
-        <button
-          className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
-          onClick={[Function]}
-          type="button"
-        >
-          <i
-            aria-label="icon: backward"
-            className="anticon anticon-backward"
-          >
-            <svg
-              aria-hidden="true"
-              className=""
-              data-icon="backward"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M485.6 249.9L198.2 498c-8.3 7.1-8.3 20.8 0 27.9l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9zm320 0L518.2 498a18.6 18.6 0 0 0-6.2 14c0 5.2 2.1 10.4 6.2 14l287.4 248.2c10.7 9.2 26.4.9 26.4-14V263.8c0-14.8-15.7-23.2-26.4-13.9z"
-              />
-            </svg>
-          </i>
-        </button>
-        <button
-          className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
-          id="audio-btn"
-          onClick={[Function]}
-          type="button"
-        >
-          <i
-            aria-label="icon: caret-right"
-            className="anticon anticon-caret-right"
-          >
-            <svg
-              aria-hidden="true"
-              className=""
-              data-icon="caret-right"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M715.8 493.5L335 165.1c-14.2-12.2-35-1.2-35 18.5v656.8c0 19.7 20.8 30.7 35 18.5l380.8-328.4c10.9-9.4 10.9-27.6 0-37z"
-              />
-            </svg>
-          </i>
-        </button>
-        <button
-          className="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
-          onClick={[Function]}
-          type="button"
-        >
-          <i
-            aria-label="icon: forward"
-            className="anticon anticon-forward"
-          >
-            <svg
-              aria-hidden="true"
-              className=""
-              data-icon="forward"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M825.8 498L538.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L825.8 526c8.3-7.2 8.3-20.8 0-28zm-320 0L218.4 249.9c-10.7-9.2-26.4-.9-26.4 14v496.3c0 14.9 15.7 23.2 26.4 14L505.8 526c4.1-3.6 6.2-8.8 6.2-14 0-5.2-2.1-10.4-6.2-14z"
-              />
-            </svg>
-          </i>
-        </button>
-      </div>
-    </div>
   </header>
   <section
     className="ant-layout ant-layout-has-sider"
@@ -240,7 +135,7 @@ exports[`LayoutAuth component renders correctly 1`] = `
     </main>
   </section>
   <footer
-    className="c3 ant-layout-footer"
+    className="c2 ant-layout-footer"
   >
     <span>
       2019 - Kevin Aguiar -

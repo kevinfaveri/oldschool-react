@@ -53,15 +53,9 @@ function LoginForm({ form }) {
   };
 
   const formItemLayout = {
-    labelCol: {
-      span: 20,
-      offset: 2,
-    },
     wrapperCol: {
-      span: 20,
-      offset: 2,
+      span: 24,
     },
-    labelAlign: 'left',
   };
 
   const requiredConfig = {

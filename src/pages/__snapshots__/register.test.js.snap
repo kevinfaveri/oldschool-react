@@ -37,7 +37,7 @@ exports[`Register page component renders correctly 1`] = `
   className="ant-row"
 >
   <div
-    className="ant-col ant-col-6 ant-col-offset-9"
+    className="ant-col ant-col-xs-22 ant-col-xs-offset-1 ant-col-sm-16 ant-col-sm-offset-4 ant-col-md-12 ant-col-md-offset-6 ant-col-lg-8 ant-col-lg-offset-8"
     style={
       Object {
         "marginTop": "10%",
@@ -98,7 +98,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-label ant-form-item-label-left"
+                className="ant-col ant-form-item-label ant-form-item-label-left"
               >
                 <label
                   className="ant-form-item-required"
@@ -110,7 +110,7 @@ exports[`Register page component renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"
@@ -204,7 +204,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-label ant-form-item-label-left"
+                className="ant-col ant-form-item-label ant-form-item-label-left"
               >
                 <label
                   className="ant-form-item-required"
@@ -216,7 +216,7 @@ exports[`Register page component renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"
@@ -312,7 +312,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-label ant-form-item-label-left"
+                className="ant-col ant-form-item-label ant-form-item-label-left"
               >
                 <label
                   className="ant-form-item-required"
@@ -324,7 +324,7 @@ exports[`Register page component renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"
@@ -426,7 +426,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-label ant-form-item-label-left"
+                className="ant-col ant-form-item-label ant-form-item-label-left"
               >
                 <label
                   className="ant-form-item-required"
@@ -438,7 +438,7 @@ exports[`Register page component renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"
@@ -573,7 +573,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-label ant-form-item-label-left"
+                className="ant-col ant-form-item-label ant-form-item-label-left"
               >
                 <label
                   className="ant-form-item-required"
@@ -585,7 +585,7 @@ exports[`Register page component renders correctly 1`] = `
                 </label>
               </div>
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"
@@ -720,7 +720,7 @@ exports[`Register page component renders correctly 1`] = `
               className="ant-row ant-form-item"
             >
               <div
-                className="ant-col ant-col-20 ant-col-offset-2 ant-form-item-control-wrapper"
+                className="ant-col ant-col-24 ant-form-item-control-wrapper"
               >
                 <div
                   className="ant-form-item-control"

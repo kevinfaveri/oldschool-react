@@ -6,7 +6,13 @@ import RegisterFormComponent from '../components/register-form/register-form';
 export default function Register() {
   return (
     <Row>
-      <Col span={6} offset={9} style={{ marginTop: '10%' }}>
+      <Col
+        xs={{ span: 22, offset: 1 }}
+        sm={{ span: 16, offset: 4 }}
+        md={{ span: 12, offset: 6 }}
+        lg={{ span: 8, offset: 8 }}
+        style={{ marginTop: '10%' }}
+      >
         <HomeCard>
           <RegisterFormComponent />
         </HomeCard>
