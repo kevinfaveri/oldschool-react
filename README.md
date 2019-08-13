@@ -1,3 +1,3 @@
-# Worker Branch
+# Mobile Branch
 
-This branch is a react-create-app boilerplate from styled-compoennts branch + Web Worker in React components.
+This branch is a react-create-app boilerplate from worker branch + partial mobile support and some tests fixes.
