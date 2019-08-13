@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/oldschool-react/static/js/main.50d3bfbd.chunk.js",
-    "main.js.map": "/oldschool-react/static/js/main.50d3bfbd.chunk.js.map",
+    "main.js": "/oldschool-react/static/js/main.145f4534.chunk.js",
+    "main.js.map": "/oldschool-react/static/js/main.145f4534.chunk.js.map",
     "runtime~main.js": "/oldschool-react/static/js/runtime~main.0eda4fb0.js",
     "runtime~main.js.map": "/oldschool-react/static/js/runtime~main.0eda4fb0.js.map",
-    "static/css/2.c2d997f4.chunk.css": "/oldschool-react/static/css/2.c2d997f4.chunk.css",
-    "static/js/2.b7eef0fe.chunk.js": "/oldschool-react/static/js/2.b7eef0fe.chunk.js",
-    "static/js/2.b7eef0fe.chunk.js.map": "/oldschool-react/static/js/2.b7eef0fe.chunk.js.map",
+    "static/css/2.b351d0bd.chunk.css": "/oldschool-react/static/css/2.b351d0bd.chunk.css",
+    "static/js/2.28f9294a.chunk.js": "/oldschool-react/static/js/2.28f9294a.chunk.js",
+    "static/js/2.28f9294a.chunk.js.map": "/oldschool-react/static/js/2.28f9294a.chunk.js.map",
     "index.html": "/oldschool-react/index.html",
-    "precache-manifest.4ce52a8870814d30dc94df6c87fe5f91.js": "/oldschool-react/precache-manifest.4ce52a8870814d30dc94df6c87fe5f91.js",
+    "precache-manifest.785015fc60e233233acd3a2690ef891b.js": "/oldschool-react/precache-manifest.785015fc60e233233acd3a2690ef891b.js",
     "service-worker.js": "/oldschool-react/service-worker.js",
-    "static/css/2.c2d997f4.chunk.css.map": "/oldschool-react/static/css/2.c2d997f4.chunk.css.map",
+    "static/css/2.b351d0bd.chunk.css.map": "/oldschool-react/static/css/2.b351d0bd.chunk.css.map",
     "static/media/logo.png": "/oldschool-react/static/media/logo.19fe9c09.png"
   }
 }
