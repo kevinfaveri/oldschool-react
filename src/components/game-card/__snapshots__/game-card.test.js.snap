@@ -4,6 +4,7 @@ exports[`GameCard component renders correctly 1`] = `
 .c0 {
   outline: none;
   background-color: #373e49;
+  color: #ff6347;
   border-radius: 15px;
   height: inherit;
   padding: 10px;
@@ -46,14 +47,11 @@ exports[`GameCard component renders correctly 1`] = `
   tabIndex={0}
 >
   <div>
-    <div
-      style={
-        Object {
-          "height": "360px",
-          "width": "640px",
-        }
-      }
-    />
+    <div>
+      <strong>
+        No video available for this game.
+      </strong>
+    </div>
   </div>
   <div>
     <strong>

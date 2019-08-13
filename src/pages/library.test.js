@@ -4,6 +4,12 @@ import Library from './library';
 
 const mockStore = configureStore();
 
+jest.mock('rc-queue-anim',() => {
+  return jest.fn().mockImplementation(({children}) => {
+    return <>{children}</>;
+  });
+});
+
 describe('Library page component', () => {
   it('renders correctly when loading', () => {
     const store = mockStore({
@@ -29,9 +35,9 @@ describe('Library page component', () => {
         gameList: [
           {
             VideoURL: undefined,
-            Name: 'Game',
-            Platform: 'Game',
-            Overview: 'Overview',
+            Name: 'Super Mario Kart',
+            Overview: "The best kart game in the world, y' now",
+            Platform: 'Super Nintendo Entertainment System',
           },
         ],
       },

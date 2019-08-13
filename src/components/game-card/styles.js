@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 export const GameCardStyle = styled.div`
   outline: none;
   background-color: #373e49;
+  color: #ff6347;
   border-radius: 15px;
   height: inherit;
   padding: 10px;

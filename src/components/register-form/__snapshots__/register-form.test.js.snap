@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RegisterForm component renders correctly 1`] = `
+.c0 > #register-form label {
+  color: #ff6347;
+}
+
 .c0 > #register-form #submit-register {
   width: 100%;
   margin-top: 15px;

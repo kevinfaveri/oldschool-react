@@ -1,5 +1,11 @@
 import GameList from './game-list';
 
+jest.mock('rc-queue-anim',() => {
+  return jest.fn().mockImplementation(({children}) => {
+    return <>{children}</>;
+  });
+});
+
 jest.mock('shortid', () => ({
   ...jest.requireActual('shortid'),
   generate: jest

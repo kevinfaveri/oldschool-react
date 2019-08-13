@@ -2,6 +2,7 @@ import styled from 'styled-components/macro';
 
 export const SplashScreenStyle = styled.div`
   margin-top: 5%;
+  text-align: center;
 
   > * > .header-logo {
     font-size: 70px;

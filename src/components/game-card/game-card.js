@@ -41,7 +41,7 @@ GameCard.defaultProps = {
     Name: 'Super Mario Kart',
     Overview: "The best kart game in the world, y' now",
     Platform: 'Super Nintendo Entertainment System',
-    VideoURL: null,
+    VideoURL: undefined,
   },
 };
 
