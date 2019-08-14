@@ -1,5 +1,4 @@
 [![CircleCI](https://circleci.com/gh/kevinfaguiar/oldschool-react/tree/mobile.svg?style=svg)](https://circleci.com/gh/kevinfaguiar/oldschool-react/tree/mobile)
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cc695692-028c-4246-8bca-ba9a5c8164aa/deploy-status)](https://app.netlify.com/sites/oldschool-react/deploys)
 
 # Old School Game Library
