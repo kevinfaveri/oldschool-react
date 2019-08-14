@@ -1,3 +1,7 @@
+[![CircleCI](https://circleci.com/gh/kevinfaguiar/oldschool-react/tree/mobile.svg?style=svg)](https://circleci.com/gh/kevinfaguiar/oldschool-react/tree/mobile)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cc695692-028c-4246-8bca-ba9a5c8164aa/deploy-status)](https://app.netlify.com/sites/oldschool-react/deploys)
+
 # Old School Game Library
 
 ![https://i.imgur.com/Vf1Tydi.png](https://i.imgur.com/Vf1Tydi.png)
@@ -32,6 +36,6 @@ The branchs are organized in cronological order.
 
 ## DEMO
 
-The demo (***which is based in the mobile branch***) is available here: https://kevinfaguiar.github.io/oldschool-react/
+The demo (***which is based in the mobile branch***) is available here: https://oldschool-react.netlify.com
 
 #### All games appearing in this app have their rights reserved to their respective companies. This app is just a concept aimed at applying React and its main libraries commonly used in a real project.
