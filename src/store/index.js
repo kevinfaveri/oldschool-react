@@ -5,9 +5,13 @@ import { createBrowserHistory } from 'history';
 import RootReducer from './reducers';
 import RootSagas from './sagas';
 
+export const history = createBrowserHistory();
+
+/* For Github Pages
 export const history = createBrowserHistory({
   basename: '/oldschool-react/',
 });
+*/
 
 const sagaMiddleware = createSagaMiddleware();
 
