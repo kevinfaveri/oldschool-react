@@ -38,8 +38,8 @@ jobs:
       - run:
           name: Test
           command: yarn test --coverage
-      store_artifacts:
-        path: coverage
+      - store_artifacts:
+          path: coverage
 
   build:
     executor: node
