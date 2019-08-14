@@ -40,6 +40,8 @@ jobs:
           command: yarn test --coverage --maxWorkers=2
       - store_artifacts:
           path: coverage
+      - codecov/upload:
+          file: ./coverage/coverage-final.json
 
   build:
     executor: node
@@ -69,8 +71,6 @@ jobs:
       - run:
           name: Deploy to Netlify
           command: netlify deploy --dir=./build -p
-      - codecov/upload:
-          file: coverage
 
 workflows:
   version: 2
