@@ -37,9 +37,7 @@ jobs:
       - <<: *save_cache
       - run:
           name: Test
-          command: yarn test --coverage
-      - store_artifacts:
-          path: coverage
+          command: yarn test
 
   build:
     executor: node
@@ -69,8 +67,6 @@ jobs:
       - run:
           name: Deploy to Netlify
           command: netlify deploy --dir=./build -p
-      - codecov/upload:
-          file: coverage
 
 workflows:
   version: 2
