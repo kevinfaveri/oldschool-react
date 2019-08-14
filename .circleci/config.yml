@@ -37,7 +37,7 @@ jobs:
       - <<: *save_cache
       - run:
           name: Test
-          command: yarn test --coverage --maxWorkers=2
+          command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --maxWorkers=2
       - store_artifacts:
           path: coverage
       - codecov/upload:
