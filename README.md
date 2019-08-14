@@ -2,8 +2,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cc695692-028c-4246-8bca-ba9a5c8164aa/deploy-status)](https://app.netlify.com/sites/oldschool-react/deploys)
 
 <a href="https://codeclimate.com/github/kevinfaguiar/oldschool-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/e9b0f0f7f7114e257720/maintainability" /></a>
-[![codecov](https://codecov.io/gh/kevinfaguiar/oldschool-react/branch/master/graph/badge.svg)](https://codecov.io/gh/kevinfaguiar/oldschool-react)
-[![Known Vulnerabilities](https://snyk.io/test/github/kevinfaguiar/oldschool-react/badge.svg)](https://snyk.io/test/github/kevinfaguiar/oldschool-react)
+[![codecov](https://codecov.io/gh/kevinfaguiar/oldschool-react/branch/mobile/graph/badge.svg)](https://codecov.io/gh/kevinfaguiar/oldschool-react)
 ![Dependencies](https://david-dm.org/kevinfaguiar/oldschool-react/mobile.svg)
 
 
