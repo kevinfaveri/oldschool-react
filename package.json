@@ -1,6 +1,6 @@
 {
   "name": "oldschool",
-  "description": "Boilerplate project",
+  "description": "Boilerplate project using React toolchain.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
