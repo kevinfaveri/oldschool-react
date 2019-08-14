@@ -79,7 +79,7 @@ exports[`Home page component renders correctly 1`] = `
             alt="Random Game"
             data-index={0}
             id="previous-image"
-            src="/image/super-mario-kart.png"
+            src="/image/super-mario-kart.webp"
           />
         </div>
         <div
@@ -89,7 +89,7 @@ exports[`Home page component renders correctly 1`] = `
             alt="Random Game"
             data-index={1}
             id="current-image"
-            src="/image/super-mario-world.jpg"
+            src="/image/super-mario-world.webp"
           />
         </div>
         <div
@@ -99,7 +99,7 @@ exports[`Home page component renders correctly 1`] = `
             alt="Random Game"
             data-index={2}
             id="next-image"
-            src="/image/top-gear.jpg"
+            src="/image/top-gear.webp"
           />
         </div>
       </div>

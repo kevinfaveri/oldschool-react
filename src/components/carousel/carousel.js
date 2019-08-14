@@ -19,11 +19,11 @@ function Carousel({ imageArray, intervalSeconds }) {
     },
     setState,
   ] = useState({
-    previousImg: 'super-mario-kart.png',
+    previousImg: 'super-mario-kart.webp',
     previousImgIndex: 0,
-    currentImg: 'super-mario-world.jpg',
+    currentImg: 'super-mario-world.webp',
     currentImgIndex: 1,
-    nextImg: 'top-gear.jpg',
+    nextImg: 'top-gear.webp',
     nextImgIndex: 2,
   });
 
@@ -100,7 +100,7 @@ function Carousel({ imageArray, intervalSeconds }) {
 }
 
 Carousel.defaultProps = {
-  imageArray: ['super-mario-kart.png', 'super-mario-world.jpg', 'top-gear.jpg'],
+  imageArray: ['super-mario-kart.webp', 'super-mario-world.webp', 'top-gear.webp'],
   intervalSeconds: 5,
 };
 

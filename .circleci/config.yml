@@ -24,6 +24,9 @@ aliases:
 
 version: 2.1
 
+orbs:
+  codecov: codecov/codecov@1.0.5
+
 jobs:
   test:
     executor: node
@@ -64,6 +67,8 @@ jobs:
       - run:
           name: Deploy to Netlify
           command: netlify deploy --dir=./build -p
+      - codecov/upload:
+          file: {{ coverage_report_filepath }}
 
 workflows:
   version: 2

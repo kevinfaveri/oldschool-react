@@ -11,19 +11,19 @@ describe('Carousel component', () => {
 
     expect(
       wrapper.container.querySelector(
-        `img[id="previous-image"][src="${process.env.PUBLIC_URL}/image/super-mario-kart.png"]`,
+        `img[id="previous-image"][src="${process.env.PUBLIC_URL}/image/super-mario-kart.webp"]`,
       ),
     ).toBeTruthy();
 
     expect(
       wrapper.container.querySelector(
-        `img[id="current-image"][src="${process.env.PUBLIC_URL}/image/super-mario-world.jpg"]`,
+        `img[id="current-image"][src="${process.env.PUBLIC_URL}/image/super-mario-world.webp"]`,
       ),
     ).toBeTruthy();
 
     expect(
       wrapper.container.querySelector(
-        `img[id="next-image"][src="${process.env.PUBLIC_URL}/image/top-gear.jpg"]`,
+        `img[id="next-image"][src="${process.env.PUBLIC_URL}/image/top-gear.webp"]`,
       ),
     ).toBeTruthy();
   });
