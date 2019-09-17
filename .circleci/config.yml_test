@@ -1,0 +1,37 @@
+aliases:
+  install_node_modules: &install_node_modules
+    run:
+      name: Install dependencies
+      command: yarn
+
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      - checkout
+      - <<: *install_node_modules
+
+      - run:
+        name: Test
+        command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
+      - store_artifacts:
+        path: coverage
+      - codecov/upload:
+        file: ./coverage/coverage-final.json
+
+      - run:
+        name: Build and Push Docker Image
+        command: |
+          TAG=test-$CIRCLE_SHA1
+          docker build -t oldschool-react:$TAG .
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker push oldschool-react:$TAG
+  filters:
+    branches:
+      only: kubernetes-google

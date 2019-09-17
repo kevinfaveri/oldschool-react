@@ -8,7 +8,7 @@ aliases:
     restore_cache:
       name: Restore Npm Package Cache
       keys:
-        - yarn-cache-netlify-{{ checksum "yarn.lock" }}
+        - yarn-cache-{{ checksum "yarn.lock" }}
 
   install_node_modules: &install_node_modules
     run:
@@ -18,7 +18,7 @@ aliases:
   save_cache: &save_cache
     save_cache:
       name: Save NPM package cache
-      key: yarn-cache-netlify-{{ checksum "yarn.lock" }}
+      key: yarn-cache-{{ checksum "yarn.lock" }}
       paths:
         - ./node_modules
 
@@ -36,41 +36,26 @@ jobs:
       - <<: *install_node_modules
       - <<: *save_cache
       - run:
-          name: Test
-          command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
+        name: Test
+        command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
       - store_artifacts:
-          path: coverage
+        path: coverage
       - codecov/upload:
-          file: ./coverage/coverage-final.json
+        file: ./coverage/coverage-final.json
 
   build:
-    executor: node
+    machine: true
     steps:
       - checkout
-      - <<: *restore_cache
-      - <<: *install_node_modules
+      - setup_remote_docker:
+        docker_layer_caching: true
       - run:
-          name: Build
-          command: yarn build
-      - persist_to_workspace:
-          root: ./
-          paths:
-            - build
-
-  deploy:
-    executor: node
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ./
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - run:
-          name: Install netlify-cli
-          command: sudo npm install -g --silent netlify-cli
-      - run:
-          name: Deploy to Netlify
-          command: netlify deploy --dir=./build -p
+        name: Build and Push Docker Image
+        command: |
+          TAG=test.$CIRCLE_SHA1
+          docker build -t oldschool-react:$TAG .
+          docker login -u $DOCKER_USER -p $DOCKER_PASS         # (4)
+          docker push oldschool-react:$TAG
 
 workflows:
   version: 2
@@ -79,14 +64,10 @@ workflows:
       - test:
           filters:
             branches:
-              only:
-                - mobile
+              only: kubernetes-google
       - build:
-          requires:
-            - test
-      - deploy:
-          requires:
-            - build
           filters:
             branches:
-              only: mobile
+              only: kubernetes-google
+          requires:
+            - test
