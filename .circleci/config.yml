@@ -36,26 +36,26 @@ jobs:
       - <<: *install_node_modules
       - <<: *save_cache
       - run:
-        name: Test
-        command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
+          name: Test
+          command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
       - store_artifacts:
-        path: coverage
+          path: coverage
       - codecov/upload:
-        file: ./coverage/coverage-final.json
+          file: ./coverage/coverage-final.json
 
   build:
     machine: true
     steps:
       - checkout
       - setup_remote_docker:
-        docker_layer_caching: true
+          docker_layer_caching: true
       - run:
-        name: Build and Push Docker Image
-        command: |
-          TAG=test.$CIRCLE_SHA1
-          docker build -t oldschool-react:$TAG .
-          docker login -u $DOCKER_USER -p $DOCKER_PASS         # (4)
-          docker push oldschool-react:$TAG
+          name: Build and Push Docker Image
+          command: |
+            TAG=test.$CIRCLE_SHA1
+            docker build -t oldschool-react:$TAG .
+            docker login -u $DOCKER_USER -p $DOCKER_PASS         # (4)
+            docker push oldschool-react:$TAG
 
 workflows:
   version: 2
