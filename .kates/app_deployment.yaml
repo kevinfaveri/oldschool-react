@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oldschool-react
+spec:
+  selector:
+    matchLabels:
+      run: oldschool-react
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: oldschool-react
+    spec:
+      containers:
+      - name: oldschool-react
+        image: keivnfaguiar/oldschool-react
+        ports:
+        - containerPort: 80

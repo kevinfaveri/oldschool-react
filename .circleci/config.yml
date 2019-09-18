@@ -35,9 +35,15 @@ jobs:
       - docker/build:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           tag: test-$CIRCLE_SHA1
+      - run:
+          name: Tag Image as Latest
+          command: docker tag $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1 $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:latest
       - docker/push:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           tag: test-$CIRCLE_SHA1
+      - docker/push:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          tag: latest
   deploy:
     description: Deploy application to Google Kubernetes Engine
     machine: true
@@ -48,7 +54,7 @@ jobs:
           cluster: your-first-cluster-1
           deployment: your-first-cluster-1
           container: oldschool-spa
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1 # change version when updating
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
 workflows:
   test_build_update_deploy:
     jobs:
