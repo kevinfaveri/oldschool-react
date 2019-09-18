@@ -31,8 +31,11 @@ jobs:
     machine: true
     steps:
       - checkout
-      - docker/publish:
-          deploy: true
+      - docker/check
+      - docker/build:
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          tag: test-$CIRCLE_SHA1
+      - docker/push:
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
           tag: test-$CIRCLE_SHA1
   deploy:
