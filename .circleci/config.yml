@@ -53,7 +53,7 @@ jobs:
       - gcp-gke/init
       - run:
           name: Set Cloud Region
-          command: gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" kates-cluster
+          command: gcloud container clusters get-credentials kates-cluster --region=$GOOGLE_COMPUTE_REGION
       - run:
           name: Deploy New Image Version
           command: kubectl set image deployment deployment.apps/test-oldschool-react oldschool-react==$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
