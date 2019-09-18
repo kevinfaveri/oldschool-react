@@ -5,30 +5,6 @@ orbs:
   gcp-gke: circleci/gcp-gke@0.2.0
   codecov: codecov/codecov@1.0.5
 
-commands:
-  rollout-image:
-    description: "Update a deployment's Docker image."
-    parameters:
-      cluster:
-        description: "The Kubernetes cluster name."
-        type: string
-      deployment:
-        description: "The Kubernetes deployment name."
-        type: string
-      container:
-        description: "The Kubernetes container name."
-        type: string
-      image:
-        description: A name for your docker image
-        type: string
-    steps:
-      - run:
-          name: Set Cloud Region
-          command: gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" \<<parameters.cluster>>
-      - run:
-          name: Deploy New Image Version
-          command: kubectl set image deployment \<<parameters.deployment>> \<<parameters.container>==\<<parameters.image
-
 jobs:
   test:
     description: Test SPA
@@ -75,11 +51,12 @@ jobs:
     steps:
       - gcp-gke/install
       - gcp-gke/init
-      - rollout-image:
-          cluster: kates-cluster
-          deployment: kevinfaguiar/test-oldschool-react
-          container: oldschool-react
-          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
+      - run:
+          name: Set Cloud Region
+          command: gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" kates-cluster
+      - run:
+          name: Deploy New Image Version
+          command: kubectl set image deployment deployment.apps/test-oldschool-react oldschool-react==$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
 workflows:
   test_build_update_deploy:
     jobs:
