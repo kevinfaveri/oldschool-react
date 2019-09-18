@@ -45,6 +45,7 @@ jobs:
       - gcp-gke/install
       - gcp-gke/init
       - gcp-gke/rollout-image:
+          cluster: your-first-cluster-1
           deployment: your-first-cluster-1
           container: oldschool-spa
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1 # change version when updating
