@@ -1,40 +1,24 @@
-executors:
-  node:
-    docker:
-      - image: circleci/node:10
-
-aliases:
-  restore_cache: &restore_cache
-    restore_cache:
-      name: Restore Npm Package Cache
-      keys:
-        - yarn-cache-{{ checksum "yarn.lock" }}
-
-  install_node_modules: &install_node_modules
-    run:
-      name: Install dependencies
-      command: yarn
-
-  save_cache: &save_cache
-    save_cache:
-      name: Save NPM package cache
-      key: yarn-cache-{{ checksum "yarn.lock" }}
-      paths:
-        - ./node_modules
-
 version: 2.1
-
 orbs:
+  node: node: circleci/node@1.1.6
+  docker: circleci/docker@0.5.13
+  gcp-gke: circleci/gcp-gke@0.2.0
   codecov: codecov/codecov@1.0.5
-
 jobs:
   test:
-    executor: node
+    description: Test SPA
+    machine: true
     steps:
       - checkout
-      - <<: *restore_cache
-      - <<: *install_node_modules
-      - <<: *save_cache
+      - node/install
+      - node/install-yarn
+      - node/with-cache:
+          steps:
+            - run:
+                name: Install application dependencies
+                command: yarn
+          cache-key: package.json
+          use-strict-cache: true
       - run:
           name: Test
           command: yarn test --coverage --collectCoverageFrom=src/**/*.js --collectCoverageFrom=!src/**/*.stories.js --collectCoverageFrom=!src/utils/* --collectCoverageFrom=!src/service/* --maxWorkers=2
@@ -42,29 +26,32 @@ jobs:
           path: coverage
       - codecov/upload:
           file: ./coverage/coverage-final.json
-  build:
+  build-push-docker:
+    description: Build and push image to Docker Hub
     machine: true
     steps:
       - checkout
-      - run:
-          name: Build and Push Docker Image
-          command: |
-            TAG=test.$CIRCLE_SHA1
-            docker build -t kevinfaguiar/oldschool-react:$TAG .
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push kevinfaguiar/oldschool-react:$TAG
-
+      - docker/publish:
+          deploy: true
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME
+          tag: test-$CIRCLE_SHA1
+  deploy:
+    description: Deploy application to Google Kubernetes Engine
+    machine: true
+    steps:
+      - gcp-gke/install
+      - gcp-gke/init
+      - gcp-gke/rollout-image:
+          deployment: your-first-cluster-1
+          container: oldschool-spa
+          image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1 # change version when updating
 workflows:
-  version: 2
-  build_and_deploy:
+  test_build_update_deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              only: kubernetes-google
-      - build:
+      - test
+      - build-push-docker:
           requires:
             - test
-          filters:
-            branches:
-              only: kubernetes-google
+      - deploy:
+          requires:
+            - build-push-docker
