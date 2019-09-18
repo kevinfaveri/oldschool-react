@@ -23,8 +23,8 @@ commands:
         type: string
     steps:
       - run: |
-          gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" <<parameters.cluster>>
-          kubectl set image deployment <<parameters.deployment>> <<parameters.container>>=<<parameters.image
+          gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" \<<parameters.cluster>>
+          kubectl set image deployment \<<parameters.deployment>> \<<parameters.container>==\<<parameters.image
 jobs:
   test:
     description: Test SPA
