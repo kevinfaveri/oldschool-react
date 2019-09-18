@@ -50,9 +50,9 @@ jobs:
           name: Build and Push Docker Image
           command: |
             TAG=test.$CIRCLE_SHA1
-            docker build -t oldschool-react:$TAG .
+            docker build -t kevinfaguiar/oldschool-react:$TAG .
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push oldschool-react:$TAG
+            docker push kevinfaguiar/oldschool-react:$TAG
 
 workflows:
   version: 2
