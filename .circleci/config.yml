@@ -51,9 +51,9 @@ jobs:
       - gcp-gke/install
       - gcp-gke/init
       - gcp-gke/rollout-image:
-          cluster: your-first-cluster-1
-          deployment: your-first-cluster-1
-          container: oldschool-spa
+          cluster: kates-cluster
+          deployment: kevinfaguiar/test-oldschool-react
+          container: oldschool-react
           image: $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
 workflows:
   test_build_update_deploy:

@@ -103,7 +103,7 @@ exports[`SplashScreen component renders correctly 1`] = `
     <div
       className="header-description"
     >
-      The bext game library app!
+      The bezt game library app!
     </div>
   </div>
   <div
