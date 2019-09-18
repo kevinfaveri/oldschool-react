@@ -51,6 +51,9 @@ jobs:
       - gcp-gke/install
       - gcp-gke/init
       - run:
+          name: Remove NULL compute/zone config
+          command: gcloud config unset compute/zone
+      - run:
           name: Set Google Cloud Cli region
           command: gcloud --quiet config set compute/region $GOOGLE_COMPUTE_REGION
       - gcp-gke/rollout-image:
