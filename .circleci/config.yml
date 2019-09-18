@@ -50,6 +50,7 @@ jobs:
     steps:
       - gcp-gke/install
       - gcp-gke/init
+      - gcloud --quiet config set compute/region $GOOGLE_COMPUTE_REGION
       - gcp-gke/rollout-image:
           cluster: kates-cluster
           deployment: kevinfaguiar/test-oldschool-react
