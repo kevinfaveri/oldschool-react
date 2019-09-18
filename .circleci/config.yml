@@ -42,7 +42,6 @@ jobs:
           path: coverage
       - codecov/upload:
           file: ./coverage/coverage-final.json
-
   build:
     machine: true
     steps:
@@ -54,7 +53,7 @@ jobs:
           command: |
             TAG=test.$CIRCLE_SHA1
             docker build -t oldschool-react:$TAG .
-            docker login -u $DOCKER_USER -p $DOCKER_PASS         # (4)
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker push oldschool-react:$TAG
 
 workflows:
@@ -69,5 +68,3 @@ workflows:
           filters:
             branches:
               only: kubernetes-google
-          requires:
-            - test
