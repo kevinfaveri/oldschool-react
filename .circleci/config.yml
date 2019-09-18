@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: node: circleci/node@1.1.6
+  node: circleci/node@1.1.6
   docker: circleci/docker@0.5.13
   gcp-gke: circleci/gcp-gke@0.2.0
   codecov: codecov/codecov@1.0.5
