@@ -1,19 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oldschool-react
+  name: test-oldschool-react
+  labels:
+    app: oldschool-react-front
 spec:
   selector:
     matchLabels:
-      run: oldschool-react
-  replicas: 2
+      app: oldschool-react
+      tier: frontend
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
   template:
     metadata:
       labels:
-        run: oldschool-react
+        app: oldschool-react
+        tier: frontend
     spec:
       containers:
       - name: oldschool-react
-        image: keivnfaguiar/oldschool-react
+        image: kevinfaguiar/oldschool-react
         ports:
         - containerPort: 80

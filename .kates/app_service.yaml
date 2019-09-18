@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: oldschool-service
+  labels:
+    app: oldschool-react
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    app: oldschool-react
+    tier: frontend
+  type: LoadBalancer
