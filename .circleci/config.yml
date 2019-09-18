@@ -22,9 +22,13 @@ commands:
         description: A name for your docker image
         type: string
     steps:
-      - run: |
-          gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" \<<parameters.cluster>>
-          kubectl set image deployment \<<parameters.deployment>> \<<parameters.container>==\<<parameters.image
+      - run:
+          name: Set Cloud Region
+          command: gcloud container clusters get-credentials --region "$GOOGLE_COMPUTE_REGION" \<<parameters.cluster>>
+      - run:
+          name: Deploy New Image Version
+          command: kubectl set image deployment \<<parameters.deployment>> \<<parameters.container>==\<<parameters.image
+
 jobs:
   test:
     description: Test SPA
