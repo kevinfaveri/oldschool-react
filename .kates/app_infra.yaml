@@ -67,15 +67,3 @@ spec:
   minReplicas: 1
   maxReplicas: 6
   targetCPUUtilizationPercentage: 30
-
----
-# PDB
-apiVersion: policy/v1beta1
-kind: PodDisruptionBudget
-metadata:
-  name: oldschool-react
-spec:
-  selector:
-    matchLabels:
-      app: oldschool-react
-  minAvailable: 10%
