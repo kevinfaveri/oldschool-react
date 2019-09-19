@@ -52,6 +52,9 @@ jobs:
       - gcp-gke/install
       - gcp-gke/init
       - run:
+          name: Get Help
+          command: gcloud container clusters get-credentials --help
+      - run:
           name: Set Cloud Region
           command: gcloud container clusters get-credentials --region=$GOOGLE_COMPUTE_REGION kates-cluster
       - run:
