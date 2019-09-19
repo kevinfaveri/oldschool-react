@@ -50,9 +50,9 @@ jobs:
     description: Deploy application to Google Kubernetes Engine
     machine: true
     steps:
-      - gcloud/install
-      - k8s/install
-      - gcloud/initialize
+      - gcp-cli/install
+      - kubernetes/install
+      - gcp-cli/initialize
       - run:
           name: Get Help
           command: gcloud container clusters get-credentials --help
