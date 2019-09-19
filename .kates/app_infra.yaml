@@ -47,23 +47,6 @@ spec:
           - containerPort: 80
         resources:
           requests:
-            memory: 1Gi
-            cpu: 1
+            memory: 50Mi
           limits:
-            memory: 1Gi
-            cpu: 1
-
----
-# HPA
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
-metadata:
-  name: oldschool-react
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: oldschool-react
-  minReplicas: 1
-  maxReplicas: 6
-  targetCPUUtilizationPercentage: 30
+            memory: 50Mi

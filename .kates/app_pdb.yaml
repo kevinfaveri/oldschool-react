@@ -1,0 +1,10 @@
+# PDB
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: oldschool-react
+spec:
+  selector:
+    matchLabels:
+      app: oldschool-react
+  minAvailable: 10%

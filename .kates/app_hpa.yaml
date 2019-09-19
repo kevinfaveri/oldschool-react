@@ -1,0 +1,13 @@
+# HPA (Quando em produção esse deve ser aplicado depois dos outros)
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: oldschool-react
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: oldschool-react
+  minReplicas: 0
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 30

@@ -32,7 +32,7 @@ const withSplashScreen = (WrappedComponent) => (props) => {
           <div className="header-logo">
             <img src={Logo} alt="Logo" />
           </div>
-          <div className="header-description">The best game library app!</div>
+          <div className="header-description">The bezt game library app!</div>
         </Row>
         <Row className="text-center">
           <Carousel />
