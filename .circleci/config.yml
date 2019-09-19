@@ -50,6 +50,7 @@ jobs:
     description: Deploy application to Google Kubernetes Engine
     machine: true
     steps:
+      - checkout
       - gcp-cli/install
       - kubernetes/install
       - gcp-cli/initialize
@@ -63,8 +64,11 @@ jobs:
           name: Print Git Commit Message
           command: git log --format=oneline -n 1 $CIRCLE_SHA1
       - run:
+          name: Set Env Var
+          command: echo "export COMMIT_MESSAGE=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"" >> ~/.bashrc
+      - run:
           name: Annotate the Deployment
-          command: kubectl annotate deployment/test-oldschool-react kubernetes.io/change-cause="Docker-Hash = test-$CIRCLE_SHA1 | Commit = $GIT_COMMIT_NAME"
+          command: kubectl annotate deployment/test-oldschool-react kubernetes.io/change-cause="Docker-Hash = test-$CIRCLE_SHA1 | Commit = $COMMIT_MESSAGE"
 workflows:
   test_build_update_deploy:
     jobs:
