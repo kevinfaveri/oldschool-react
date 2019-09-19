@@ -2,7 +2,8 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
   docker: circleci/docker@0.5.13
-  gcp-gke: circleci/gcp-gke@0.2.0
+  gcp-cli: circleci/gcp-cli@1.8.2
+  kubernetes: circleci/kubernetes@0.7.0
   codecov: codecov/codecov@1.0.5
 
 jobs:
@@ -49,8 +50,9 @@ jobs:
     description: Deploy application to Google Kubernetes Engine
     machine: true
     steps:
-      - gcp-gke/install
-      - gcp-gke/init
+      - gcloud/install
+      - k8s/install
+      - gcloud/initialize
       - run:
           name: Get Help
           command: gcloud container clusters get-credentials --help
