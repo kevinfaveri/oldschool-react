@@ -62,7 +62,7 @@ jobs:
           command: kubectl set image deployment/test-oldschool-react oldschool-react=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
       - run:
           name: Annotate the Deployment
-          command: kubectl annotate deployment/test-oldschool-react kubernetes.io/change-cause=$(git log --format=oneline -n 1 $CIRCLE_SHA1)
+          command: kubectl annotate deployment/test-oldschool-react kubernetes.io/change-cause="Docker-Hash = test-$CIRCLE_SHA1 | Commit = $(git log --format=oneline -n 1 $CIRCLE_SHA1)"
 workflows:
   test_build_update_deploy:
     jobs:
