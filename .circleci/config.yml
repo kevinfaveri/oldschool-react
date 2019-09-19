@@ -57,8 +57,14 @@ jobs:
           name: Set Cloud Region
           command: gcloud container clusters get-credentials --region=$GOOGLE_COMPUTE_REGION kates-cluster
       - run:
+          name: Export Commit name
+          command: echo "export COMMIT_MESSAGE=\"$(git log --format=oneline -n 1 $CIRCLE_SHA1)\"" >> ~/.bashrc
+      - run:
           name: Deploy New Image Version
-          command: kubectl set image deployment/test-oldschool-react oldschool-react=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1 --record=true
+          command: kubectl set image deployment/test-oldschool-react oldschool-react=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:test-$CIRCLE_SHA1
+      - run:
+          name: Annotate the Deployment
+          command: kubectl annotate deployment/test-oldschool-react kubernetes.io/change-cause="Git Hash - test-$CIRCLE_SHA1 | Commit - $COMMIT_MESSAGE"
 workflows:
   test_build_update_deploy:
     jobs:
