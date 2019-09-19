@@ -1,3 +1,4 @@
+# Services
 apiVersion: v1
 kind: Service
 metadata:
@@ -14,7 +15,7 @@ spec:
   type: LoadBalancer
 
 ---
-
+# Apps
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,6 +28,7 @@ spec:
       app: oldschool-react
       tier: frontend
   replicas: 3
+  minReadySeconds: 180
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -42,4 +44,38 @@ spec:
       - name: oldschool-react
         image: kevinfaguiar/oldschool-react
         ports:
-        - containerPort: 80
+          - containerPort: 80
+        resources:
+          requests:
+            memory: 1Gi
+            cpu: 1
+          limits:
+            memory: 1Gi
+            cpu: 1
+
+---
+# HPA
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: oldschool-react
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: oldschool-react
+  minReplicas: 1
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 30
+
+---
+# PDB
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: oldschool-react
+spec:
+  selector:
+    matchLabels:
+      app: oldschool-react
+  minAvailable: 10%
