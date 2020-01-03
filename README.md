@@ -2,7 +2,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cc695692-028c-4246-8bca-ba9a5c8164aa/deploy-status)](https://app.netlify.com/sites/oldschool-react/deploys)
 
 [![codecov](https://codecov.io/gh/kevinfaguiar/oldschool-react/branch/mobile/graph/badge.svg)](https://codecov.io/gh/kevinfaguiar/oldschool-react)
-![Dependencies](https://david-dm.org/kevinfaguiar/oldschool-react/mobile.svg)
 [![Performance score: 92/100](https://lighthouse-badge.appspot.com/?score=92&category=Performance)](https://github.com/ebidel/lighthouse-badge)
 
 
@@ -41,5 +40,8 @@ The branchs are organized in cronological order.
 ## DEMO
 
 The demo (***which is based in the mobile branch***) is available here: https://oldschool-react.netlify.com
+
+## Support me
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E11BKWW)
 
 #### All games appearing in this app have their rights reserved to their respective companies. This app is just a concept aimed at applying React and its main libraries commonly used in a real project.
